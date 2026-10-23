@@ -146,40 +146,40 @@ function LoginContent() {
 
   return (
     <main className="relative min-h-screen w-full bg-[#FAF8F5] font-plus-jakarta overflow-hidden flex items-center justify-center p-4 sm:p-6 lg:p-8">
-      {/* Ambient background decoration */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] right-[-10%] w-[60vw] max-w-[500px] h-[60vw] max-h-[500px] bg-[#E0F2FE]/50 rounded-full blur-[100px]" />
-        <div className="absolute bottom-[-10%] left-[-10%] w-[60vw] max-w-[500px] h-[60vw] max-h-[500px] bg-[#FFFBEB]/70 rounded-full blur-[100px]" />
+      {/* Moving Waves Background across all screens */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+        <div className="absolute -top-[20%] -right-[15%] w-[80vw] max-w-[650px] h-[80vw] max-h-[650px] bg-[#E0F2FE]/50 rounded-[45%] animate-wave" style={{ animationDuration: "20s" }} />
+        <div className="absolute -bottom-[20%] -left-[15%] w-[80vw] max-w-[650px] h-[80vw] max-h-[650px] bg-[#FFFBEB]/70 rounded-[42%] animate-wave" style={{ animationDuration: "24s", animationDelay: "4s" }} />
       </div>
 
-      <div className="relative z-10 w-full max-w-6xl min-h-[640px] flex rounded-[36px] overflow-hidden bg-white/70 backdrop-blur-xl border border-[#C5A059]/20 shadow-[0_24px_60px_-15px_rgba(11,37,69,0.08)]">
-        {/* Lado Izquierdo: Imagen Estudiantil Auténtica (High school / College students with laptops) */}
-        <div className="hidden lg:flex w-1/2 p-6 items-center justify-center">
-          <div className="relative w-full h-full min-h-[580px] rounded-[30px] overflow-hidden shadow-md group border border-[#C5A059]/25">
+      <div className="relative z-10 w-full max-w-5xl min-h-[600px] flex flex-col lg:flex-row rounded-[32px] overflow-hidden bg-white/75 backdrop-blur-xl border border-[#C5A059]/25 shadow-[0_20px_50px_-15px_rgba(11,37,69,0.08)]">
+        {/* Lado Izquierdo: Imagen Estudiantil Joven y Fresca */}
+        <div className="hidden lg:flex w-1/2 p-5 items-center justify-center">
+          <div className="relative w-full h-full min-h-[540px] rounded-[26px] overflow-hidden shadow-sm group border border-[#C5A059]/30">
             <Image
-              src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1200"
-              alt="Estudiantes en ClassMarket"
+              src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&q=80&w=1200"
+              alt="Jóvenes estudiantes en ClassMarket"
               fill
-              className="object-cover transform group-hover:scale-105 transition-transform duration-1000"
+              className="object-cover transform group-hover:scale-105 transition-transform duration-700"
               sizes="(max-width: 1024px) 100vw, 50vw"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0B2545]/90 via-[#0B2545]/35 to-transparent" />
-            <div className="absolute bottom-8 left-8 right-8 p-6 bg-white/15 backdrop-blur-md border border-white/25 rounded-[26px] text-white">
-              <div className="flex items-center gap-3 mb-2.5">
-                <div className="flex -space-x-2.5">
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0B2545]/90 via-[#0B2545]/30 to-transparent" />
+            <div className="absolute bottom-6 left-6 right-6 p-5 bg-white/15 backdrop-blur-md border border-white/25 rounded-[22px] text-white">
+              <div className="flex items-center gap-2.5 mb-2">
+                <div className="flex -space-x-2">
                   {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="w-9 h-9 rounded-full border-2 border-white bg-[#0B2545] flex items-center justify-center text-[#C5A059]">
-                      <User size={13} />
+                    <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-[#0B2545] flex items-center justify-center text-[#C5A059]">
+                      <User size={12} />
                     </div>
                   ))}
-                  <div className="w-9 h-9 rounded-full border-2 border-white bg-[#C5A059] flex items-center justify-center text-[10px] font-extrabold text-[#0B2545]">
+                  <div className="w-8 h-8 rounded-full border-2 border-white bg-[#C5A059] flex items-center justify-center text-[9px] font-extrabold text-[#0B2545]">
                     +1k
                   </div>
                 </div>
               </div>
-              <h2 className="text-xl md:text-2xl font-extrabold mb-1.5 leading-snug">Más de 1,000 estudiantes interactuando y aprendiendo en un entorno seguro.</h2>
-              <p className="text-white/85 text-xs sm:text-sm font-medium">Intercambia conocimientos, libros y talentos en tu colegio o universidad.</p>
+              <h2 className="text-lg md:text-xl font-extrabold mb-1 leading-snug">Más de 1,000 estudiantes interactuando y aprendiendo en un entorno seguro.</h2>
+              <p className="text-white/85 text-xs font-medium">Intercambia conocimientos, libros y talentos en tu colegio o universidad.</p>
             </div>
           </div>
         </div>
