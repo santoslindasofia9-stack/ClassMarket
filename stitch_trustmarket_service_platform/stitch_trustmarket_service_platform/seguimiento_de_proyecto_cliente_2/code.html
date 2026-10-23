@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Seguimiento de Proyecto - Tool Link</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL,GRAD,opsz@400,0,0,24&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
+                    colors: {
+                        primary: '#0ea5e9',
+                        surface: '#f8fafc',
+                        pastelBlue: '#e0f2fe',
+                        pastelPink: '#fce7f3'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #f8fafc; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .radial-progress {
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            background: conic-gradient(#0ea5e9 75%, #e2e8f0 0);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .radial-progress::before {
+            content: "75%";
+            width: 68px; height: 68px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 800; color: #0f172a;
+        }
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            top: 24px; bottom: -24px; left: 15px;
+            width: 2px;
+            background-color: #e2e8f0;
+            z-index: 0;
+        }
+        .timeline-line-blue::before {
+            background-color: #0ea5e9;
+        }
+    </style>
+</head>
+<body class="bg-slate-50/50 text-slate-800 min-h-screen pb-32">
+
+    <!-- Navbar Superior Integrado -->
+    <header class="bg-white border-b border-slate-100 sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-12">
+                <div class="font-black text-2xl text-slate-900 tracking-tighter flex items-center gap-2">
+                    <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white">
+                        <span class="material-symbols-outlined text-xl">handyman</span>
+                    </div>
+                    Tool Link
+                </div>
+                <nav class="hidden md:flex items-center gap-8 font-semibold text-sm">
+                    <a href="#" class="text-blue-600 border-b-2 border-blue-600 py-7">Proyectos</a>
+                    <a href="#" class="text-slate-500 hover:text-slate-800 transition-colors">Pedidos</a>
+                    <a href="#" class="text-slate-500 hover:text-slate-800 transition-colors">Mensajes</a>
+                    <a href="#" class="text-slate-500 hover:text-slate-800 transition-colors">Catálogo</a>
+                </nav>
+            </div>
+            <div class="flex items-center gap-6">
+                <button class="w-10 h-10 rounded-full hover:bg-slate-50 flex items-center justify-center relative text-slate-500 transition-colors">
+                    <span class="material-symbols-outlined">notifications</span>
+                    <span class="absolute top-2 right-2 w-2 h-2 bg-pink-500 rounded-full border-2 border-white"></span>
+                </button>
+                <div class="flex items-center gap-3 pl-6 border-l border-slate-100 cursor-pointer hover:bg-slate-50 p-2 rounded-xl transition-colors">
+                    <div class="text-right hidden sm:block">
+                        <p class="text-sm font-bold text-slate-900">Juan Pérez</p>
+                        <p class="text-[10px] font-bold text-blue-600 uppercase tracking-widest bg-blue-50 px-2 py-0.5 rounded-full inline-block mt-1">Cliente Premium</p>
+                    </div>
+                    <img src="https://ui-avatars.com/api/?name=Juan+Perez&background=0ea5e9&color=fff" alt="Juan Pérez" class="w-10 h-10 rounded-full ring-2 ring-slate-100 object-cover"/>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 pt-8 pb-12">
+        <!-- Banner de Estado del Proyecto (Hero Card) -->
+        <section class="bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+            <div class="space-y-4">
+                <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-blue-500 animate-pulse"></span>
+                    <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">PROYECTO ACTIVO</span>
+                </div>
+                <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">Diseño de Interiores – Suite Nube</h1>
+                <p class="text-slate-500 font-medium">Siguiente hito: <span class="text-blue-600 font-bold">Confirmación de Materiales Finales</span></p>
+            </div>
+            
+            <div class="border border-slate-100 p-4 rounded-2xl flex items-center gap-6 bg-slate-50/50">
+                <div class="radial-progress"></div>
+                <div>
+                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">ESTADO ACTUAL</p>
+                    <p class="text-lg font-black text-slate-800">En Progreso</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dos Columnas -->
+        <div class="flex flex-col lg:flex-row gap-8">
+            
+            <!-- Columna Izquierda: Galería de Evidencias (65%) -->
+            <div class="w-full lg:w-[65%] flex flex-col relative pb-32">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-xl font-bold text-slate-900">Evidencias del Proyecto</h2>
+                    <a href="#" class="text-xs font-bold text-pink-500 uppercase tracking-widest hover:text-pink-600 transition-colors">VER TODO ›</a>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <!-- Image Cards -->
+                    <div class="aspect-square rounded-2xl overflow-hidden group relative cursor-pointer shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=400" alt="Evidencia 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                            <p class="text-white text-xs font-bold">Moodboard.pdf</p>
+                        </div>
+                    </div>
+                    <div class="aspect-square rounded-2xl overflow-hidden group relative cursor-pointer shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=400" alt="Evidencia 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                            <p class="text-white text-xs font-bold">Planos_V1.png</p>
+                        </div>
+                    </div>
+                    <div class="aspect-square rounded-2xl overflow-hidden group relative cursor-pointer shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=400" alt="Evidencia 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                            <p class="text-white text-xs font-bold">Render_Sala.jpg</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Botón para Añadir Evidencias -->
+                    <button class="aspect-square rounded-2xl border-2 border-dashed border-sky-300 bg-sky-50 flex flex-col items-center justify-center gap-3 hover:bg-sky-100 transition-colors text-sky-600 group">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-2xl">photo_camera</span>
+                        </div>
+                        <span class="font-bold text-sm">Añadir Nueva</span>
+                    </button>
+                </div>
+
+                <!-- Footer Flotante: Caja de Mensaje Rápido del Profesional -->
+                <div class="absolute bottom-0 left-0 w-full bg-white rounded-3xl p-5 shadow-[0_-10px_40px_rgb(0,0,0,0.05)] border border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-6 z-10">
+                    <div class="flex items-center gap-4 flex-1">
+                        <img src="https://ui-avatars.com/api/?name=Ana+Valery&background=fce7f3&color=ec4899" alt="Ana Valery" class="w-12 h-12 rounded-full ring-2 ring-pink-50"/>
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <p class="text-xs font-bold text-slate-900">Diseñadora: Ana Valery</p>
+                                <span class="text-[10px] text-slate-400 font-medium">Hace 15 min</span>
+                            </div>
+                            <p class="text-sm text-slate-600 italic leading-relaxed">
+                                "Hola! He subido las muestras de materiales. Por favor, dime qué te parece la opción del mármol azulado..."
+                            </p>
+                        </div>
+                    </div>
+                    <button onclick="window.location.href='../chat_negociaci_n_cliente_1/code.html?msg=true'" class="w-full sm:w-auto bg-pink-50 text-pink-600 hover:bg-pink-100 px-6 py-3.5 rounded-2xl font-bold text-[11px] uppercase tracking-widest flex items-center justify-center gap-2 transition-colors whitespace-nowrap">
+                        <span class="material-symbols-outlined text-[18px]">chat</span>
+                        RESPONDER EN EL CHAT
+                    </button>
+                </div>
+            </div>
+
+            <!-- Columna Derecha: Línea de Tiempo de Hitos (35%) -->
+            <div class="w-full lg:w-[35%] bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] h-fit border border-slate-50">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center text-slate-600">
+                        <span class="material-symbols-outlined">checklist</span>
+                    </div>
+                    <h2 class="text-xl font-extrabold text-slate-900">Seguimiento</h2>
+                </div>
+
+                <div class="space-y-8 relative">
+                    <!-- Hito Completado 1 -->
+                    <div class="relative timeline-line timeline-line-blue pl-12">
+                        <div class="absolute left-0 top-1 w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center z-10 ring-4 ring-white">
+                            <span class="material-symbols-outlined text-white text-sm" style="font-variation-settings: 'FILL' 1;">check</span>
+                        </div>
+                        <p class="text-[10px] font-bold text-sky-600 uppercase tracking-widest mb-1">12 OCT, 2023</p>
+                        <h4 class="font-bold text-slate-900 mb-1">Consulta Inicial</h4>
+                        <p class="text-sm text-slate-500">Definición de objetivos y paleta de colores celestial.</p>
+                    </div>
+
+                    <!-- Hito Completado 2 -->
+                    <div class="relative timeline-line timeline-line-blue pl-12">
+                        <div class="absolute left-0 top-1 w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center z-10 ring-4 ring-white">
+                            <span class="material-symbols-outlined text-white text-sm" style="font-variation-settings: 'FILL' 1;">check</span>
+                        </div>
+                        <p class="text-[10px] font-bold text-sky-600 uppercase tracking-widest mb-1">15 OCT, 2023</p>
+                        <h4 class="font-bold text-slate-900 mb-1">Propuesta Concepto</h4>
+                        <p class="text-sm text-slate-500">Aprobación de los moodboards iniciales de diseño.</p>
+                    </div>
+
+                    <!-- Hito en Curso -->
+                    <div class="relative timeline-line pl-12">
+                        <div class="absolute left-0 top-1 w-8 h-8 bg-white border-2 border-sky-500 rounded-full flex items-center justify-center z-10 ring-4 ring-white">
+                            <div class="w-2.5 h-2.5 bg-sky-500 rounded-full"></div>
+                        </div>
+                        <p class="text-[10px] font-bold text-sky-600 uppercase tracking-widest bg-sky-50 px-2 py-0.5 rounded-full inline-block mb-2">EN CURSO</p>
+                        <h4 class="font-bold text-slate-900 mb-1 text-lg">Selección de Mobiliario</h4>
+                        <p class="text-sm text-slate-500 mb-4">Curaduría de piezas premium para el salón principal.</p>
+                        
+                        <button class="bg-sky-50 text-sky-600 font-bold text-[11px] uppercase tracking-widest px-5 py-2.5 rounded-xl hover:bg-sky-100 transition-colors inline-block">
+                            Centro de Evidencias
+                        </button>
+                    </div>
+
+                    <!-- Hito Pendiente 1 -->
+                    <div class="relative timeline-line pl-12 opacity-50">
+                        <div class="absolute left-0 top-1 w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center z-10 ring-4 ring-white"></div>
+                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">PENDIENTE</p>
+                        <h4 class="font-bold text-slate-600 mb-1">Renderizado Final</h4>
+                        <p class="text-sm text-slate-400">Modelado 3D fotorrealista del espacio completo.</p>
+                    </div>
+
+                    <!-- Hito Pendiente 2 -->
+                    <div class="relative pl-12 opacity-50">
+                        <div class="absolute left-0 top-1 w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center z-10 ring-4 ring-white"></div>
+                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">PENDIENTE</p>
+                        <h4 class="font-bold text-slate-600 mb-1">Entrega de Obra</h4>
+                        <p class="text-sm text-slate-400">Implementación física y revisión final.</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Botón Flotante de Soporte Técnico -->
+    <button class="fixed bottom-6 right-6 w-14 h-14 bg-sky-500 hover:bg-sky-600 text-white rounded-full shadow-xl shadow-sky-500/30 flex items-center justify-center transform hover:scale-105 transition-all z-50">
+        <span class="material-symbols-outlined text-[28px]">support_agent</span>
+    </button>
+
+</body>
+</html>

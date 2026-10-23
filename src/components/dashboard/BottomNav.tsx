@@ -1,0 +1,74 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
+
+const navItems = [
+  { icon: "home", label: "Home", href: "/home-cliente" },
+  { icon: "search", label: "Search", href: "/resultados" },
+  { icon: "star", label: "Calificaciones", href: "/calificacion" },
+  { icon: "chat_bubble", label: "Inbox", href: "/chat" },
+  { icon: "person", label: "Profile", href: "/perfil" },
+];
+
+export default function BottomNav({ onMessagesClick }: { onMessagesClick?: (e: React.MouseEvent) => void }) {
+  const pathname = usePathname();
+  const [currentExpertId, setCurrentExpertId] = useState<string>("f1");
+
+  useEffect(() => {
+    const savedId = localStorage.getItem("currentExpertId") || "f1";
+    setCurrentExpertId(savedId);
+  }, [pathname]);
+
+  return (
+    <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-sky-50 shadow-[0_-10px_40px_rgba(224,242,254,0.4)] h-[76px] px-2 flex justify-around items-center z-[500]">
+      {navItems.map((item) => {
+        // Simple active check
+        const isActive = pathname === item.href || pathname.startsWith(item.href + '/') || (pathname === '/mapa-expertos' && item.label === 'Search');
+        const isMessages = item.label === "Mensajes" || item.label === "Inbox";
+        const targetHref = isMessages ? (onMessagesClick ? "#" : `/chat/${currentExpertId}`) : item.href;
+
+        return (
+          <Link
+            key={item.label}
+            href={targetHref}
+            onClick={(e) => {
+              if (isMessages && onMessagesClick) {
+                e.preventDefault();
+                onMessagesClick(e);
+              }
+            }}
+            className="flex flex-col items-center justify-center min-w-[64px] h-full gap-1 group relative cursor-pointer"
+          >
+            {/* Icon Pill Container */}
+            <div
+              className={`px-4 py-1 rounded-full transition-all duration-300 flex items-center justify-center ${
+                isActive ? "bg-[#FCE4EC] text-[#D81B60]" : "bg-transparent text-[#5e6f79] group-hover:text-[#0d1c2e]"
+              }`}
+            >
+              <span 
+                className="material-symbols-outlined transition-all duration-300" 
+                style={{ 
+                  fontSize: "24px",
+                  fontVariationSettings: isActive ? "'FILL' 1, 'wght' 400" : "'FILL' 0, 'wght' 300"
+                }}
+              >
+                {item.icon}
+              </span>
+            </div>
+            
+            {/* Label */}
+            <span
+              className={`text-[10px] font-bold transition-all duration-300 ${
+                isActive ? "text-[#D81B60]" : "text-[#5e6f79] group-hover:text-[#0d1c2e]"
+              }`}
+            >
+              {item.label}
+            </span>
+          </Link>
+        );
+      })}
+    </nav>
+  );
+}

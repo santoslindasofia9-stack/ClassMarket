@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#50616b",
+                        "primary-container": "#e0f2fe",
+                        surface: "#f8f9ff"
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #f8f9ff; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .chat-container { height: calc(100vh - 200px); overflow-y: auto; padding-bottom: 120px; scrollbar-width: none; }
+        .chat-container::-webkit-scrollbar { display: none; }
+        .message-menu { display: none; position: absolute; top: 0; z-index: 50; }
+        .message-item:hover .message-menu { display: flex; }
+    </style>
+</head>
+<body class="bg-surface text-slate-900 overflow-hidden">
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar (30%) -->
+        <aside class="hidden lg:flex w-[30%] flex-col bg-white border-r border-gray-100 p-6 overflow-y-auto">
+            <div class="flex items-center gap-4 mb-8">
+                <button class="hover:bg-gray-50 p-2 rounded-full transition-colors" onclick="window.history.back()"><span class="material-symbols-outlined text-slate-400">arrow_back</span></button>
+                <div class="flex items-center gap-3">
+                    <img class="w-12 h-12 rounded-full object-cover border-2 border-white shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOaqIQiuVhJseS3SQ5XjIOoQBb68yVPIoqkzZ4pFfgM9xTk1TmOwo3iw1qTVa132uKZngmPSUpRNA0-aNekMsP7yCNe0WYGFwfe4KBg1cVYjAh1rBYRVTjlBjUoNQClfnuf11xQdXs0Ni6eMDWjnBg-C1Wl3u7ISVcwiTiOj_xCZPIblHt5qTai9KniWnBW3GIZpMd7JDYwal5C_tNtq7xXTOCk0JqEBebntnAGNeBuUzkom_qcbrcG2Au9xu2qKIMrcURniDzAg" alt="Profile"/>
+                    <div>
+                        <h2 class="font-bold text-slate-800 text-sm">Elena Rodriguez</h2>
+                        <p class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">Identidad Visual</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <div class="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm">
+                    <div class="flex items-center gap-2 mb-2 text-slate-400">
+                        <span class="material-symbols-outlined text-lg">payments</span>
+                        <span class="text-[10px] font-bold uppercase tracking-widest">Presupuesto Propuesto</span>
+                    </div>
+                    <h3 class="text-3xl font-black text-slate-900">$2,448.00 <span class="text-sm font-medium text-gray-400">USD</span></h3>
+                    <div class="mt-4 flex items-center justify-between">
+                        <span class="text-[10px] font-bold text-blue-700 px-3 py-1 bg-blue-50 rounded-full">EN NEGOCIACIÓN</span>
+                        <span class="text-[10px] text-gray-400 font-medium">hace 12 min</span>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="p-4 bg-white rounded-xl border border-gray-100 shadow-sm">
+                        <p class="text-[10px] text-gray-400 font-bold uppercase">Servicio</p>
+                        <p class="text-sm font-bold text-slate-800 mt-1">Diseño de Logotipo & Identidad</p>
+                    </div>
+                    <div class="p-5 bg-[#FCE4EC]/50 rounded-2xl border border-[#F8BBD0]/20">
+                        <span class="text-[10px] text-[#C2185B] font-bold uppercase tracking-widest block mb-1">Total Acordado</span>
+                        <p class="text-2xl font-black text-[#AD1457]">$2,817.50</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area (70%) -->
+        <main class="flex-1 flex flex-col relative bg-[#F8FAFC]">
+            <div id="chat-messages" class="chat-container px-6 lg:px-20 py-8 space-y-8">
+                <!-- Messages injected by JS -->
+            </div>
+
+            <!-- Bottom Area -->
+            <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-[#F8FAFC] via-[#F8FAFC] to-transparent pt-12">
+                <!-- Negotiation Toolbar (NO ICONS HERE) -->
+                <div class="max-w-2xl mx-auto mb-6">
+                    <div class="bg-white border border-gray-100 shadow-xl rounded-full p-2 flex items-center gap-2">
+                        <button class="flex-1 bg-[#FCE4EC] text-[#AD1457] py-3 rounded-full font-bold text-xs hover:bg-[#F8BBD0] transition-all" onclick="window.history.back()">AJUSTAR PRESUPUESTO</button>
+                        <button class="flex-[2] bg-slate-700 text-white py-3 rounded-full font-black text-xs uppercase tracking-widest shadow-lg shadow-slate-200" onclick="sendTerms()">ENVIAR TÉRMINOS Y CONDICIONES</button>
+                    </div>
+                </div>
+
+                <!-- Input Area (NO PLUS ICON HERE) -->
+                <div class="max-w-4xl mx-auto flex items-center gap-4">
+                    <div class="flex-1 relative">
+                        <input id="message-input" type="text" class="w-full bg-white border border-gray-100 rounded-full px-8 py-4 text-sm font-medium focus:ring-4 focus:ring-blue-50 shadow-sm" placeholder="Escribe un mensaje..." onkeydown="if(event.key==='Enter') sendMessage()"/>
+                        <button class="absolute right-6 top-1/2 -translate-y-1/2 text-gray-300">
+                            <span class="material-symbols-outlined text-2xl">sentiment_satisfied</span>
+                        </button>
+                    </div>
+                    <button class="bg-[#FCE4EC] text-[#AD1457] w-14 h-14 rounded-full flex items-center justify-center shadow-lg shadow-pink-100/50 hover:scale-105 active:scale-95 transition-all" onclick="sendMessage()">
+                        <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">send</span>
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const chatContainer = document.getElementById('chat-messages');
+        let messages = [
+            { id: 1, sender: 'client', text: 'Hola Elena, he revisado los detalles. ¿Podemos incluir los assets de Social Media?', time: '10:45 AM' },
+            { id: 2, sender: 'pro', text: '¡Hola! Claro, podemos incluir el paquete por un ajuste del 15% sobre el base.', time: '10:50 AM' },
+            { id: 3, sender: 'client', text: 'Me parece justo. ¿Qué incluiría exactamente el manual de marca?', time: '11:05 AM' },
+            { id: 4, sender: 'pro', text: 'Incluye tipografías, paleta de colores, usos correctos del logo y una guía visual básica.', time: '11:10 AM' },
+            { id: 5, sender: 'client', text: 'Perfecto. ¿Podemos añadir 3 plantillas para Instagram Stories?', time: '11:15 AM' },
+            { id: 6, sender: 'pro', text: 'Sí, las incluiré como un bonus por cerrar el trato hoy mismo.', time: '11:16 AM' },
+            { id: 7, sender: 'client', text: 'Excelente. ¿Cuándo podríamos empezar?', time: '11:20 AM' },
+            { id: 8, sender: 'pro', text: 'En cuanto confirmes los términos, puedo empezar con los bocetos iniciales.', time: '11:22 AM' },
+            { id: 9, sender: 'client', text: 'Entendido. Quedo a la espera de la actualización formal.', time: '11:25 AM' },
+            { id: 10, sender: 'pro', text: '¡Genial! Voy a preparar todo ahora mismo.', time: '11:26 AM' },
+            { id: 11, sender: 'client', text: 'Muchas gracias por la flexibilidad.', time: '11:28 AM' },
+            { id: 12, sender: 'pro', text: '¡A ti! Es un placer trabajar en este proyecto.', time: '11:30 AM' }
+        ];
+
+        function renderMessages() {
+            chatContainer.innerHTML = '<div class="flex justify-center sticky top-0 z-10 py-4"><span class="bg-white/80 backdrop-blur-md text-gray-400 text-[10px] font-black px-5 py-1.5 rounded-full uppercase tracking-widest shadow-sm border border-gray-50">Hoy</span></div>';
+            messages.forEach(msg => {
+                if (msg.type === 'event') {
+                    chatContainer.innerHTML += `<div class="flex justify-center my-10"><div class="bg-white/60 backdrop-blur-sm border border-gray-100 rounded-2xl px-10 py-6 text-center shadow-sm max-w-lg"><p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">EVENTO DE NEGOCIACIÓN</p><p class="text-xs font-semibold text-gray-600 italic mb-4">${msg.text}</p><div class="flex items-center justify-center gap-4"><div class="h-[1px] w-12 bg-gray-100"></div><span class="text-xl font-black text-blue-600">$2,448.00 USD</span><div class="h-[1px] w-12 bg-gray-100"></div></div></div></div>`;
+                    return;
+                }
+                const isPro = msg.sender === 'pro';
+                chatContainer.innerHTML += `
+                    <div class="flex ${isPro ? 'justify-end' : 'justify-start'} group message-item relative">
+                        <div class="max-w-[85%] lg:max-w-[70%] p-5 rounded-2xl shadow-sm border ${isPro ? 'bg-white text-gray-800 rounded-br-none border-[#FCE4EC]' : 'bg-[#E3F2FD]/80 text-gray-800 rounded-bl-none border-[#BBDEFB]/30'}">
+                            <p class="text-[15px] leading-relaxed">${msg.text}</p>
+                            <div class="flex items-center gap-1 mt-3 opacity-40 text-[10px] font-bold ${isPro ? 'justify-end' : ''}">
+                                <span>${msg.time}</span>
+                                ${isPro ? '<span class="material-symbols-outlined text-[12px] text-blue-400">check_circle</span>' : ''}
+                            </div>
+                            <!-- Delete Button -->
+                            <div class="message-menu ${isPro ? '-left-12' : '-right-12'}">
+                                <button onclick="deleteMsg('${msg.id}')" class="p-2 bg-white border border-gray-100 rounded-full text-gray-400 hover:text-red-500 shadow-sm transition-all" title="Eliminar"><span class="material-symbols-outlined text-sm">delete</span></button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('message-input');
+            if (!input.value.trim()) return;
+            const newId = String(Date.now() + Math.random());
+            messages.push({ id: newId, sender: 'pro', text: input.value, time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) });
+            input.value = ''; 
+            renderMessages();
+        }
+
+        function sendTerms() {
+            const overlay = document.createElement('div');
+            overlay.className = 'fixed inset-0 bg-slate-900/60 backdrop-blur-md z-[100] flex flex-col items-center justify-center transition-opacity duration-300';
+            overlay.innerHTML = `
+                <div class="bg-white p-8 rounded-[2rem] shadow-2xl flex flex-col items-center max-w-sm w-full mx-4 text-center transform scale-100">
+                    <div class="w-16 h-16 border-4 border-blue-50 border-t-blue-600 rounded-full animate-spin mb-6 shadow-sm"></div>
+                    <div class="inline-block px-3 py-1 bg-blue-50 text-blue-600 font-bold text-[10px] rounded-full uppercase tracking-widest mb-3">Motor Legal AI</div>
+                    <h3 class="text-xl font-black text-slate-800 mb-2">Redactando Contrato...</h3>
+                    <p class="text-sm text-slate-500 font-medium">Validando los términos y generando las cláusulas de seguridad.</p>
+                </div>
+            `;
+            document.body.appendChild(overlay);
+
+            setTimeout(() => {
+                window.location.href = '../contrato_inteligente_ia_2/code.html';
+            }, 2500);
+        }
+
+        function deleteMsg(id) {
+            messages = messages.filter(m => String(m.id) !== String(id));
+            renderMessages();
+        }
+
+        renderMessages();
+    </script>
+</body>
+</html>

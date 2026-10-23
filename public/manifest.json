@@ -1,0 +1,21 @@
+{
+  "name": "Nexora",
+  "short_name": "Nexora",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ff69b4",
+  "description": "Marketplace de Confianza para Servicios Profesionales",
+  "icons": [
+    {
+      "src": "/nexora.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/nexora.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
