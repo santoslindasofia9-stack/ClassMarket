@@ -43,14 +43,15 @@ export default function BottomNav({ onMessagesClick }: { onMessagesClick?: (e: R
           >
             {/* Icon Pill Container */}
             <div
-              className={`px-4 py-1 rounded-full transition-all duration-300 flex items-center justify-center ${
-                isActive ? "bg-[#FCE4EC] text-[#D81B60]" : "bg-transparent text-[#5e6f79] group-hover:text-[#0d1c2e]"
+              className={`px-4 py-1.5 rounded-full transition-all duration-300 flex items-center justify-center ${
+                isActive ? "bg-[#0B2545] text-white shadow-sm" : "bg-transparent text-[#5C6B73] group-hover:text-[#0B2545]"
               }`}
             >
               <span 
                 className="material-symbols-outlined transition-all duration-300" 
                 style={{ 
-                  fontSize: "24px",
+                  fontSize: "22px",
+                  color: isActive ? "#C5A059" : "inherit",
                   fontVariationSettings: isActive ? "'FILL' 1, 'wght' 400" : "'FILL' 0, 'wght' 300"
                 }}
               >
@@ -61,7 +62,7 @@ export default function BottomNav({ onMessagesClick }: { onMessagesClick?: (e: R
             {/* Label */}
             <span
               className={`text-[10px] font-bold transition-all duration-300 ${
-                isActive ? "text-[#D81B60]" : "text-[#5e6f79] group-hover:text-[#0d1c2e]"
+                isActive ? "text-[#0B2545]" : "text-[#5C6B73] group-hover:text-[#0B2545]"
               }`}
             >
               {item.label}

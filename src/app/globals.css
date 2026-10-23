@@ -4,35 +4,43 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   
-  /* Custom Colors from Stitch */
-  --color-secondary-container: #f4dce4;
+  /* Custom Colors - ClassMarket Official Palette */
+  --color-primary-navy: #0B2545;
+  --color-secondary-gold: #C5A059;
+  --color-gold-bright: #D4AF37;
+  --color-pastel-cream: #FAF8F5;
+  --color-pastel-cream-light: #F9F6EE;
+  --color-text-navy: #0B2545;
+  --color-text-muted: #5C6B73;
+
+  --color-secondary-container: #F9F6EE;
   --color-error: #ba1a1a;
-  --color-tertiary-container: #efefef;
-  --color-surface-tint: #50616b;
-  --color-on-tertiary-fixed: #1a1c1c;
-  --color-primary-fixed-dim: #b7c9d5;
-  --color-on-primary-fixed: #0c1e26;
-  --color-inverse-surface: #233144;
-  --color-on-primary-container: #5e6f79;
-  --color-primary-fixed: #d3e5f1;
-  --color-on-tertiary-container: #6b6c6d;
-  --color-on-secondary-fixed: #25181e;
-  --color-surface: #f8f9ff;
-  --color-tertiary: #5d5f5f;
-  --color-surface-bright: #f8f9ff;
-  --color-secondary: #6b5a60;
+  --color-tertiary-container: #FAF8F5;
+  --color-surface-tint: #0B2545;
+  --color-on-tertiary-fixed: #0B2545;
+  --color-primary-fixed-dim: #8FA4BC;
+  --color-on-primary-fixed: #0B2545;
+  --color-inverse-surface: #0B2545;
+  --color-on-primary-container: #0B2545;
+  --color-primary-fixed: #D9E4F0;
+  --color-on-tertiary-container: #5C6B73;
+  --color-on-secondary-fixed: #0B2545;
+  --color-surface: #FAF8F5;
+  --color-tertiary: #C5A059;
+  --color-surface-bright: #FAF8F5;
+  --color-secondary: #C5A059;
   --color-on-primary: #ffffff;
-  --color-surface-container-low: #eff4ff;
-  --color-inverse-primary: #b7c9d5;
-  --color-on-secondary-container: #716066;
-  --color-on-background: #0d1c2e;
-  --color-tertiary-fixed-dim: #c6c6c7;
-  --color-primary-brand: #50616b;
-  --color-surface-container-high: #dce9ff;
-  --color-secondary-fixed: #f4dce4;
+  --color-surface-container-low: #F9F6EE;
+  --color-inverse-primary: #D9E4F0;
+  --color-on-secondary-container: #0B2545;
+  --color-on-background: #0B2545;
+  --color-tertiary-fixed-dim: #D4AF37;
+  --color-primary-brand: #0B2545;
+  --color-surface-container-high: #F4EFE6;
+  --color-secondary-fixed: #F9F6EE;
   --color-on-error-container: #93000a;
-  --color-on-surface: #0d1c2e;
-  --color-primary-container: #e0f2fe;
+  --color-on-surface: #0B2545;
+  --color-primary-container: #E8EEF5;
   --color-on-tertiary: #ffffff;
   --color-error-container: #ffdad6;
   --color-surface-container-lowest: #ffffff;
@@ -122,8 +130,8 @@
 }
 
 :root {
-  --background: #f8f9ff;
-  --foreground: #0d1c2e;
+  --background: #FAF8F5;
+  --foreground: #0B2545;
 }
 
 @layer base {

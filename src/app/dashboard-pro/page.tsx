@@ -263,7 +263,7 @@ export default function DashboardPro() {
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-2 md:gap-3">
             <span className="w-8 h-8 md:w-9 md:h-9 rounded-xl bg-pink-100 flex items-center justify-center text-pink-600 font-bold shadow-sm text-sm">T</span>
-            <span className="text-base md:text-lg font-bold text-[#0d1c2e] tracking-tight">TrustMarket Pro</span>
+            <span className="text-base md:text-lg font-bold text-[#0d1c2e] tracking-tight">ClassMarket Pro</span>
           </div>
 
           <div className="flex items-center gap-2 md:gap-4">
@@ -299,7 +299,7 @@ export default function DashboardPro() {
               Tu Panel de Reputación
             </h1>
             <p className="text-sm text-slate-500 font-semibold mt-0.5">
-              Administra tu confiabilidad, ganancias y contratos firmados con garantía TrustMarket.
+              Administra tu confiabilidad, ganancias y contratos firmados con garantía ClassMarket.
             </p>
           </div>
 
@@ -321,7 +321,7 @@ export default function DashboardPro() {
               <div>
                 <h4 className="text-sm font-bold">¡Retiro Exitoso en tu Home!</h4>
                 <p className="text-xs font-semibold text-emerald-700 mt-0.5">
-                  El dinero por valor de <strong className="font-extrabold">${withdrawAmount} USD</strong> ya fue retirado de tu balance de TrustMarket y está siendo transferido a tu cuenta.
+                  El dinero por valor de <strong className="font-extrabold">${withdrawAmount} USD</strong> ya fue retirado de tu balance de ClassMarket y está siendo transferido a tu cuenta.
                 </p>
               </div>
             </div>
@@ -1143,3 +1143,4 @@ export default function DashboardPro() {
     </main>
   );
 }
+

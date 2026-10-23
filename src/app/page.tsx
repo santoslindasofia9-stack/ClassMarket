@@ -88,31 +88,35 @@ export default function SplashScreen() {
 
         {/* Branding Text */}
         <div className="space-y-4 mb-12">
-          <h1 className="text-3xl md:text-[48px] font-extrabold text-[#0d1c2e] tracking-tighter leading-tight">
-            Marketplace de Confianza
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C5A059]/10 border border-[#C5A059]/30 text-[#0B2545] text-xs font-semibold uppercase tracking-wider">
+            <span className="w-2 h-2 rounded-full bg-[#C5A059] animate-ping" />
+            ClassMarket
+          </div>
+          <h1 className="text-3xl md:text-[46px] font-extrabold text-[#0B2545] tracking-tight leading-tight">
+            Educación e Intercambio Real
           </h1>
-          <p className="text-body-lg md:text-xl text-[#5e6f79] font-medium opacity-80 max-w-md mx-auto">
-            Conectando talento, construyendo confianza.
+          <p className="text-body-lg md:text-xl text-[#5C6B73] font-medium max-w-md mx-auto">
+            El marketplace donde los estudiantes comparten, intercambian y crecen juntos.
           </p>
         </div>
 
         {/* Loading Indicator */}
         <div className="w-full max-w-[280px] flex flex-col items-center mb-12">
-          <div className="w-full h-1.5 bg-gray-200/50 rounded-full overflow-hidden mb-8">
+          <div className="w-full h-2 bg-[#0B2545]/10 rounded-full overflow-hidden mb-8">
             <div 
-              className="h-full ethereal-gradient shimmer-effect transition-all duration-300 ease-out"
+              className="h-full bg-gradient-to-r from-[#0B2545] to-[#C5A059] transition-all duration-300 ease-out"
               style={{ width: `${progress}%` }}
             />
           </div>
           
-          {/* Action Button: Rosita */}
+          {/* Action Button: Navy with Gold Highlight */}
           <button
             onClick={handleContinue}
-            className="group relative w-full sm:w-64 bg-[#FCE4EC] hover:bg-[#fbd1de] text-[#0d1c2e] font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 active:scale-95 cursor-pointer flex items-center justify-center gap-3"
+            className="group relative w-full sm:w-64 bg-[#0B2545] hover:bg-[#12335d] text-white font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 active:scale-95 cursor-pointer flex items-center justify-center gap-3 border border-[#C5A059]/30"
           >
             <span className="relative z-10 text-lg">Continuar</span>
-            <span className="material-symbols-outlined relative z-10 text-xl group-hover:translate-x-1 transition-transform">arrow_forward</span>
-            <div className="absolute inset-0 bg-white/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-full" />
+            <span className="material-symbols-outlined relative z-10 text-xl group-hover:translate-x-1 transition-transform text-[#C5A059]">arrow_forward</span>
+            <div className="absolute inset-0 bg-[#C5A059]/20 opacity-0 group-hover:opacity-100 transition-opacity rounded-full" />
           </button>
         </div>
 

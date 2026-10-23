@@ -73,9 +73,9 @@ export default function SecurityCenterPage() {
             </div>
             <div className="flex items-center gap-2 cursor-pointer" onClick={() => router.push('/home-cliente')}>
               <div className="w-10 h-10 bg-[#0d1c2e] rounded-full flex items-center justify-center">
-                <span className="material-symbols-outlined text-white text-2xl">hub</span>
+                <span className="material-symbols-outlined text-white text-2xl">school</span>
               </div>
-              <h1 className="text-2xl font-extrabold text-[#0d1c2e] tracking-tight">Tool Link</h1>
+              <h1 className="text-2xl font-extrabold text-[#0d1c2e] tracking-tight">ClassMarket</h1>
             </div>
           </div>
           
@@ -225,7 +225,7 @@ export default function SecurityCenterPage() {
               <ul className="space-y-4">
                 {[
                   "Nuestro equipo revisará el caso en menos de 24h.",
-                  "Mantén toda la comunicación dentro de Tool Link.",
+                  "Mantén toda la comunicación dentro de ClassMarket.",
                   "Adjunta capturas claras de los acuerdos previos."
                 ].map((tip, i) => (
                   <li key={i} className="flex items-start gap-3">
@@ -266,7 +266,7 @@ export default function SecurityCenterPage() {
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-sky-500 flex items-center justify-center font-black">TL</div>
                 <div>
-                  <p className="font-bold text-sm leading-none">Soporte Tool Link</p>
+                  <p className="font-bold text-sm leading-none">Soporte ClassMarket</p>
                   <p className="text-[10px] text-sky-400 font-bold uppercase tracking-widest mt-1">En línea ahora</p>
                 </div>
               </div>
@@ -327,3 +327,4 @@ export default function SecurityCenterPage() {
     </div>
   );
 }
+

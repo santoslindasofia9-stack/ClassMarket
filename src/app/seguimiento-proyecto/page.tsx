@@ -82,12 +82,12 @@ export default function ProjectTrackingPage() {
         <div className="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between">
           
           <div className="flex items-center gap-12">
-            {/* Logo Actualizado de Tool Link */}
+            {/* Logo Actualizado de ClassMarket */}
             <div className="flex items-center gap-2 cursor-pointer" onClick={() => router.push('/home-cliente')}>
               <div className="w-10 h-10 bg-[#0d1c2e] rounded-full flex items-center justify-center">
-                <span className="material-symbols-outlined text-white text-2xl">hub</span>
+                <span className="material-symbols-outlined text-white text-2xl">school</span>
               </div>
-              <h1 className="text-2xl md:text-3xl font-extrabold text-[#0d1c2e] tracking-tight">Tool Link</h1>
+              <h1 className="text-2xl md:text-3xl font-extrabold text-[#0d1c2e] tracking-tight">ClassMarket</h1>
             </div>
             
             {/* Enlaces de Navegación Limpiados (Solo Proyectos) */}
@@ -396,3 +396,4 @@ export default function ProjectTrackingPage() {
     </div>
   );
 }
+

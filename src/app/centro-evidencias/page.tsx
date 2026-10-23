@@ -113,9 +113,9 @@ export default function EvidenceCenterPage() {
             </div>
             <div className="flex items-center gap-2 cursor-pointer" onClick={() => router.push('/home-cliente')}>
               <div className="w-10 h-10 bg-[#0d1c2e] rounded-full flex items-center justify-center">
-                <span className="material-symbols-outlined text-white text-2xl">hub</span>
+                <span className="material-symbols-outlined text-white text-2xl">school</span>
               </div>
-              <h1 className="text-2xl font-extrabold text-[#0d1c2e] tracking-tight">Tool Link</h1>
+              <h1 className="text-2xl font-extrabold text-[#0d1c2e] tracking-tight">ClassMarket</h1>
             </div>
           </div>
           
@@ -340,7 +340,7 @@ export default function EvidenceCenterPage() {
                 <div className="w-9 h-9 rounded-full bg-sky-500 flex items-center justify-center font-black text-white text-xs">TL</div>
                 <div>
                   <p className="font-bold text-sm text-white leading-tight">Soporte Técnico</p>
-                  <p className="text-[10px] text-sky-400 font-semibold">● En línea · Tool Link</p>
+                  <p className="text-[10px] text-sky-400 font-semibold">● En línea · ClassMarket</p>
                 </div>
               </div>
               <button
@@ -401,3 +401,4 @@ export default function EvidenceCenterPage() {
     </div>
   );
 }
+

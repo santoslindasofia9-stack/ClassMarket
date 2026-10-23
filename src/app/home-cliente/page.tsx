@@ -9,40 +9,42 @@ import {
   Bell, 
   Star, 
   MapPin, 
+import { 
+  Search, 
+  Bell, 
+  Star, 
+  MapPin, 
   ShieldCheck, 
-  Monitor, 
-  Home as HomeIcon, 
+  BookOpen, 
   Palette, 
-  Calendar, 
-  Heart, 
-  BookOpen,
+  Repeat, 
+  Laptop, 
+  Sparkles,
   Menu
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import BottomNav from "@/components/dashboard/BottomNav";
 
 const CATEGORIES = [
-  { id: "Tech", name: "Tech", icon: Monitor, color: "bg-[#E0F2FE]", textColor: "text-[#0288D1]" },
-  { id: "Hogar", name: "Hogar", icon: HomeIcon, color: "bg-[#FFFDD0]", textColor: "text-[#F57F17]" },
-  { id: "Creativo", name: "Creativo", icon: Palette, color: "bg-[#FCE4EC]", textColor: "text-[#D81B60]" },
-  { id: "Eventos", name: "Eventos", icon: Calendar, color: "bg-[#E8F5E9]", textColor: "text-[#2E7D32]" },
-  { id: "Salud", name: "Salud", icon: Heart, color: "bg-[#F4DCE4]", textColor: "text-[#93000A]" },
-  { id: "Educación", name: "Educación", icon: BookOpen, color: "bg-[#E6EEFF]", textColor: "text-[#50616B]" },
+  { id: "Tutorias", name: "Tutorías & Clases", icon: BookOpen, color: "bg-[#0B2545]/10", textColor: "text-[#0B2545]" },
+  { id: "Creatividad", name: "Diseño & Creatividad", icon: Palette, color: "bg-[#C5A059]/15", textColor: "text-[#0B2545]" },
+  { id: "Trueque", name: "Trueque Estudiantil", icon: Repeat, color: "bg-[#D4AF37]/20", textColor: "text-[#0B2545]" },
+  { id: "Tecnologia", name: "Tecnología & Apoyo", icon: Laptop, color: "bg-[#0B2545]/15", textColor: "text-[#0B2545]" },
 ];
 
 const ADS = [
   { 
     id: 1, 
-    title: "Descubre los Profesionales Mejor Valorados", 
-    company: "Destacado de la Semana", 
-    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=1000", // Profesional office
+    title: "El Marketplace donde los Estudiantes Comparten, Intercambian y Crecen Juntos", 
+    company: "ClassMarket Comunidad", 
+    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1200", // Young students collaborating
     link: "#"
   },
   { 
     id: 2, 
-    title: "Servicios Premium para el Hogar", 
-    company: "Nueva Categoría", 
-    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&q=80&w=1000", // Home service
+    title: "¿Tienes apuntes o libros? Inicia un trueque académico hoy mismo", 
+    company: "Trueque Escolar & Universitario", 
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1200", // Students studying with laptops
     link: "#"
   }
 ];
@@ -50,39 +52,43 @@ const ADS = [
 const FALLBACK_PROS = [
   {
     id: "f1",
-    nombre_completo: "Elena Rodríguez",
-    titulo_profesional: "Especialista en diseño de interiores",
-    categoria: "Hogar",
-    distancia_km: 2.4,
+    nombre_completo: "Camila Torres",
+    titulo_profesional: "Clases de Matemáticas & Cálculo Universitario",
+    categoria: "Tutorias",
+    precio: "$12 / h o Trueque",
+    distancia_km: 0.8,
     calificacion: 5.0,
-    foto_perfil: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=400"
+    foto_perfil: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400"
   },
   {
     id: "f2",
-    nombre_completo: "Julián Martínez",
-    titulo_profesional: "Consultor de branding estratégico",
-    categoria: "Creativo",
-    distancia_km: 1.8,
-    calificacion: 5.0,
-    foto_perfil: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?auto=format&fit=crop&q=80&w=400"
+    nombre_completo: "Mateo Valenzuela",
+    titulo_profesional: "Diseño de Presentaciones Canva, Infografías & Posters",
+    categoria: "Creatividad",
+    precio: "$8 por trabajo",
+    distancia_km: 1.2,
+    calificacion: 4.9,
+    foto_perfil: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=400"
   },
   {
     id: "f3",
-    nombre_completo: "Sofía López",
-    titulo_profesional: "Redactora creativa y storytelling",
-    categoria: "Creativo",
-    distancia_km: 0.5,
+    nombre_completo: "Lucía Fernández",
+    titulo_profesional: "Trueque de Libros de Medicina & Resúmenes de Anatomía",
+    categoria: "Trueque",
+    precio: "Trueque / Gratis",
+    distancia_km: 0.4,
     calificacion: 5.0,
-    foto_perfil: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=400"
+    foto_perfil: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=400"
   },
   {
     id: "f4",
-    nombre_completo: "Carlos Torres",
-    titulo_profesional: "Desarrollador web full-stack",
-    categoria: "Tech",
-    distancia_km: 3.1,
+    nombre_completo: "Diego Morales",
+    titulo_profesional: "Tutoría de Programación Python, JS y Proyectos Web",
+    categoria: "Tecnologia",
+    precio: "$15 / h",
+    distancia_km: 2.1,
     calificacion: 5.0,
-    foto_perfil: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400"
+    foto_perfil: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400"
   },
 ];
 
@@ -199,25 +205,43 @@ export default function HomeCliente() {
   }
 
   return (
-    <div className="relative min-h-screen bg-[#f8f9ff] font-sans pb-24 selection:bg-[#E0F2FE] overflow-x-hidden">
+    <div className="relative min-h-screen bg-[#FAF8F5] font-sans pb-24 selection:bg-[#C5A059]/20 overflow-x-hidden">
       
-      {/* 1. Header (Identical to layout, using our colors) */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-[#e6eeff] h-16 md:h-20 flex items-center">
+      {/* 1. Header (ClassMarket Navbar) */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#FAF8F5]/90 backdrop-blur-md border-b border-[#0B2545]/10 h-16 md:h-20 flex items-center">
         <div className="max-w-[1280px] mx-auto w-full px-3 md:px-6 flex justify-between items-center">
           <div className="flex items-center gap-4">
-            <button className="md:hidden text-[#5e6f79] p-2">
+            <button className="md:hidden text-[#0B2545] p-2">
               <Menu size={24} />
             </button>
-            <div className="flex items-center gap-2 cursor-pointer" onClick={() => router.push('/home-cliente')}>
-              <div className="w-8 h-8 bg-[#0d1c2e] rounded-lg flex items-center justify-center">
-                <span className="material-symbols-outlined text-white text-xl">hub</span>
+            <div className="flex items-center gap-3 cursor-pointer" onClick={() => router.push('/home-cliente')}>
+              <div className="w-10 h-10 rounded-xl overflow-hidden border border-[#C5A059]/40 bg-white flex items-center justify-center p-1 shadow-sm">
+                <img 
+                  src="/classmarket-logo.png" 
+                  alt="ClassMarket Logo" 
+                  className="w-full h-full object-contain"
+                  onError={(e) => {
+                    // Fallback to stylized CM badge if file isn't loaded
+                    (e.currentTarget as HTMLElement).style.display = 'none';
+                  }}
+                />
+                <span className="text-[#0B2545] font-extrabold text-xs hidden">CM</span>
               </div>
-              <h1 className="text-xl md:text-2xl font-bold text-[#0d1c2e] tracking-tight">Tool Link</h1>
+              <div className="flex flex-col">
+                <span className="text-xl md:text-2xl font-extrabold text-[#0B2545] tracking-tight leading-none flex items-center gap-1.5">
+                  ClassMarket
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#C5A059]/20 text-[#0B2545] border border-[#C5A059]/30">Estudiantil</span>
+                </span>
+                <span className="text-[10px] font-semibold text-[#5C6B73]">Educación e Intercambio Real</span>
+              </div>
             </div>
           </div>
           
-          <nav className="hidden md:flex items-center gap-8">
-            <Link href="/home-cliente" className="text-[#0d1c2e] font-bold">Inicio</Link>
+          <nav className="hidden md:flex items-center gap-6">
+            <Link href="/home-cliente" className="text-[#0B2545] font-bold border-b-2 border-[#C5A059] pb-1">Inicio</Link>
+            <Link href="/resultados?categoria=Tutorias" className="text-[#5C6B73] hover:text-[#0B2545] font-semibold transition-colors">Tutorías</Link>
+            <Link href="/resultados?categoria=Trueque" className="text-[#5C6B73] hover:text-[#0B2545] font-semibold transition-colors">Trueque</Link>
+            <Link href="/resultados?categoria=Creatividad" className="text-[#5C6B73] hover:text-[#0B2545] font-semibold transition-colors">Creatividad</Link>
           </nav>
           
           <div className="flex items-center gap-2 md:gap-4 relative">
@@ -396,11 +420,46 @@ export default function HomeCliente() {
       <main className="pt-20 md:pt-32 pb-16">
         <div className="max-w-[1280px] mx-auto px-4 md:px-6">
           
-          {/* 2. Hero Section */}
+          {/* 2. Hero Section - ClassMarket */}
           <section className="mb-8 md:mb-16 flex flex-col items-center text-center">
-            <h2 className="text-2xl sm:text-3xl md:text-[56px] font-extrabold text-[#0d1c2e] mb-4 md:mb-6 max-w-3xl leading-tight tracking-tight px-2">
-              Ayuda experta para tu próximo gran proyecto.
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#C5A059]/15 border border-[#C5A059]/30 text-[#0B2545] text-xs md:text-sm font-bold uppercase tracking-wider mb-4">
+              <span className="w-2 h-2 rounded-full bg-[#C5A059] animate-pulse" />
+              Educación e Intercambio Real
+            </div>
+
+            <h2 className="text-2xl sm:text-4xl md:text-[54px] font-extrabold text-[#0B2545] mb-4 md:mb-6 max-w-4xl leading-tight tracking-tight px-2">
+              El Marketplace donde los Estudiantes <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0B2545] via-[#C5A059] to-[#0B2545]">Comparten, Intercambian y Crecen</span> Juntos
             </h2>
+
+            <p className="text-base sm:text-lg md:text-xl text-[#5C6B73] font-medium mb-8 max-w-2xl mx-auto leading-relaxed px-4">
+              Aprende tutorías, intercambia libros, ofrece tus talentos digitales y conecta con tus compañeros de clase en un entorno seguro.
+            </p>
+
+            {/* Quick Action Badges / CTAs */}
+            <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
+              <Link 
+                href="/resultados"
+                className="px-5 py-2.5 rounded-full bg-[#0B2545] text-white font-bold text-sm hover:bg-[#13335c] transition-all shadow-md hover:shadow-lg flex items-center gap-2"
+              >
+                <span>Explorar Servicios Escolares</span>
+                <span className="material-symbols-outlined text-sm text-[#C5A059]">school</span>
+              </Link>
+              <Link 
+                href="/perfil-y-editor-de-servicios-2"
+                className="px-5 py-2.5 rounded-full bg-white text-[#0B2545] border border-[#C5A059]/40 font-bold text-sm hover:bg-[#FAF8F5] transition-all shadow-sm flex items-center gap-2"
+              >
+                <span>Publicar mi Habilidad</span>
+                <span className="material-symbols-outlined text-sm text-[#C5A059]">add_circle</span>
+              </Link>
+              <Link 
+                href="/resultados?categoria=Trueque"
+                className="px-5 py-2.5 rounded-full bg-[#C5A059]/20 text-[#0B2545] border border-[#C5A059]/30 font-bold text-sm hover:bg-[#C5A059]/30 transition-all flex items-center gap-2"
+              >
+                <span>Iniciar Trueque</span>
+                <span className="material-symbols-outlined text-sm text-[#0B2545]">swap_horiz</span>
+              </Link>
+            </div>
+
             <form 
               onSubmit={(e) => {
                 e.preventDefault();
@@ -412,13 +471,13 @@ export default function HomeCliente() {
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Busca expertos, servicios..." 
-                className="w-full h-12 md:h-16 pl-10 md:pl-14 pr-24 md:pr-32 rounded-full border border-gray-200 bg-white shadow-sm focus:ring-4 focus:ring-[#E0F2FE] focus:border-[#0d1c2e] transition-all text-sm md:text-lg font-medium text-[#0d1c2e] placeholder:text-[#5e6f79]/60 outline-none"
+                placeholder="Busca clases de cálculo, edición de video, libros, programación..." 
+                className="w-full h-12 md:h-16 pl-11 md:pl-14 pr-24 md:pr-32 rounded-full border border-[#C5A059]/30 bg-white shadow-sm focus:ring-4 focus:ring-[#C5A059]/20 focus:border-[#0B2545] transition-all text-sm md:text-base font-medium text-[#0B2545] placeholder:text-[#5C6B73]/70 outline-none"
               />
-              <Search className="absolute left-3 md:left-5 top-1/2 -translate-y-1/2 text-[#5e6f79] pointer-events-none" size={18} />
+              <Search className="absolute left-3.5 md:left-5 top-1/2 -translate-y-1/2 text-[#5C6B73]" size={20} />
               <button 
                 type="submit"
-                className="absolute right-2 top-1/2 -translate-y-1/2 bg-[#0d1c2e] text-white px-4 md:px-6 py-2 md:py-3 rounded-full font-bold text-xs md:text-sm hover:bg-[#233144] transition-all flex items-center justify-center"
+                className="absolute right-2 top-1/2 -translate-y-1/2 bg-[#0B2545] text-white px-5 md:px-7 py-2 md:py-3 rounded-full font-bold text-xs md:text-sm hover:bg-[#13335c] transition-all flex items-center justify-center border border-[#C5A059]/30 cursor-pointer shadow-sm"
               >
                 Buscar
               </button>
@@ -493,63 +552,75 @@ export default function HomeCliente() {
               </div>
 
               {/* Secondary Info Card (1 column) */}
-              <div className="bg-[#E0F2FE] rounded-[24px] p-8 md:p-10 flex flex-col justify-center items-center text-center">
-                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mb-6 shadow-sm">
-                  <ShieldCheck className="text-[#0288D1] w-10 h-10" />
+              <div className="bg-[#FAF8F5] border border-[#C5A059]/30 rounded-[24px] p-8 md:p-10 flex flex-col justify-center items-center text-center shadow-sm">
+                <div className="w-20 h-20 bg-[#0B2545] rounded-full flex items-center justify-center mb-6 shadow-md border-2 border-[#C5A059]">
+                  <ShieldCheck className="text-[#C5A059] w-10 h-10" />
                 </div>
-                <h3 className="text-2xl font-bold text-[#0d1c2e] mb-4">Verificado y Seguro</h3>
-                <p className="text-[#5e6f79] text-base font-medium mb-6">
-                  Cada profesional es validado rigurosamente para asegurar calidad premium en tus proyectos más importantes.
+                <h3 className="text-2xl font-bold text-[#0B2545] mb-3">Comunidad Estudiantil Confiable</h3>
+                <p className="text-[#5C6B73] text-sm md:text-base font-medium mb-6">
+                  Perfiles estudiantiles validados, reseñas de compañeros reales e intercambios bajo custodia segura.
                 </p>
-                <button className="text-[#0288D1] font-bold hover:underline">
-                  Saber más sobre la verificación
-                </button>
+                <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0B2545] bg-[#C5A059]/20 px-4 py-2 rounded-full border border-[#C5A059]/30">
+                  <Sparkles size={14} className="text-[#C5A059]" />
+                  <span>100% Sin Comisiones Ocultas</span>
+                </div>
               </div>
             </div>
           </section>
 
-          {/* 5. Professional Feed */}
+          {/* 5. Student Skills & Exchange Feed */}
           <section className="mb-16">
             <div className="flex justify-between items-end mb-8">
               <div>
-                <h2 className="text-3xl font-bold text-[#0d1c2e] mb-2">
-                  {activeCategory ? `Profesionales en ${activeCategory}` : "Profesionales cerca de ti"}
+                <h2 className="text-2xl md:text-3xl font-extrabold text-[#0B2545] mb-2">
+                  {activeCategory ? `Estudiantes en ${activeCategory}` : "Habilidades y Trueques Disponibles"}
                 </h2>
-                <p className="text-[#5e6f79] font-medium">Expertos seleccionados disponibles en tu área.</p>
+                <p className="text-[#5C6B73] font-medium text-sm md:text-base">Conecta con compañeros de tu colegio o universidad.</p>
               </div>
-              <button className="text-[#0d1c2e] font-bold hover:underline hidden md:block">Ver Todos</button>
+              <button className="text-[#0B2545] font-bold hover:text-[#C5A059] transition-colors hidden md:block">Ver Todos</button>
             </div>
 
             {filteredProfessionals.length > 0 ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                {filteredProfessionals.map((pro) => (
+                {filteredProfessionals.map((pro: any) => (
                   <Link 
                     key={pro.id} 
                     href={`/expertos/${pro.id}`}
-                    className="group bg-white rounded-[20px] p-4 border border-gray-100 hover:border-[#E0F2FE] hover:shadow-xl hover:shadow-[#0d1c2e]/5 transition-all duration-300 flex flex-col cursor-pointer"
+                    className="group bg-white rounded-[24px] p-4 border border-[#C5A059]/20 hover:border-[#C5A059] hover:shadow-xl hover:shadow-[#0B2545]/5 transition-all duration-300 flex flex-col cursor-pointer"
                   >
-                    <div className="relative aspect-square rounded-[16px] overflow-hidden mb-5 bg-gray-50">
+                    <div className="relative aspect-square rounded-[18px] overflow-hidden mb-4 bg-gray-50">
                       <img 
                         src={pro.foto_perfil || "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400"} 
-                        alt={pro.nombre_completo || "Profesional"} 
+                        alt={pro.nombre_completo || "Estudiante"} 
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
                       />
-                      <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full flex items-center gap-1 shadow-sm">
-                        <Star size={14} className="fill-yellow-400 text-yellow-400" />
-                        <span className="text-xs font-bold text-[#0d1c2e]">{pro.calificacion || "5.0"}</span>
+                      {/* Rating Badge */}
+                      <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-full flex items-center gap-1 shadow-sm border border-[#C5A059]/30">
+                        <Star size={14} className="fill-[#C5A059] text-[#C5A059]" />
+                        <span className="text-xs font-bold text-[#0B2545]">{pro.calificacion || "5.0"}</span>
+                      </div>
+                      {/* Price / Trueque Badge */}
+                      <div className="absolute bottom-3 left-3 bg-[#0B2545]/90 backdrop-blur-md px-3 py-1 rounded-full shadow-sm border border-[#C5A059]/40">
+                        <span className="text-[11px] font-bold text-white tracking-wide">
+                          {pro.precio || "Trueque / Gratis"}
+                        </span>
                       </div>
                     </div>
                     
-                    <h4 className="text-lg font-bold text-[#0d1c2e] line-clamp-1">{pro.nombre_completo}</h4>
-                    <p className="text-[#5e6f79] font-medium text-sm mb-3 line-clamp-1">{pro.titulo_profesional}</p>
+                    <h4 className="text-base font-bold text-[#0B2545] line-clamp-1">{pro.nombre_completo}</h4>
+                    <p className="text-[#5C6B73] font-medium text-xs mb-3 line-clamp-2 h-8">{pro.titulo_profesional}</p>
                     
-                    <div className="flex items-center gap-2 text-[#5e6f79] text-sm mb-5 mt-auto">
-                      <MapPin size={16} />
-                      <span>{pro.distancia_km ? `A ${pro.distancia_km} km` : 'Local'}</span>
+                    <div className="flex items-center justify-between text-[#5C6B73] text-xs mb-4 mt-auto pt-2 border-t border-gray-100">
+                      <div className="flex items-center gap-1">
+                        <MapPin size={14} className="text-[#C5A059]" />
+                        <span>{pro.distancia_km ? `A ${pro.distancia_km} km` : 'Campus'}</span>
+                      </div>
+                      <span className="text-[11px] font-semibold text-[#0B2545]">Responde rápido</span>
                     </div>
                     
-                    <button className="w-full py-3 rounded-full bg-[#f8f9ff] text-[#0d1c2e] font-bold group-hover:bg-[#0d1c2e] group-hover:text-white transition-colors border border-gray-100 group-hover:border-transparent">
-                      Reservar Servicio
+                    <button className="w-full py-2.5 rounded-full bg-[#FAF8F5] text-[#0B2545] font-bold text-xs group-hover:bg-[#0B2545] group-hover:text-white transition-all border border-[#C5A059]/30 group-hover:border-transparent flex items-center justify-center gap-1.5">
+                      <span>Conectar / Chatear</span>
+                      <span className="material-symbols-outlined text-sm">chat</span>
                     </button>
                   </Link>
                 ))}
@@ -575,25 +646,26 @@ export default function HomeCliente() {
             </button>
           </section>
 
-          {/* 6. Map CTA */}
-          <section className="relative rounded-[24px] overflow-hidden h-[300px] md:h-[400px] shadow-sm mb-10">
-            <div className="absolute inset-0 bg-[#f8f9ff] flex items-center justify-center">
-              <div className="w-full h-full opacity-30" style={{ backgroundImage: "radial-gradient(#0d1c2e 1.5px, transparent 1.5px)", backgroundSize: "24px 24px" }}></div>
+          {/* 6. Map CTA - Encuentra compañeros en tu campus o vecindario */}
+          <section className="relative rounded-[24px] overflow-hidden h-[300px] md:h-[380px] shadow-sm mb-10 border border-[#C5A059]/20">
+            <div className="absolute inset-0 bg-[#FAF8F5] flex items-center justify-center">
+              <div className="w-full h-full opacity-20" style={{ backgroundImage: "radial-gradient(#0B2545 1.5px, transparent 1.5px)", backgroundSize: "24px 24px" }}></div>
             </div>
             <div className="absolute inset-0 flex items-center justify-center p-6">
-              <div className="bg-white/95 backdrop-blur-md p-8 md:p-12 rounded-[24px] shadow-xl text-center max-w-xl w-full border border-white">
-                <div className="w-16 h-16 bg-[#E0F2FE] rounded-full flex items-center justify-center mx-auto mb-6">
-                  <MapPin className="text-[#0288D1] w-8 h-8" />
+              <div className="bg-white/95 backdrop-blur-md p-8 md:p-10 rounded-[24px] shadow-xl text-center max-w-xl w-full border border-[#C5A059]/30">
+                <div className="w-16 h-16 bg-[#0B2545]/10 rounded-full flex items-center justify-center mx-auto mb-5 border border-[#C5A059]/40">
+                  <MapPin className="text-[#0B2545] w-8 h-8" />
                 </div>
-                <h3 className="text-2xl font-bold text-[#0d1c2e] mb-3">Explora con la vista de mapa</h3>
-                <p className="text-[#5e6f79] font-medium mb-8">
-                  Encuentra los mejores servicios y profesionales directamente en tu vecindario con nuestro mapa interactivo local.
+                <h3 className="text-2xl font-bold text-[#0B2545] mb-2">Explora en tu Campus o Colegio</h3>
+                <p className="text-[#5C6B73] font-medium text-sm md:text-base mb-6">
+                  Descubre qué estudiantes ofrecen tutorías, apuntes y trueques cerca de tu ubicación o centro de estudios.
                 </p>
                 <button
                   onClick={() => router.push('/mapa-expertos')}
-                  className="bg-[#FCE4EC] text-[#0d1c2e] px-10 py-4 rounded-full font-bold hover:bg-[#fbd1de] transition-all shadow-md w-full sm:w-auto active:scale-95"
+                  className="bg-[#0B2545] text-white px-8 py-3.5 rounded-full font-bold hover:bg-[#12335d] transition-all shadow-md w-full sm:w-auto active:scale-95 border border-[#C5A059]/40 flex items-center justify-center gap-2 mx-auto"
                 >
-                  Abrir Mapa Interactivo
+                  <span>Abrir Mapa de Estudiantes</span>
+                  <span className="material-symbols-outlined text-sm text-[#C5A059]">near_me</span>
                 </button>
               </div>
             </div>

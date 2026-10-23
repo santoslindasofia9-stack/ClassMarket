@@ -98,7 +98,7 @@ const MOCK_JOBS: JobOffer[] = [
     cliente_calificacion: 4.9,
     titulo_trabajo: "Desarrollo de Landing Page Responsive",
     descripcion: "Requiero un frontend developer experto para maquetar un diseño de Figma en Next.js. Debe incluir soporte completo de SEO y desplegarlo en Vercel.",
-    terminos: "Pago retenido de forma segura en Garantía TrustMarket. Plazo de entrega: 5 días.",
+    terminos: "Pago retenido de forma segura en Garantía ClassMarket. Plazo de entrega: 5 días.",
     pago: "450",
     distancia_km: 0.8,
     lat: 7.125,
@@ -238,7 +238,7 @@ const MOCK_JOBS: JobOffer[] = [
     cliente_calificacion: 4.8,
     titulo_trabajo: "Consultoría Financiera Startup",
     descripcion: "Asesoría para modelo financiero, proyecciones a 3 años, pitch deck para inversionistas y estructura societaria.",
-    terminos: "Pago por sesión (3 sesiones). Garantía TrustMarket.",
+    terminos: "Pago por sesión (3 sesiones). Garantía ClassMarket.",
     pago: "420",
     distancia_km: 1.7,
     lat: 7.136,
@@ -294,7 +294,7 @@ const MOCK_JOBS: JobOffer[] = [
     cliente_calificacion: 4.8,
     titulo_trabajo: "Montaje de Muebles y Rack de Oficina",
     descripcion: "Armado e instalación de 8 escritorios modulares, 4 sillas ergonómicas y sistema de rack de servidores en oficina nueva.",
-    terminos: "Pago contra entrega verificada. Escrow TrustMarket activo.",
+    terminos: "Pago contra entrega verificada. Escrow ClassMarket activo.",
     pago: "180",
     distancia_km: 1.1,
     lat: 7.117,
@@ -568,7 +568,7 @@ export default function MapaExpertos() {
               <span className="material-symbols-outlined text-white text-lg leading-none font-bold">hub</span>
             </div>
             <h1 className="text-lg font-black text-[#0d1c2e] tracking-tight">
-              TrustMarket <span className="text-pink-500">Live</span>
+              ClassMarket <span className="text-pink-500">Live</span>
             </h1>
           </div>
         </div>
@@ -827,3 +827,4 @@ export default function MapaExpertos() {
     </div>
   );
 }
+

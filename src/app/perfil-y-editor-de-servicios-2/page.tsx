@@ -439,7 +439,7 @@ export default function PerfilYEditorDeServicios() {
             <div className="flex items-center gap-2">
               <span className="w-9 h-9 rounded-xl bg-gradient-to-tr from-pink-400 to-sky-400 flex items-center justify-center text-white font-bold shadow-md shadow-sky-100/50 text-sm">T</span>
               <div className="text-xl font-black text-[#0d1c2e] tracking-tight">
-                TrustMarket <span className="bg-gradient-to-r from-sky-600 to-teal-500 bg-clip-text text-transparent text-xs font-extrabold uppercase ml-1">Pro Studio</span>
+                ClassMarket <span className="bg-gradient-to-r from-sky-600 to-teal-500 bg-clip-text text-transparent text-xs font-extrabold uppercase ml-1">Pro Studio</span>
               </div>
             </div>
           </div>
@@ -812,7 +812,7 @@ export default function PerfilYEditorDeServicios() {
               <div className="space-y-2">
                 <h3 className="text-lg font-black text-[#0d1c2e]">Permiso de Ubicación</h3>
                 <p className="text-xs text-[#5e6f79] font-medium leading-relaxed">
-                  TrustMarket Live desea acceder a tu ubicación satelital en tiempo real para mostrar tu disponibilidad exacta a clientes cercanos.
+                  ClassMarket Live desea acceder a tu ubicación satelital en tiempo real para mostrar tu disponibilidad exacta a clientes cercanos.
                 </p>
               </div>
               <div className="flex gap-3 pt-2">
@@ -1390,3 +1390,4 @@ export default function PerfilYEditorDeServicios() {
     </div>
   );
 }
+
