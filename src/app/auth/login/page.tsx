@@ -145,17 +145,17 @@ function LoginContent() {
   };
 
   return (
-    <main className="relative min-h-screen w-full bg-white font-plus-jakarta overflow-hidden">
-      {/* Background Blobs móvil */}
-      <div className="absolute inset-0 z-0 lg:hidden overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] right-[-10%] w-full h-full bg-[#E0F2FE]/40 rounded-full blur-[100px] animate-blob" />
-        <div className="absolute bottom-[-10%] left-[-10%] w-full h-full bg-[#FCE4EC]/40 rounded-full blur-[100px] animate-blob [animation-delay:4s]" />
+    <main className="relative min-h-screen w-full bg-[#FAF8F5] font-plus-jakarta overflow-hidden flex items-center justify-center p-4 sm:p-6 lg:p-8">
+      {/* Ambient background decoration */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-[-10%] right-[-10%] w-[60vw] max-w-[500px] h-[60vw] max-h-[500px] bg-[#E0F2FE]/50 rounded-full blur-[100px]" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[60vw] max-w-[500px] h-[60vw] max-h-[500px] bg-[#FFFBEB]/70 rounded-full blur-[100px]" />
       </div>
 
-      <div className="relative z-10 flex min-h-screen">
-        {/* Lado Izquierdo: Imagen Estudiantil (solo desktop) */}
-        <div className="hidden lg:flex w-1/2 p-8 items-center justify-center bg-[#FAF8F5]">
-          <div className="relative w-full h-full max-h-[800px] rounded-[48px] overflow-hidden shadow-2xl group border border-[#C5A059]/20">
+      <div className="relative z-10 w-full max-w-6xl min-h-[640px] flex rounded-[36px] overflow-hidden bg-white/70 backdrop-blur-xl border border-[#C5A059]/20 shadow-[0_24px_60px_-15px_rgba(11,37,69,0.08)]">
+        {/* Lado Izquierdo: Imagen Estudiantil Auténtica (High school / College students with laptops) */}
+        <div className="hidden lg:flex w-1/2 p-6 items-center justify-center">
+          <div className="relative w-full h-full min-h-[580px] rounded-[30px] overflow-hidden shadow-md group border border-[#C5A059]/25">
             <Image
               src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1200"
               alt="Estudiantes en ClassMarket"
@@ -164,29 +164,29 @@ function LoginContent() {
               sizes="(max-width: 1024px) 100vw, 50vw"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0B2545]/90 via-[#0B2545]/30 to-transparent" />
-            <div className="absolute bottom-12 left-12 right-12 p-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-[32px] text-white">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="flex -space-x-3">
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0B2545]/90 via-[#0B2545]/35 to-transparent" />
+            <div className="absolute bottom-8 left-8 right-8 p-6 bg-white/15 backdrop-blur-md border border-white/25 rounded-[26px] text-white">
+              <div className="flex items-center gap-3 mb-2.5">
+                <div className="flex -space-x-2.5">
                   {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-[#0B2545] flex items-center justify-center text-[#C5A059]">
-                      <User size={14} />
+                    <div key={i} className="w-9 h-9 rounded-full border-2 border-white bg-[#0B2545] flex items-center justify-center text-[#C5A059]">
+                      <User size={13} />
                     </div>
                   ))}
-                  <div className="w-10 h-10 rounded-full border-2 border-white bg-[#C5A059] flex items-center justify-center text-[11px] font-extrabold text-[#0B2545]">
+                  <div className="w-9 h-9 rounded-full border-2 border-white bg-[#C5A059] flex items-center justify-center text-[10px] font-extrabold text-[#0B2545]">
                     +1k
                   </div>
                 </div>
               </div>
-              <h2 className="text-2xl font-extrabold mb-1.5 leading-snug">Más de 1,000 estudiantes interactuando y aprendiendo en un entorno seguro.</h2>
-              <p className="text-white/80 text-sm font-medium">Intercambia conocimientos, libros y talentos en tu colegio o universidad.</p>
+              <h2 className="text-xl md:text-2xl font-extrabold mb-1.5 leading-snug">Más de 1,000 estudiantes interactuando y aprendiendo en un entorno seguro.</h2>
+              <p className="text-white/85 text-xs sm:text-sm font-medium">Intercambia conocimientos, libros y talentos en tu colegio o universidad.</p>
             </div>
           </div>
         </div>
 
-        {/* Lado Derecho: Formulario */}
-        <div className="w-full lg:w-1/2 flex items-center justify-center p-6 md:p-12 bg-white">
-          <div className="w-full max-w-md space-y-8">
+        {/* Lado Derecho: Formulario integrado en el pastel layout */}
+        <div className="w-full lg:w-1/2 flex items-center justify-center p-6 sm:p-10 md:p-12">
+          <div className="w-full max-w-md space-y-7 bg-white/90 backdrop-blur-md p-6 sm:p-8 rounded-[28px] border border-[#C5A059]/15 shadow-sm">
 
             {/* Botón volver (solo en registro) */}
             {mode === "register" && (

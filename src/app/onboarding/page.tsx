@@ -1,7 +1,5 @@
-"use client";
-
-import Image from "next/image";
 import { useRouter } from "next/navigation";
+import AmbientBackground from "@/components/ui/AmbientBackground";
 
 export default function OnboardingPagoProtegido() {
   const router = useRouter();
@@ -11,29 +9,35 @@ export default function OnboardingPagoProtegido() {
   };
 
   return (
-    <main className="relative h-screen min-h-[600px] w-full overflow-hidden flex flex-col bg-[#FAF8F5] font-plus-jakarta px-6 py-8">
-      {/* Background aesthetic blobs in soft Cream & Gold */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-20%] right-[-10%] w-[110%] h-[110%] bg-[#C5A059]/10 rounded-full blur-[140px] animate-blob" />
-        <div className="absolute bottom-[-20%] left-[-15%] w-[120%] h-[120%] bg-[#0B2545]/5 rounded-full blur-[140px] animate-blob [animation-delay:4s]" />
-      </div>
+    <main className="relative min-h-screen w-full overflow-hidden flex flex-col justify-center items-center font-plus-jakarta py-10 px-6">
+      {/* Shared Ambient Animated Background */}
+      <AmbientBackground />
 
       {/* Main Content Area */}
-      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center w-full max-w-md mx-auto">
+      <div className="relative z-10 flex flex-col items-center justify-center text-center w-full max-w-md mx-auto my-auto">
         
-        {/* Shield Graphic with Navy & Gold Aesthetic */}
-        <div className="relative w-full max-w-[200px] md:max-w-[240px] aspect-square mb-8 group">
-          <div className="absolute inset-0 border border-[#C5A059]/30 rounded-[48px] rotate-3 scale-105 opacity-40" />
-          <div className="relative w-full h-full bg-white/70 backdrop-blur-md border border-[#C5A059]/30 rounded-[44px] overflow-hidden shadow-xl flex items-center justify-center p-6 transition-all duration-700">
-            <div className="relative w-full h-full flex items-center justify-center">
-              <Image
-                src="/shield-onboarding.png"
-                alt="Tu Intercambio está Protegido"
-                width={180}
-                height={180}
-                className="object-contain drop-shadow-md animate-float-slow"
-                priority
-              />
+        {/* Friendly Student Security & Trust Illustration Card */}
+        <div className="relative w-48 h-48 sm:w-56 sm:h-56 mb-8 group">
+          {/* Ambient Glow */}
+          <div className="absolute inset-0 bg-[#C5A059]/20 blur-2xl opacity-40 rounded-full scale-110 animate-soft-pulse" />
+          
+          <div className="relative w-full h-full bg-white/85 backdrop-blur-xl border border-[#C5A059]/30 rounded-[36px] overflow-hidden shadow-[0_20px_50px_-15px_rgba(11,37,69,0.15)] flex flex-col items-center justify-center p-6 transition-all duration-500 group-hover:scale-105">
+            {/* Central Graphic Composition: Student Certificate & Golden Security Lock */}
+            <div className="relative flex items-center justify-center">
+              {/* Soft Navy Circular Base */}
+              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-tr from-[#0B2545] to-[#163864] flex items-center justify-center shadow-lg border border-[#C5A059]/40 transform -rotate-3 transition-transform group-hover:rotate-0 duration-500">
+                <span className="material-symbols-outlined text-4xl sm:text-5xl text-[#FAF8F5]">menu_book</span>
+              </div>
+
+              {/* Floating Golden Shield / Lock Badge */}
+              <div className="absolute -bottom-2 -right-2 bg-gradient-to-br from-[#D4AF37] to-[#C5A059] text-[#0B2545] w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center shadow-xl border-2 border-white transform translate-x-1 translate-y-1 animate-float-slow">
+                <span className="material-symbols-outlined text-2xl font-bold">lock</span>
+              </div>
+
+              {/* Graduation Sparkle */}
+              <div className="absolute -top-3 -left-3 bg-white/90 backdrop-blur-md p-1.5 rounded-xl border border-[#C5A059]/40 shadow-sm animate-pulse">
+                <span className="material-symbols-outlined text-[#C5A059] text-lg">verified</span>
+              </div>
             </div>
           </div>
         </div>

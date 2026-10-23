@@ -1,7 +1,6 @@
-"use client";
-
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import AmbientBackground from "@/components/ui/AmbientBackground";
 
 export default function OnboardingNegociacion() {
   const router = useRouter();
@@ -12,15 +11,12 @@ export default function OnboardingNegociacion() {
   };
 
   return (
-    <main className="relative h-screen min-h-[600px] w-full overflow-hidden flex flex-col bg-[#FAF8F5] font-plus-jakarta px-6 py-8">
-      {/* Background aesthetic blobs */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-20%] left-[-10%] w-[110%] h-[110%] bg-[#C5A059]/10 rounded-full blur-[140px] animate-blob" />
-        <div className="absolute bottom-[-20%] right-[-15%] w-[120%] h-[120%] bg-[#0B2545]/5 rounded-full blur-[140px] animate-blob [animation-delay:4s]" />
-      </div>
+    <main className="relative min-h-screen w-full overflow-hidden flex flex-col justify-center items-center font-plus-jakarta py-10 px-6">
+      {/* Shared Ambient Animated Background */}
+      <AmbientBackground />
 
       {/* Main Content Area */}
-      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center w-full max-w-md mx-auto">
+      <div className="relative z-10 flex flex-col items-center justify-center text-center w-full max-w-md mx-auto my-auto">
         
         {/* Contenedor Visual Superior: Glassmorphism Student Card */}
         <div className="relative w-full max-w-[320px] mb-8 group">
