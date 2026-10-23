@@ -153,45 +153,46 @@ function LoginContent() {
       </div>
 
       <div className="relative z-10 flex min-h-screen">
-        {/* Lado Izquierdo: Imagen (solo desktop) */}
-        <div className="hidden lg:flex w-1/2 p-8 items-center justify-center bg-gray-50">
-          <div className="relative w-full h-full max-h-[800px] rounded-[48px] overflow-hidden shadow-2xl group">
+        {/* Lado Izquierdo: Imagen Estudiantil (solo desktop) */}
+        <div className="hidden lg:flex w-1/2 p-8 items-center justify-center bg-[#FAF8F5]">
+          <div className="relative w-full h-full max-h-[800px] rounded-[48px] overflow-hidden shadow-2xl group border border-[#C5A059]/20">
             <Image
-              src="/login-aspirational.png"
-              alt="TrustMarket Professionals"
+              src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1200"
+              alt="Estudiantes en ClassMarket"
               fill
               className="object-cover transform group-hover:scale-105 transition-transform duration-1000"
               sizes="(max-width: 1024px) 100vw, 50vw"
               priority
             />
-            <div className="absolute bottom-12 left-12 right-12 p-8 bg-white/20 backdrop-blur-md border border-white/30 rounded-[32px] text-white">
-              <div className="flex items-center gap-3 mb-2">
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0B2545]/90 via-[#0B2545]/30 to-transparent" />
+            <div className="absolute bottom-12 left-12 right-12 p-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-[32px] text-white">
+              <div className="flex items-center gap-3 mb-3">
                 <div className="flex -space-x-3">
                   {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-white/30 flex items-center justify-center">
+                    <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-[#0B2545] flex items-center justify-center text-[#C5A059]">
                       <User size={14} />
                     </div>
                   ))}
-                  <div className="w-10 h-10 rounded-full border-2 border-white bg-white flex items-center justify-center text-[10px] font-bold text-[#0d1c2e]">
-                    +50k
+                  <div className="w-10 h-10 rounded-full border-2 border-white bg-[#C5A059] flex items-center justify-center text-[11px] font-extrabold text-[#0B2545]">
+                    +1k
                   </div>
                 </div>
               </div>
-              <h2 className="text-2xl font-extrabold mb-1">Más de 50,000 profesionales verificados</h2>
-              <p className="text-white/80 text-sm font-medium">Construyendo el futuro del trabajo freelance en Latinoamérica.</p>
+              <h2 className="text-2xl font-extrabold mb-1.5 leading-snug">Más de 1,000 estudiantes interactuando y aprendiendo en un entorno seguro.</h2>
+              <p className="text-white/80 text-sm font-medium">Intercambia conocimientos, libros y talentos en tu colegio o universidad.</p>
             </div>
           </div>
         </div>
 
         {/* Lado Derecho: Formulario */}
-        <div className="w-full lg:w-1/2 flex items-center justify-center p-6 md:p-12">
+        <div className="w-full lg:w-1/2 flex items-center justify-center p-6 md:p-12 bg-white">
           <div className="w-full max-w-md space-y-8">
 
             {/* Botón volver (solo en registro) */}
             {mode === "register" && (
               <button
                 onClick={() => setMode("login")}
-                className="flex items-center gap-2 text-sm font-bold text-[#5e6f79] hover:text-[#0d1c2e] transition-colors"
+                className="flex items-center gap-2 text-sm font-bold text-[#5C6B73] hover:text-[#0B2545] transition-colors"
               >
                 <ArrowLeft size={16} />
                 Volver al inicio de sesión
@@ -200,18 +201,22 @@ function LoginContent() {
 
             {/* Título */}
             <div className="text-center space-y-2">
-              <h1 className="text-3xl md:text-4xl font-extrabold text-[#0d1c2e] tracking-tight">
-                {mode === "login" ? "Bienvenido de nuevo" : "Crea tu cuenta"}
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0B2545]/5 text-[#0B2545] text-xs font-bold uppercase tracking-wider mb-1 border border-[#C5A059]/30">
+                <span className="w-2 h-2 rounded-full bg-[#C5A059]" />
+                ClassMarket
+              </div>
+              <h1 className="text-3xl md:text-4xl font-extrabold text-[#0B2545] tracking-tight">
+                {mode === "login" ? "Bienvenido de nuevo" : "Crea tu cuenta estudiantil"}
               </h1>
-              <p className="text-[#5e6f79] font-medium">
-                {mode === "login" ? "Accede a tu cuenta para continuar" : "Únete a la mayor red de servicios de confianza"}
+              <p className="text-[#5C6B73] font-medium text-sm md:text-base">
+                {mode === "login" ? "Accede a tu cuenta de ClassMarket para continuar" : "Únete a la comunidad de trueque y tutorías entre estudiantes"}
               </p>
             </div>
 
-            {/* Selector de Rol */}
-            <div className="bg-gray-100/50 p-1 rounded-[24px] flex relative">
+            {/* Selector de Rol: Soy Estudiante vs Busco Tutoría/Servicios */}
+            <div className="bg-[#FAF8F5] p-1.5 rounded-[24px] flex relative border border-[#C5A059]/20">
               <motion.div
-                className="absolute top-1 bottom-1 bg-[#E0F2FE] rounded-[20px] shadow-sm"
+                className="absolute top-1.5 bottom-1.5 bg-[#0B2545] rounded-[20px] shadow-sm"
                 initial={false}
                 animate={{
                   x: role === "client" ? 0 : "100%",
@@ -223,18 +228,18 @@ function LoginContent() {
               <button
                 type="button"
                 onClick={() => setRole("client")}
-                className={`relative z-10 flex-1 flex items-center justify-center gap-2 py-3 text-sm font-bold transition-colors duration-300 ${role === "client" ? "text-[#0d1c2e]" : "text-[#5e6f79]"}`}
+                className={`relative z-10 flex-1 flex items-center justify-center gap-2 py-3 text-xs md:text-sm font-bold transition-colors duration-300 ${role === "client" ? "text-white" : "text-[#5C6B73]"}`}
               >
-                <User size={18} />
-                Soy Cliente
+                <User size={16} />
+                Busco Tutoría/Servicios
               </button>
               <button
                 type="button"
                 onClick={() => setRole("pro")}
-                className={`relative z-10 flex-1 flex items-center justify-center gap-2 py-3 text-sm font-bold transition-colors duration-300 ${role === "pro" ? "text-[#0d1c2e]" : "text-[#5e6f79]"}`}
+                className={`relative z-10 flex-1 flex items-center justify-center gap-2 py-3 text-xs md:text-sm font-bold transition-colors duration-300 ${role === "pro" ? "text-white" : "text-[#5C6B73]"}`}
               >
-                <Briefcase size={18} />
-                Soy Profesional
+                <Briefcase size={16} />
+                Soy Estudiante
               </button>
             </div>
 
@@ -347,15 +352,15 @@ function LoginContent() {
                   </label>
                 )}
 
-                {/* Botón principal */}
+                {/* Botón principal: Primary Navy (#0B2545) with white text */}
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-4 bg-[#FCE4EC] hover:bg-[#fbd1de] text-[#0d1c2e] font-bold rounded-2xl shadow-lg hover:shadow-xl transition-all active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="w-full py-4 bg-[#0B2545] hover:bg-[#12335d] text-white font-bold rounded-2xl shadow-lg hover:shadow-xl transition-all active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 border border-[#C5A059]/40 cursor-pointer"
                 >
                   {loading ? (
                     <>
-                      <div className="w-4 h-4 border-2 border-[#0d1c2e]/30 border-t-[#0d1c2e] rounded-full animate-spin" />
+                      <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                       {mode === "login" ? "Iniciando sesión..." : "Creando cuenta..."}
                     </>
                   ) : (
