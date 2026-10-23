@@ -146,85 +146,76 @@ function LoginContent() {
   };
 
   return (
-    <main className="relative min-h-screen w-full bg-[#FAF8F5] font-plus-jakarta overflow-hidden flex items-center justify-center p-4 sm:p-6 lg:p-8">
-      {/* Moving Waves Background */}
+    <main className="relative min-h-screen w-full bg-white font-plus-jakarta overflow-hidden flex items-center justify-center p-3 sm:p-6 lg:p-8">
+      {/* Moving Waves Background with soft ambient glow */}
       <WaveBackground />
 
-      <div className="relative z-10 w-full max-w-5xl min-h-[620px] flex flex-col lg:flex-row rounded-[36px] overflow-hidden bg-white/80 backdrop-blur-2xl border border-white/90 shadow-[0_24px_70px_-15px_rgba(11,37,69,0.12)]">
-        {/* Lado Izquierdo: Grupo de jóvenes estudiantes debatiendo en la biblioteca/aula */}
-        <div className="hidden lg:flex w-1/2 p-6 items-center justify-center">
-          <div className="relative w-full h-full min-h-[560px] rounded-[28px] overflow-hidden shadow-md group border border-[#C5A059]/30">
+      {/* Main Container - Full Split Card exactly like Reference */}
+      <div className="relative z-10 w-full max-w-6xl min-h-[640px] flex flex-col lg:flex-row rounded-[32px] sm:rounded-[40px] overflow-hidden bg-white shadow-[0_25px_70px_-15px_rgba(11,37,69,0.12)] border border-gray-100">
+        
+        {/* Lado Izquierdo: Imagen Grande con bordes curvos y tarjeta glassmorphism */}
+        <div className="hidden lg:flex w-1/2 p-5 items-center justify-center">
+          <div className="relative w-full h-full min-h-[580px] rounded-[32px] overflow-hidden group shadow-md">
             <Image
-              src="/students-study-group.jpg"
-              alt="Grupo de estudiantes en ClassMarket"
+              src="/students-collab.jpg"
+              alt="Estudiantes colaborando en ClassMarket"
               fill
               className="object-cover transform group-hover:scale-105 transition-transform duration-700"
               sizes="(max-width: 1024px) 100vw, 50vw"
               priority
             />
-            {/* Gradient Overlay for legibility */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0B2545]/95 via-[#0B2545]/40 to-transparent" />
-            
-            {/* Floating Info Pill */}
-            <div className="absolute top-6 left-6 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white text-xs font-bold shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-[#C5A059] animate-pulse" />
-              Comunidad Activa
-            </div>
+            {/* Soft Ambient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
-            {/* Bottom Card Copy */}
-            <div className="absolute bottom-6 left-6 right-6 p-6 bg-white/15 backdrop-blur-xl border border-white/25 rounded-[24px] text-white shadow-lg">
-              <div className="flex items-center gap-3 mb-2.5">
-                <div className="flex -space-x-2">
+            {/* Bottom Glass Card Overlay (Identical to reference layout) */}
+            <div className="absolute bottom-8 left-8 right-8 p-6 bg-white/25 backdrop-blur-xl border border-white/40 rounded-[28px] text-white shadow-xl">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="flex -space-x-2.5">
                   {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-[#0B2545] flex items-center justify-center text-[#C5A059] shadow-xs">
-                      <User size={12} />
+                    <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-white/40 flex items-center justify-center text-white">
+                      <User size={13} />
                     </div>
                   ))}
-                  <div className="w-8 h-8 rounded-full border-2 border-white bg-[#C5A059] flex items-center justify-center text-[9px] font-extrabold text-[#0B2545] shadow-xs">
-                    +1k
+                  <div className="w-8 h-8 rounded-full border-2 border-white bg-white flex items-center justify-center text-[10px] font-extrabold text-[#0B2545]">
+                    +50k
                   </div>
                 </div>
-                <span className="text-xs font-extrabold text-[#FFFBEB] tracking-wide uppercase">Estudiantes Conectados</span>
               </div>
-              <h2 className="text-xl md:text-2xl font-extrabold mb-1.5 leading-snug">Aprende, colabora y crece con compañeros reales.</h2>
-              <p className="text-white/85 text-xs font-medium leading-relaxed">Accede a tutorías, intercambia materiales académicos y desarrolla proyectos escolares juntos.</p>
+              <h2 className="text-xl sm:text-2xl font-extrabold mb-1 tracking-tight">Más de 50,000 estudiantes e intercambios</h2>
+              <p className="text-white/90 text-xs sm:text-sm font-medium leading-relaxed">Aprende, colabora y crece con compañeros reales en un entorno seguro.</p>
             </div>
           </div>
         </div>
 
-        {/* Lado Derecho: Formulario integrado en el pastel layout */}
-        <div className="w-full lg:w-1/2 flex items-center justify-center p-6 sm:p-10 md:p-12">
-          <div className="w-full max-w-md space-y-7 bg-white/90 backdrop-blur-md p-6 sm:p-8 rounded-[28px] border border-[#C5A059]/15 shadow-sm">
+        {/* Lado Derecho: Formulario limpio y espacioso */}
+        <div className="w-full lg:w-1/2 flex items-center justify-center p-8 sm:p-12 lg:p-14">
+          <div className="w-full max-w-md space-y-6">
 
             {/* Botón volver (solo en registro) */}
             {mode === "register" && (
               <button
                 onClick={() => setMode("login")}
-                className="flex items-center gap-2 text-sm font-bold text-[#5C6B73] hover:text-[#0B2545] transition-colors"
+                className="flex items-center gap-2 text-sm font-bold text-[#5C6B73] hover:text-[#0B2545] transition-colors mb-2"
               >
                 <ArrowLeft size={16} />
                 Volver al inicio de sesión
               </button>
             )}
 
-            {/* Título */}
-            <div className="text-center space-y-2">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0B2545]/5 text-[#0B2545] text-xs font-bold uppercase tracking-wider mb-1 border border-[#C5A059]/30">
-                <span className="w-2 h-2 rounded-full bg-[#C5A059]" />
-                ClassMarket
-              </div>
-              <h1 className="text-3xl md:text-4xl font-extrabold text-[#0B2545] tracking-tight">
-                {mode === "login" ? "Bienvenido de nuevo" : "Crea tu cuenta estudiantil"}
+            {/* Header del Formulario */}
+            <div className="text-center space-y-1.5">
+              <h1 className="text-3xl sm:text-4xl font-extrabold text-[#0B2545] tracking-tight">
+                {mode === "login" ? "Bienvenido de nuevo" : "Crea tu cuenta"}
               </h1>
-              <p className="text-[#5C6B73] font-medium text-sm md:text-base">
-                {mode === "login" ? "Accede a tu cuenta de ClassMarket para continuar" : "Únete a la comunidad de trueque y tutorías entre estudiantes"}
+              <p className="text-[#5C6B73] font-medium text-sm sm:text-base">
+                {mode === "login" ? "Accede a tu cuenta para continuar" : "Únete a la red de estudiantes de ClassMarket"}
               </p>
             </div>
 
-            {/* Selector de Rol: Soy Estudiante vs Busco Tutoría/Servicios */}
-            <div className="bg-[#FAF8F5] p-1.5 rounded-[24px] flex relative border border-[#C5A059]/20">
+            {/* Selector de Rol (Identical pill style to reference) */}
+            <div className="bg-[#FAF8F5] p-1.5 rounded-[22px] flex relative border border-[#C5A059]/20">
               <motion.div
-                className="absolute top-1.5 bottom-1.5 bg-[#0B2545] rounded-[20px] shadow-sm"
+                className="absolute top-1.5 bottom-1.5 bg-[#E0F2FE] rounded-[18px] shadow-xs"
                 initial={false}
                 animate={{
                   x: role === "client" ? 0 : "100%",
@@ -236,18 +227,18 @@ function LoginContent() {
               <button
                 type="button"
                 onClick={() => setRole("client")}
-                className={`relative z-10 flex-1 flex items-center justify-center gap-2 py-3 text-xs md:text-sm font-bold transition-colors duration-300 ${role === "client" ? "text-white" : "text-[#5C6B73]"}`}
+                className={`relative z-10 flex-1 flex items-center justify-center gap-2 py-3 text-xs sm:text-sm font-bold transition-colors duration-300 ${role === "client" ? "text-[#0B2545]" : "text-[#5C6B73]"}`}
               >
                 <User size={16} />
-                Busco Tutoría/Servicios
+                Soy Estudiante
               </button>
               <button
                 type="button"
                 onClick={() => setRole("pro")}
-                className={`relative z-10 flex-1 flex items-center justify-center gap-2 py-3 text-xs md:text-sm font-bold transition-colors duration-300 ${role === "pro" ? "text-white" : "text-[#5C6B73]"}`}
+                className={`relative z-10 flex-1 flex items-center justify-center gap-2 py-3 text-xs sm:text-sm font-bold transition-colors duration-300 ${role === "pro" ? "text-[#0B2545]" : "text-[#5C6B73]"}`}
               >
                 <Briefcase size={16} />
-                Soy Estudiante
+                Ofrezco Tutoría
               </button>
             </div>
 
