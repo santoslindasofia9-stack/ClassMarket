@@ -9,11 +9,6 @@ import {
   Bell, 
   Star, 
   MapPin, 
-import { 
-  Search, 
-  Bell, 
-  Star, 
-  MapPin, 
   ShieldCheck, 
   BookOpen, 
   Palette, 
