@@ -386,57 +386,55 @@ const ContractConfirmationPage = () => {
             {/* Price Card */}
             <motion.div 
               variants={itemVariants}
-              className="bg-white rounded-[2rem] p-8 border border-[#dce9ff]/50 flex flex-col justify-between hover:shadow-xl transition-all duration-300 shadow-sm"
+              className="bg-white rounded-[2rem] p-8 border border-[#C5A059]/30 flex flex-col justify-between hover:shadow-xl transition-all duration-300 shadow-sm"
             >
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-[#e0f2fe]/40 flex items-center justify-center mb-6 text-[#50616b]">
+                <div className="w-12 h-12 rounded-2xl bg-[#0B2545]/10 flex items-center justify-center mb-6 text-[#0B2545]">
                   <Wallet size={28} />
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold text-[#0d1c2e] mb-2">Inversión Total</h3>
-                <p className="text-[#43474b] text-base mb-6">Monto acordado para el cumplimiento del servicio.</p>
+                <h3 className="text-xl md:text-2xl font-bold text-[#0B2545] mb-2">Acuerdo de Tutoría</h3>
+                <p className="text-[#5C6B73] text-sm mb-6">Monto protegido en custodia escolar hasta completar la sesión.</p>
               </div>
-              <div className="text-4xl md:text-5xl font-extrabold text-[#50616b] tracking-tighter">
-                $2,450.00 <span className="text-sm font-semibold text-[#73787b] tracking-normal">USD</span>
+              <div className="text-3xl md:text-4xl font-extrabold text-[#0B2545] tracking-tight">
+                $15.00 <span className="text-sm font-semibold text-[#5C6B73] tracking-normal">USD</span>
               </div>
             </motion.div>
 
             {/* Deadline Card */}
             <motion.div 
               variants={itemVariants}
-              className="bg-white rounded-[2rem] p-8 border border-[#dce9ff]/50 flex flex-col justify-between hover:shadow-xl transition-all duration-300 shadow-sm"
+              className="bg-white rounded-[2rem] p-8 border border-[#C5A059]/30 flex flex-col justify-between hover:shadow-xl transition-all duration-300 shadow-sm"
             >
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-[#f4dce4]/40 flex items-center justify-center mb-6 text-[#6b5a60]">
+                <div className="w-12 h-12 rounded-2xl bg-[#C5A059]/15 flex items-center justify-center mb-6 text-[#0B2545]">
                   <CalendarDays size={28} />
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold text-[#0d1c2e] mb-2">Fecha de Entrega</h3>
-                <p className="text-[#43474b] text-base mb-6">Plazo máximo estipulado por el algoritmo.</p>
+                <h3 className="text-xl md:text-2xl font-bold text-[#0B2545] mb-2">Fecha de Entrega</h3>
+                <p className="text-[#5C6B73] text-sm mb-6">Plazo estipulado para la entrega de la guía o clase.</p>
               </div>
-              <div className="text-4xl md:text-5xl font-extrabold text-[#6b5a60] tracking-tighter">
-                14 <span className="text-sm font-semibold text-[#73787b] tracking-normal">Días Hábiles</span>
+              <div className="text-3xl md:text-4xl font-extrabold text-[#0B2545] tracking-tight">
+                2 <span className="text-sm font-semibold text-[#5C6B73] tracking-normal">Días</span>
               </div>
             </motion.div>
 
             {/* Deliverables Card */}
             <motion.div 
               variants={itemVariants}
-              className="bg-white rounded-[2rem] p-8 border border-[#dce9ff]/50 hover:shadow-xl transition-all duration-300 shadow-sm"
+              className="bg-white rounded-[2rem] p-8 border border-[#C5A059]/30 hover:shadow-xl transition-all duration-300 shadow-sm"
             >
-              <div className="w-12 h-12 rounded-2xl bg-[#e6eeff] flex items-center justify-center mb-6 text-[#43474b]">
+              <div className="w-12 h-12 rounded-2xl bg-[#FAF8F5] flex items-center justify-center mb-6 text-[#0B2545] border border-gray-100">
                 <Package size={28} />
               </div>
-              <h3 className="text-xl md:text-2xl font-bold text-[#0d1c2e] mb-4">Entregables</h3>
+              <h3 className="text-xl md:text-2xl font-bold text-[#0B2545] mb-4">Compromisos Académicos</h3>
               <ul className="space-y-4">
                 {[
-                  'Documentación Técnica',
-                  'Activos Digitales Finales',
-                  'Código Fuente Protegido'
+                  "Guía de ejercicios resuelta paso a paso con fórmulas explicadas.",
+                  "Sesión virtual de 1 hora para dudas y resolución en vivo.",
+                  "Material de estudio y resumen en PDF para el examen."
                 ].map((item, idx) => (
-                  <li key={idx} className="flex items-center gap-3 text-[#43474b] font-medium">
-                    <div className="text-[#50616b] bg-[#e0f2fe] rounded-full p-0.5">
-                      <CheckCircle2 size={18} />
-                    </div>
-                    {item}
+                  <li key={idx} className="flex items-start gap-3">
+                    <CheckCircle2 size={18} className="text-[#C5A059] flex-shrink-0 mt-0.5" />
+                    <span className="text-xs sm:text-sm font-medium text-[#5C6B73]">{item}</span>
                   </li>
                 ))}
               </ul>

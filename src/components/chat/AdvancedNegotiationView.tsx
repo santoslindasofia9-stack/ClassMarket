@@ -45,19 +45,19 @@ export default function AdvancedNegotiationView({ expertData }: AdvancedNegotiat
   const router = useRouter();
   const [isGenerating, setIsGenerating] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
-  const [budget, setBudget] = useState(2450.00);
-  const [totalAgreed, setTotalAgreed] = useState(2817.50);
+  const [budget, setBudget] = useState(15.00);
+  const [totalAgreed, setTotalAgreed] = useState(18.00);
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
       sender: 'client',
-      text: 'Hola, he revisado el portafolio y me encanta el estilo. ¿Sería posible incluir una guía de estilo básica para redes sociales dentro del mismo presupuesto?',
+      text: '¡Hola! Vi tu perfil de tutorías de Matemáticas. Necesito apoyo con 5 ejercicios de cálculo diferencial y preparación para el parcial del viernes.',
       time: '10:42 AM'
     },
     {
       id: '2',
       sender: 'pro',
-      text: '¡Hola Elena! Me alegra mucho que te guste el trabajo. Agregar la guía de estilo para redes sociales es factible, pero requeriría ajustar un poco las horas de entrega. ¿Te parece si subimos el presupuesto un 15% para cubrirlo?',
+      text: '¡Hola! Claro que sí, con gusto te ayudo. Te propongo una sesión virtual de 1 hora y media más el PDF con los ejercicios resueltos paso a paso por $18. ¿Te parece bien?',
       time: '10:45 AM'
     },
     {

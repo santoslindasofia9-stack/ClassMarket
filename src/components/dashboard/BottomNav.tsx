@@ -5,11 +5,11 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 
 const navItems = [
-  { icon: "home", label: "Home", href: "/home-cliente" },
-  { icon: "search", label: "Search", href: "/resultados" },
+  { icon: "home", label: "Inicio", href: "/home-cliente" },
+  { icon: "search", label: "Buscar", href: "/resultados" },
   { icon: "star", label: "Calificaciones", href: "/calificacion" },
-  { icon: "chat_bubble", label: "Inbox", href: "/chat" },
-  { icon: "person", label: "Profile", href: "/perfil" },
+  { icon: "chat_bubble", label: "Mensajes", href: "/chat" },
+  { icon: "person", label: "Mi Perfil", href: "/perfil" },
 ];
 
 export default function BottomNav({ onMessagesClick }: { onMessagesClick?: (e: React.MouseEvent) => void }) {

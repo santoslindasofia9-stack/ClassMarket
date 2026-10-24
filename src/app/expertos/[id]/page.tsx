@@ -187,11 +187,17 @@ export default function ExpertProfile({
             >
               <span className="material-symbols-outlined text-[20px]">arrow_back</span>
             </button>
-            <div className="flex items-center gap-2 cursor-pointer" onClick={() => router.push('/home-cliente')}>
-              <div className="w-8 h-8 bg-[#0d1c2e] rounded-lg flex items-center justify-center">
-                <span className="material-symbols-outlined text-white text-lg leading-none">hub</span>
+            <div className="flex items-center gap-3 cursor-pointer" onClick={() => router.push('/home-cliente')}>
+              <div className="w-10 h-10 rounded-xl overflow-hidden border border-[#C5A059]/40 bg-white flex items-center justify-center p-1 shadow-sm">
+                <img src="/classmarket-logo.png" alt="ClassMarket" className="w-full h-full object-contain" />
               </div>
-              <h1 className="text-xl font-bold text-[#0d1c2e] tracking-tight">Tool Link</h1>
+              <div className="flex flex-col">
+                <span className="text-xl md:text-2xl font-extrabold text-[#0B2545] tracking-tight leading-none flex items-center gap-1.5">
+                  ClassMarket
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#C5A059]/20 text-[#0B2545] border border-[#C5A059]/30">Estudiantil</span>
+                </span>
+                <span className="text-[10px] font-semibold text-[#5C6B73]">Educación e Intercambio Real</span>
+              </div>
             </div>
           </div>
           <div className="flex items-center gap-4 hidden md:flex">
