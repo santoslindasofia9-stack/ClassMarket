@@ -187,15 +187,11 @@ export default function ExpertProfile({
             >
               <span className="material-symbols-outlined text-[20px]">arrow_back</span>
             </button>
-            <div className="flex items-center gap-3 cursor-pointer" onClick={() => router.push('/home-cliente')}>
-              <div className="w-9 h-9 rounded-xl overflow-hidden border border-[#C5A059]/40 bg-white flex items-center justify-center p-1 shadow-sm">
-                <img 
-                  src="/classmarket-logo.png" 
-                  alt="ClassMarket Logo" 
-                  className="w-full h-full object-contain"
-                />
+            <div className="flex items-center gap-2 cursor-pointer" onClick={() => router.push('/home-cliente')}>
+              <div className="w-8 h-8 bg-[#0d1c2e] rounded-lg flex items-center justify-center">
+                <span className="material-symbols-outlined text-white text-lg leading-none">hub</span>
               </div>
-              <h1 className="text-xl font-extrabold text-[#0B2545] tracking-tight">ClassMarket</h1>
+              <h1 className="text-xl font-bold text-[#0d1c2e] tracking-tight">Tool Link</h1>
             </div>
           </div>
           <div className="flex items-center gap-4 hidden md:flex">

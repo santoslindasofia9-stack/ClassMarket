@@ -8,75 +8,129 @@ export const dynamic = 'force-dynamic';
 const FALLBACK_EXPERTS = [
   {
     id: "f1",
-    nombre_completo: "Camila Torres (17 años)",
-    titulo_profesional: "Tutorías de Matemáticas, Álgebra y Física 10°-11° con ejercicios resueltos paso a paso.",
-    categoria: "MatematicasCiencias",
+    nombre_completo: "Elena Rodríguez",
+    titulo_profesional: "Especialista en diseño de interiores con enfoque en minimalismo nórdico y espacios zen.",
+    categoria: "Hogar",
     calificacion: 5,
-    tarifa: "$10 / h o Trueque",
-    foto_perfil: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400&crop=face"
+    tarifa: 85,
+    foto_perfil: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=400"
   },
   {
     id: "f2",
-    nombre_completo: "Mateo Valenzuela (18 años)",
-    titulo_profesional: "Apoyo en guías y talleres de Química Orgánica, Biología y Ciencias Naturales escolares.",
-    categoria: "TareasGuias",
-    calificacion: 4.9,
-    tarifa: "$7 por guía",
-    foto_perfil: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=400&crop=face"
+    nombre_completo: "Julián Martínez",
+    titulo_profesional: "Consultor de branding estratégico para marcas emergentes que buscan impacto visual.",
+    categoria: "Creativo",
+    calificacion: 5,
+    tarifa: 120,
+    foto_perfil: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?auto=format&fit=crop&q=80&w=400"
   },
   {
     id: "f3",
-    nombre_completo: "Sofía Salazar (16 años)",
-    titulo_profesional: "Clases de Inglés conversacional, gramática y preparación intensiva para Pruebas Saber 11.",
-    categoria: "TutoriasClases",
+    nombre_completo: "Sofía López",
+    titulo_profesional: "Redactora creativa y especialista en storytelling emocional para catálogos de lujo.",
+    categoria: "Creativo",
     calificacion: 5,
-    tarifa: "$12 / h",
-    foto_perfil: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=400&crop=face"
+    tarifa: 55,
+    foto_perfil: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=400"
   },
   {
     id: "f4",
-    nombre_completo: "Diego Morales (19 años)",
-    titulo_profesional: "Proyectos en Python, JavaScript, páginas HTML y videojuegos básicos en Scratch.",
-    categoria: "ProgramacionTecnologias",
+    nombre_completo: "Carlos Torres",
+    titulo_profesional: "Desarrollador web full-stack enfocado en experiencias interactivas fluidas y seguras.",
+    categoria: "Tech",
     calificacion: 5,
-    tarifa: "$14 / h",
-    foto_perfil: "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?auto=format&fit=crop&q=80&w=400&crop=face"
+    tarifa: 150,
+    foto_perfil: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400"
   },
   {
     id: "f5",
-    nombre_completo: "Valentina Gómez (17 años)",
-    titulo_profesional: "Intercambio y trueque de libros de Cálculo, apuntes de Filosofía y resúmenes de Historia.",
-    categoria: "TareasGuias",
-    calificacion: 4.8,
-    tarifa: "Trueque de Libros",
-    foto_perfil: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400&crop=face"
+    nombre_completo: "Marta Valls",
+    titulo_profesional: "Estratega de marketing digital enfocada en ROI y crecimiento orgánico sostenible.",
+    categoria: "Negocios",
+    calificacion: 5,
+    tarifa: 95,
+    foto_perfil: "https://lh3.googleusercontent.com/aida-public/AB6AXuAtczwaCBZDrakoJIvPXavRcfa_YWopKVV-7E7HQr1nuY1tk4Idv_KTZUmHIGTzsIPind-7xfjHamETjNysRRKAQ2ThKrJDlj6a5FhixgOXvC1i6jrRwwX-ysP3e7a9-yOoxp5NBSo4JPs_XDtNyLYRMUdnZsBicPKX-pX_Iv_hg37hGYdoAeMGNiLdo1f6Ed-T0_Ydjpy_b6DDORFaWAIhHLSdMQcDWLI9UOcZw-UVdUucDKpWNB6PVOvoF76-4pbY0nZ0NpBlTQ"
   },
   {
     id: "f6",
-    nombre_completo: "Sebastián Rincón (18 años)",
-    titulo_profesional: "Preparación para parciales de Trigonometría, Geometría Analítica y Álgebra Lineal.",
-    categoria: "MatematicasCiencias",
+    nombre_completo: "David García",
+    titulo_profesional: "Fotógrafo de producto con amplia experiencia en e-commerce y catálogos editoriales.",
+    categoria: "Creativo",
     calificacion: 5,
-    tarifa: "$9 / h",
-    foto_perfil: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400&crop=face"
+    tarifa: 200,
+    foto_perfil: "https://lh3.googleusercontent.com/aida-public/AB6AXuB8PciBPx8J_AUKCIHBcXBGUlgRG_SmQklphaaOPBS7Io20uuJq9Yqq-LmnM5BE-jHMcSyCpPIvnICQJWKKlKTgI19ULZNR0yb5Zy2WjUz8C9GFMo8ovXVyg3r11ofkBuX3rfH-4GmDWyNrDpT_y2GPaEybrpRNVbFfVCdj5jBUsHDOQlJ4dx1n1IFo4WvjuYtSZiPl6qsw4viIzPKZwxMjTn_4NAFIUWX18Dnqf0EOhnKuC7df6IwgwyT-oAmPAOQZwqp9EHv3YQ"
   },
   {
     id: "f7",
-    nombre_completo: "Lucía Ortiz (17 años)",
-    titulo_profesional: "Tutorías de Lenguaje, comprensión lectora y redacción de ensayos académicos.",
-    categoria: "TutoriasClases",
+    nombre_completo: "Valeria Gómez",
+    titulo_profesional: "Especialista en UX/UI enfocada en aplicaciones móviles y usabilidad.",
+    categoria: "Tech",
     calificacion: 4.9,
-    tarifa: "$8 / h o Trueque",
-    foto_perfil: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400&crop=face"
+    tarifa: 110,
+    foto_perfil: "https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&q=80&w=400"
   },
   {
     id: "f8",
-    nombre_completo: "Andrés Silva (18 años)",
-    titulo_profesional: "Asesorías en diseño de diapositivas en Canva y pósters para exposiciones escolares.",
-    categoria: "TareasGuias",
+    nombre_completo: "Andrés Silva",
+    titulo_profesional: "Asesor financiero para startups y pequeñas empresas.",
+    categoria: "Negocios",
     calificacion: 4.8,
-    tarifa: "$6 por trabajo",
-    foto_perfil: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400&crop=face"
+    tarifa: 135,
+    foto_perfil: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200"
+  },
+  {
+    id: "f9",
+    nombre_completo: "Lucía Ortiz",
+    titulo_profesional: "Organizadora de espacios y consultora de Marie Kondo.",
+    categoria: "Hogar",
+    calificacion: 5,
+    tarifa: 75,
+    foto_perfil: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200"
+  },
+  {
+    id: "f10",
+    nombre_completo: "Roberto Sánchez",
+    titulo_profesional: "Técnico Electricista certificado, instalaciones y domótica.",
+    categoria: "Hogar",
+    calificacion: 4.7,
+    tarifa: 45,
+    foto_perfil: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200"
+  },
+  {
+    id: "f11",
+    nombre_completo: "Carolina Ruiz",
+    titulo_profesional: "Ilustradora digital y creadora de personajes para videojuegos.",
+    categoria: "Creativo",
+    calificacion: 4.9,
+    tarifa: 90,
+    foto_perfil: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200"
+  },
+  {
+    id: "f12",
+    nombre_completo: "Diego Castro",
+    titulo_profesional: "Desarrollador Backend Senior experto en Node y Python.",
+    categoria: "Tech",
+    calificacion: 5,
+    tarifa: 160,
+    foto_perfil: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=200"
+  },
+  {
+    id: "e1",
+    nombre_completo: "Laura Vásquez",
+    titulo_profesional: "Diseñadora de Moda enfocada en colecciones sostenibles y materiales reciclados.",
+    categoria: "Creativo",
+    calificacion: 4.9,
+    tarifa: 50,
+    foto_perfil: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200"
+  },
+  {
+    id: "e2",
+    nombre_completo: "Roberto Sánchez",
+    titulo_profesional: "Técnico Electricista certificado para instalaciones industriales y residenciales.",
+    categoria: "Hogar",
+    calificacion: 4.7,
+    tarifa: 30,
+    foto_perfil: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200"
   }
 ];
 
@@ -142,23 +196,17 @@ export default async function ResultadosBusqueda({
           >
             <span className="material-symbols-outlined text-[20px]">arrow_back</span>
           </Link>
-          <Link href="/home-cliente" className="flex items-center gap-3 cursor-pointer">
-            <div className="w-10 h-10 rounded-xl overflow-hidden border border-[#C5A059]/40 bg-white flex items-center justify-center p-1 shadow-sm">
-              <img 
-                src="/classmarket-logo.png" 
-                alt="ClassMarket Logo" 
-                className="w-full h-full object-contain"
-              />
+          <Link href="/home-cliente" className="flex items-center gap-2 cursor-pointer">
+            <div className="w-8 h-8 bg-[#0d1c2e] rounded-lg flex items-center justify-center">
+              <span className="material-symbols-outlined text-white text-lg leading-none">hub</span>
             </div>
-            <div className="flex flex-col">
-              <span className="text-xl md:text-2xl font-extrabold text-[#0B2545] tracking-tight leading-none flex items-center gap-1.5">
-                ClassMarket
-                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#C5A059]/20 text-[#0B2545] border border-[#C5A059]/30">Estudiantil</span>
-              </span>
-              <span className="text-[10px] font-semibold text-[#5C6B73]">Educación e Intercambio Real</span>
-            </div>
+            <h1 className="text-xl font-bold text-[#0d1c2e] tracking-tight hidden sm:block">
+              Tool Link
+            </h1>
           </Link>
         </div>
+
+        {/* The read-only search bar was removed per user request */}
       </header>
 
       {/* ── Main Content ─────────────────────────────────────────────────────── */}
@@ -167,16 +215,18 @@ export default async function ResultadosBusqueda({
         {/* Encabezado de Resultados */}
         <div className="mb-8 md:mb-14 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="max-w-2xl">
-            <span className="text-[12px] text-[#C5A059] mb-3 block uppercase tracking-[0.2em] font-bold">
-              Comunidad Escolar & Universitaria
+            <span className="text-[12px] text-[#0288D1] mb-3 block uppercase tracking-[0.2em] font-bold">
+              Descubre Expertos
             </span>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-[#0B2545] leading-tight">
-              Tutorías y Habilidades Estudiantiles
+            <h2 className="text-3xl md:text-5xl font-bold text-[#0d1c2e] leading-tight">
+              Resultados de Búsqueda
             </h2>
-            <p className="text-base md:text-lg text-[#5C6B73] mt-3 max-w-lg leading-relaxed">
-              Encuentra compañeros de colegio y universidad verificados para tutorías, guías resueltas, proyectos e intercambio de libros.
+            <p className="text-lg text-[#5e6f79] mt-4 max-w-lg">
+              Hemos seleccionado cuidadosamente a los mejores profesionales que encajan con la visión de tu próximo proyecto.
             </p>
           </div>
+          
+          {/* Controles de Filtrado removidos por petición del usuario */}
         </div>
 
         {/* Grid de Tarjetas */}
@@ -189,22 +239,22 @@ export default async function ResultadosBusqueda({
                 nombre_completo={expert.nombre_completo}
                 titulo_profesional={expert.titulo_profesional}
                 calificacion={expert.calificacion}
-                reseñas={Math.floor(Math.random() * 50) + 12}
-                tarifa={expert.tarifa || "$10 / h"}
+                reseñas={Math.floor(Math.random() * 200) + 10} // Dummy data for reviews as it's not in DB
+                tarifa={expert.tarifa || "$50"}
                 foto_perfil={expert.foto_perfil}
               />
             ))}
           </div>
         ) : (
           <div className="py-20 text-center bg-white rounded-3xl border border-gray-100 border-dashed">
-            <div className="w-16 h-16 bg-[#FAF8F5] rounded-full flex items-center justify-center mx-auto mb-4 text-[#5C6B73]">
+            <div className="w-16 h-16 bg-[#f8f9ff] rounded-full flex items-center justify-center mx-auto mb-4 text-[#5e6f79]">
               <span className="material-symbols-outlined text-[32px]">search</span>
             </div>
-            <h3 className="text-lg font-bold text-[#0B2545] mb-2">No se encontraron servicios escolares</h3>
-            <p className="text-[#5C6B73]">Intenta buscar con otros términos como cálculo, inglés, guías o programación.</p>
+            <h3 className="text-lg font-bold text-[#0d1c2e] mb-2">No se encontraron profesionales</h3>
+            <p className="text-[#5e6f79]">Intenta buscar con otros términos o cambia la categoría.</p>
             <Link 
               href="/home-cliente"
-              className="mt-6 inline-block text-[#0B2545] font-bold underline"
+              className="mt-6 inline-block text-[#0288D1] font-bold underline"
             >
               Volver al inicio
             </Link>
@@ -214,8 +264,8 @@ export default async function ResultadosBusqueda({
         {/* Botón de Carga */}
         {displayedExperts.length > 0 && (
           <div className="mt-16 text-center">
-            <button className="px-10 py-4 bg-[#0B2545] text-white rounded-full font-bold text-sm uppercase tracking-widest hover:bg-[#13335c] hover:shadow-lg transition-all duration-300 active:scale-95 border border-[#C5A059]/40">
-              Cargar más compañeros
+            <button className="px-10 py-4 bg-[#0288D1] text-white rounded-full font-bold text-sm uppercase tracking-widest hover:bg-[#0277bd] hover:shadow-lg transition-all duration-300 active:scale-95">
+              Cargar más resultados
             </button>
           </div>
         )}
