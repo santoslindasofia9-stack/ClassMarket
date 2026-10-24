@@ -337,7 +337,7 @@ export default function MapaExpertos() {
   const [busqueda, setBusqueda] = useState("");
   const [pais, setPais] = useState("Colombia");
   const [departamento, setDepartamento] = useState("Santander");
-  const [ciudad, setCiudad] = useState("Bucaramanga, Piedecuesta, Floridablanca y Girón");
+  const [ciudad, setCiudad] = useState("Bucaramanga, Piedecuesta, Floridablanca y Girï¿½n");
   const [mapCenter, setMapCenter] = useState<{lat: number, lng: number} | null>(null);
 
   // Jobs-mode location search
@@ -398,7 +398,7 @@ export default function MapaExpertos() {
         showToast("âœ“ UbicaciÃ³n en tiempo real detectada con Ã©xito.");
       },
       () => {
-        // Fallback Bucaramanga, Piedecuesta, Floridablanca y Girón center
+        // Fallback Bucaramanga, Piedecuesta, Floridablanca y Girï¿½n center
         const fallback = { lat: 7.1193, lng: -73.1227 };
         setUserLocation(fallback);
         setMapCenter(fallback);

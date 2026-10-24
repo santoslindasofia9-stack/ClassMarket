@@ -635,10 +635,9 @@ export default function HomeCliente() {
                       <span className="text-[11px] font-semibold text-[#0B2545]">Responde rápido</span>
                     </div>
                     
-                    <button className="w-full py-2.5 rounded-full bg-[#FAF8F5] text-[#0B2545] font-bold text-xs group-hover:bg-[#0B2545] group-hover:text-white transition-all border border-[#C5A059]/30 group-hover:border-transparent flex items-center justify-center gap-1.5">
-                      <span onClick=\(e\) => \{ e.stopPropagation\(\); router.push\(`/inbox\?to=\${pro.id}`\); \}>Conectar / Chatear</span>
-                      <span className="material-symbols-outlined text-sm">chat</span>
-                    </button>
+                    <div className="w-full py-2.5 rounded-full bg-[#FAF8F5] text-[#0B2545] font-bold text-xs group-hover:bg-[#0B2545] group-hover:text-white transition-all border border-[#C5A059]/30 group-hover:border-transparent flex items-center justify-center gap-1.5">
+                      <span>Conectar / Chatear</span>
+                    </div>
                   </Link>
                 ))}
               </div>
