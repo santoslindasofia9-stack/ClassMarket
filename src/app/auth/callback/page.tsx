@@ -4,8 +4,8 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 
-  const router = useRouter();
 export default function AuthCallback() {
+  const router = useRouter();
   const [status, setStatus] = useState("Verificando sesión con Google...");
 
   useEffect(() => {

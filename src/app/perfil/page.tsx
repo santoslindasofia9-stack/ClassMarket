@@ -151,7 +151,6 @@ export default function PerfilPage() {
       const savedShared = localStorage.getItem("locationShared");
 
       if (savedName) setUserName(savedName);
-      else localStorage.setItem("userName", "Mariana Rodríguez");
 
       if (savedAvatar) setUserAvatar(savedAvatar);
       else localStorage.setItem("userAvatar", DEFAULT_AVATAR);

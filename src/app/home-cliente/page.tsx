@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import BottomNav from "@/components/dashboard/BottomNav";
+import { supabase } from "@/lib/supabase";
 
 const CATEGORIES = [
   { id: "Tutorias", name: "Tutorías & Clases", icon: BookOpen, color: "bg-[#0B2545]/10", textColor: "text-[#0B2545]" },
@@ -129,6 +130,23 @@ export default function HomeCliente() {
     const savedAvatar = localStorage.getItem("userAvatar") || null;
     setUserName(savedName);
     if (savedAvatar) setUserAvatar(savedAvatar);
+
+    // Sync directly from Supabase session if logged in
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session?.user) {
+        const meta = session.user.user_metadata;
+        const realName = meta?.full_name || meta?.name || meta?.nombre_completo || session.user.email?.split("@")[0];
+        const realAvatar = meta?.avatar_url || meta?.picture;
+        if (realName) {
+          setUserName(realName);
+          localStorage.setItem("userName", realName);
+        }
+        if (realAvatar) {
+          setUserAvatar(realAvatar);
+          localStorage.setItem("userAvatar", realAvatar);
+        }
+      }
+    }).catch(() => {});
 
     // Usar datos de demostración directamente
     setProfessionals(FALLBACK_PROS);
