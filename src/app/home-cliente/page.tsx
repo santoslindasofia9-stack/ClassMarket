@@ -110,9 +110,9 @@ export default function HomeCliente() {
   // Notifications state
   const [isNotifOpen, setIsNotifOpen] = useState(false);
   const [notifications, setNotifications] = useState([
-    { id: 1, read: false, icon: "🎉", title: "¡Bienvenido a Tool Link!", body: "Explora cientos de profesionales verificados cerca de ti.", time: "Ahora" },
-    { id: 2, read: false, icon: "⭐", title: "Profesional recomendado", body: "Sarah Jenkins está disponible esta semana. ¡Contáctala ahora!", time: "Hace 5 min" },
-    { id: 3, read: true, icon: "🔒", title: "Pago protegido activo", body: "Tu saldo en garantía está asegurado y listo para usar.", time: "Hace 1 hora" },
+    { id: 1, read: false, icon: "🎓", title: "¡Bienvenido a ClassMarket!", body: "Encuentra compañeros para tutorías, guías y trueque de libros cerca de ti.", time: "Ahora" },
+    { id: 2, read: false, icon: "⭐", title: "Tutor destacado", body: "Camila Torres está disponible para asesorías de Matemáticas y Física.", time: "Hace 5 min" },
+    { id: 3, read: true, icon: "🔒", title: "Custodia Segura Activa", body: "Tu saldo en garantía estudiantil está protegido hasta recibir tu tutoría.", time: "Hace 1 hora" },
   ]);
   const unreadCount = notifications.filter(n => !n.read).length;
 
