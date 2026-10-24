@@ -24,12 +24,16 @@ interface MiniCardProps {
 }
 
 const CATEGORIA_COLORS: Record<string, string> = {
-  Tech: "text-[#0288D1] bg-[#E0F2FE]",
-  Hogar: "text-[#F57F17] bg-[#FFFDE7]",
-  Creativo: "text-[#D81B60] bg-[#FCE4EC]",
-  Eventos: "text-[#2E7D32] bg-[#E8F5E9]",
-  Salud: "text-[#93000A] bg-[#FCE4EC]",
-  "Educación": "text-[#50616B] bg-[#E6EEFF]",
+  MatematicasCiencias: "text-[#0B2545] bg-[#E8EEF5]",
+  TareasGuias: "text-[#0B2545] bg-[#FAF8F5]",
+  TutoriasClases: "text-[#0B2545] bg-[#C5A059]/15",
+  ProgramacionTecnologias: "text-[#0B2545] bg-[#D4AF37]/20",
+  Tech: "text-[#0B2545] bg-[#E8EEF5]",
+  Hogar: "text-[#0B2545] bg-[#C5A059]/15",
+  Creativo: "text-[#0B2545] bg-[#D4AF37]/20",
+  Eventos: "text-[#0B2545] bg-[#E8EEF5]",
+  Salud: "text-[#0B2545] bg-[#C5A059]/15",
+  "Educación": "text-[#0B2545] bg-[#E8EEF5]",
 };
 
 export default function MiniCard({ expert, onClose, onVerPerfil, position }: MiniCardProps) {
