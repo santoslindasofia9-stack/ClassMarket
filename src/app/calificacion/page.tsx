@@ -8,56 +8,90 @@ import Image from 'next/image';
 import BottomNav from '@/components/dashboard/BottomNav';
 
 const quickTags = [
-  "Entrega a tiempo",
-  "Gran comunicación",
-  "Muy profesional",
-  "Calidad de código",
-  "Soporte post-entrega"
+  "Explicación clara y paciente",
+  "Puntual y responsable",
+  "Excelente apoyo en la tarea",
+  "Conocimiento profundo del tema",
+  "Gran compañerismo y respeto"
 ];
 
 const mockPhotos = [
-  "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=300",
-  "https://images.unsplash.com/photo-1542744094-3a31f103e35f?auto=format&fit=crop&q=80&w=300"
+  "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=300",
+  "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=300"
 ];
 
 export default function CalificacionPage() {
   const router = useRouter();
   
   // State
-  const [rating, setRating] = useState<number>(4);
+  const [rating, setRating] = useState<number>(5);
   const [hoverRating, setHoverRating] = useState<number>(0);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
-  const [photos, setPhotos] = useState<string[]>([
-    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=300"
-  ]);
+  const [photos, setPhotos] = useState<string[]>([]);
   const [comment, setComment] = useState<string>('');
   const [showSuccessModal, setShowSuccessModal] = useState<boolean>(false);
-  const [expertName, setExpertName] = useState<string>('Alex Rivera');
-  const [expertImage, setExpertImage] = useState<string>('https://lh3.googleusercontent.com/aida-public/AB6AXuBr7PKkLTLkZtiZc6R7YN01A70SXNomxN6ykcs-mH7V-Et7rS5d8yUVZx3yoyrBqSMpxKTAkyrY2VbEGwTK22uFPObfQXfUYFY96AVlHZyh5uXL07hecOI0GHHGax9RsF3DbhyAX9WgawyfCvmK6MSsvVnY23Nxsl1SI_mEDl5mhVihCF1kWpizNBEyM4mD-hIX8Z3GrXPyjOy4CQi5BCaOfO87HR6pmsL6dDdrcsLoJpYeNHiokz6v-sJ2mzu72uQD0ToW9MT39g');
-  const [expertRole, setExpertRole] = useState<string>('Diseñador Web Senior');
+  const [expertName, setExpertName] = useState<string>('Camila Torres');
+  const [expertImage, setExpertImage] = useState<string>('https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400&crop=face');
+  const [expertRole, setExpertRole] = useState<string>('Tutoría de Matemáticas y Física');
 
   useEffect(() => {
     const savedName = localStorage.getItem("currentExpertName");
     const savedImage = localStorage.getItem("currentExpertAvatar") || localStorage.getItem("currentExpertImage");
     const savedRole = localStorage.getItem("currentExpertRole");
     
-    const fallbackAvatars: Record<string, string> = {
-      "Elena Rodríguez": "https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=400",
-      "Julián Martínez": "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?auto=format&fit=crop&q=80&w=400",
-      "Sofía López": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=400",
-      "Carlos Torres": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400",
-      "Marta Valls": "https://lh3.googleusercontent.com/aida-public/AB6AXuAtczwaCBZDrakoJIvPXavRcfa_YWopKVV-7E7HQr1nuY1tk4Idv_KTZUmHIGTzsIPind-7xfjHamETjNysRRKAQ2ThKrJDlj6a5FhixgOXvC1i6jrRwwX-ysP3e7a9-yOoxp5NBSo4JPs_XDtNyLYRMUdnZsBicPKX-pX_Iv_hg37hGYdoAeMGNiLdo1f6Ed-T0_Ydjpy_b6DDORFaWAIhHLSdMQcDWLI9UOcZw-UVdUucDKpWNB6PVOvoF76-4pbY0nZ0NpBlTQ",
-      "David García": "https://lh3.googleusercontent.com/aida-public/AB6AXuB8PciBPx8J_AUKCIHBcXBGUlgRG_SmQklphaaOPBS7Io20uuJq9Yqq-LmnM5BE-jHMcSyCpPIvnICQJWKKlKTgI19ULZNR0yb5Zy2WjUz8C9GFMo8ovXVyg3r11ofkBuX3rfH-4GmDWyNrDpT_y2GPaEybrpRNVbFfVCdj5jBUsHDOQlJ4dx1n1IFo4WvjuYtSZiPl6qsw4viIzPKZwxMjTn_4NAFIUWX18Dnqf0EOhnKuC7df6IwgwyT-oAmPAOQZwqp9EHv3YQ",
-      "Valeria Gómez": "https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&q=80&w=400",
-      "Andrés Silva": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200",
-      "Lucía Ortiz": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200",
-      "Roberto Sánchez": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200",
-      "Carolina Ruiz": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200",
-      "Diego Castro": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=200",
-      "Laura Vásquez": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200"
-    };
-
     if (savedName) setExpertName(savedName);
+    if (savedImage) setExpertImage(savedImage);
+    if (savedRole) setExpertRole(savedRole);
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-[#FAF8F5] text-[#0B2545] font-sans flex flex-col items-center justify-between pb-24 md:pb-8">
+      
+      {/* Decorative Warm Ambient Blobs */}
+      <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-[#C5A059]/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-20 left-0 w-[350px] h-[350px] bg-[#0B2545]/5 rounded-full blur-[80px] pointer-events-none" />
+
+      {/* Top Header */}
+      <header className="fixed top-0 left-0 right-0 w-full z-40 bg-white/90 backdrop-blur-md border-b border-[#0B2545]/10 flex justify-between items-center px-4 md:px-10 py-4 h-20 shadow-sm">
+        <div className="flex items-center gap-3">
+          <div onClick={() => router.push('/home-cliente')} className="flex items-center gap-3 group cursor-pointer">
+            <div className="w-10 h-10 rounded-xl overflow-hidden border border-[#C5A059]/40 bg-white flex items-center justify-center p-1 shadow-sm">
+              <img 
+                src="/classmarket-logo.png" 
+                alt="ClassMarket Logo" 
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-xl font-extrabold text-[#0B2545] tracking-tight leading-none flex items-center gap-1.5">
+                ClassMarket
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#C5A059]/20 text-[#0B2545] border border-[#C5A059]/30">Calificaciones</span>
+              </span>
+              <span className="text-[10px] font-semibold text-[#5C6B73]">Comunidad Estudiantil</span>
+            </div>
+          </div>
+        </div>
+        <div className="hidden md:flex items-center gap-8">
+          <button onClick={() => router.push('/home-cliente')} className="text-sm font-semibold text-[#5C6B73] hover:text-[#0B2545] transition-colors">Inicio</button>
+          <button onClick={() => router.push('/resultados')} className="text-sm font-semibold text-[#5C6B73] hover:text-[#0B2545] transition-colors">Tutorías</button>
+          <button onClick={() => router.push('/chat/f1')} className="text-sm font-semibold text-[#5C6B73] hover:text-[#0B2545] transition-colors">Mensajes</button>
+        </div>
+        <div className="flex items-center gap-4">
+          <div onClick={() => router.push('/perfil')} className="w-10 h-10 rounded-full overflow-hidden border-2 border-[#C5A059]/40 shadow-sm hover:scale-105 transition-transform cursor-pointer bg-[#0B2545] text-white flex items-center justify-center font-bold text-sm">
+            <span>S</span>
+          </div>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="w-full max-w-6xl mx-auto px-4 md:px-8 mt-24 pt-6 pb-12 flex flex-col items-center z-10 flex-grow">
+        
+        {/* Title Section */}
+        <div className="text-center mb-8 max-w-2xl">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#C5A059] block mb-2">Comentarios Académicos</span>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-[#0B2545] tracking-tight mb-3">¿Cómo fue la tutoría o intercambio?</h2>
+          <p className="text-[#5C6B73] text-sm md:text-base leading-relaxed">Tu valoración ayuda a otros compañeros de colegio o universidad a elegir al mejor tutor y fomenta un entorno de ayuda mutua.</p>
+        </div>
     
     const finalImage = savedImage || (savedName ? fallbackAvatars[savedName] : null);
     if (finalImage) setExpertImage(finalImage);

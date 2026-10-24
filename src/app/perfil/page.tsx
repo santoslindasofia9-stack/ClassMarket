@@ -313,17 +313,27 @@ export default function PerfilPage() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-[#e6eeff] h-16 md:h-20 flex items-center">
         <div className="max-w-[1280px] mx-auto w-full px-4 md:px-6 flex justify-between items-center">
           <div className="flex items-center gap-4">
-            <button className="md:hidden text-[#5e6f79] p-2">
+            <button className="md:hidden text-[#0B2545] p-2">
               <Menu size={24} />
             </button>
-            <div className="flex items-center gap-2 cursor-pointer" onClick={() => {
+            <div className="flex items-center gap-3 cursor-pointer" onClick={() => {
               localStorage.setItem("userRole", "client");
               window.location.href = '/home-cliente';
             }}>
-              <div className="w-8 h-8 bg-[#0d1c2e] rounded-lg flex items-center justify-center">
-                <span className="material-symbols-outlined text-white text-xl">hub</span>
+              <div className="w-10 h-10 rounded-xl overflow-hidden border border-[#C5A059]/40 bg-white flex items-center justify-center p-1 shadow-sm">
+                <img 
+                  src="/classmarket-logo.png" 
+                  alt="ClassMarket Logo" 
+                  className="w-full h-full object-contain"
+                />
               </div>
-              <h1 className="text-xl md:text-2xl font-bold text-[#0d1c2e] tracking-tight">Tool Link</h1>
+              <div className="flex flex-col">
+                <span className="text-xl font-extrabold text-[#0B2545] tracking-tight leading-none flex items-center gap-1.5">
+                  ClassMarket
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#C5A059]/20 text-[#0B2545] border border-[#C5A059]/30">Perfil</span>
+                </span>
+                <span className="text-[10px] font-semibold text-[#5C6B73]">Comunidad Estudiantil</span>
+              </div>
             </div>
           </div>
           
