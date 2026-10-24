@@ -119,7 +119,7 @@ const ContractConfirmationPage = () => {
   const [pseBank, setPseBank] = useState('');
   const [pseDoc, setPseDoc] = useState('');
 
-  const HALF = '$1,225.00';
+  const HALF = '$9.00';
 
   const openPayModal = () => {
     setSelectedMethod(null);
@@ -312,26 +312,37 @@ const ContractConfirmationPage = () => {
   return (
     <div className="min-h-screen bg-[#f8f9ff] text-[#0d1c2e] pb-32 md:pb-40 font-sans">
       {/* Top Navigation */}
-      <header className="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-[#dce9ff]/50">
-        <div className="max-w-[1280px] mx-auto flex justify-between items-center w-full px-4 md:px-8 py-4">
+      <header className="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-[#C5A059]/20 shadow-sm">
+        <div className="max-w-[1280px] mx-auto flex justify-between items-center w-full px-4 md:px-8 py-3.5">
           <div className="flex items-center gap-4">
             <button 
               onClick={() => router.back()}
-              className="p-2 rounded-full hover:bg-[#e6eeff] transition-colors cursor-pointer text-[#50616b]"
+              className="p-2 rounded-full hover:bg-slate-100 transition-colors cursor-pointer text-[#5C6B73]"
             >
-              <ArrowLeft size={24} />
+              <ArrowLeft size={22} />
             </button>
-            <h1 className="text-lg md:text-xl font-bold text-[#0d1c2e]">Marketplace</h1>
+            <div className="flex items-center gap-3 cursor-pointer" onClick={() => router.push('/home-cliente')}>
+              <div className="w-10 h-10 rounded-xl overflow-hidden border border-[#C5A059]/40 bg-white flex items-center justify-center p-1 shadow-sm">
+                <img src="/classmarket-logo.png" alt="ClassMarket" className="w-full h-full object-contain" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-xl md:text-2xl font-extrabold text-[#0B2545] tracking-tight leading-none flex items-center gap-1.5">
+                  ClassMarket
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#C5A059]/20 text-[#0B2545] border border-[#C5A059]/30">Estudiantil</span>
+                </span>
+                <span className="text-[10px] font-semibold text-[#5C6B73]">Educación e Intercambio Real</span>
+              </div>
+            </div>
           </div>
           <div className="flex items-center gap-3">
-            <div className="bg-[#f4dce4] text-[#716066] px-3 py-1.5 rounded-full text-[10px] md:text-[11px] font-bold flex items-center gap-1.5 shadow-sm">
-              <BadgeCheck size={14} className="text-[#6b5a60]" />
-              <span className="hidden sm:inline">Verified by AI</span>
-              <span className="sm:hidden">AI Verified</span>
+            <div className="bg-[#C5A059]/15 text-[#0B2545] border border-[#C5A059]/30 px-3 py-1.5 rounded-full text-[10px] md:text-[11px] font-bold flex items-center gap-1.5 shadow-sm">
+              <BadgeCheck size={14} className="text-[#C5A059]" />
+              <span className="hidden sm:inline">Custodia Escrow Estudiantil</span>
+              <span className="sm:hidden">Escrow</span>
             </div>
-            <div className="relative w-9 h-9 md:w-10 md:h-10 rounded-full border-2 border-white shadow-sm ring-1 ring-[#d5e3fc]/20 overflow-hidden">
+            <div className="relative w-9 h-9 md:w-10 md:h-10 rounded-full border-2 border-[#C5A059]/30 shadow-sm overflow-hidden">
                <Image 
-                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=100" 
+                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100" 
                 alt="User profile" 
                 fill
                 className="object-cover"
@@ -458,48 +469,48 @@ const ContractConfirmationPage = () => {
             </div>
 
             {/* Total agreed amount */}
-            <div className="bg-gradient-to-br from-[#e0f2fe]/60 to-[#fce4ec]/40 rounded-2xl p-5 md:p-6 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border border-[#dce9ff]/60">
+            <div className="bg-gradient-to-br from-[#0B2545]/5 to-[#C5A059]/10 rounded-2xl p-5 md:p-6 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border border-[#C5A059]/30">
               <div>
-                <p className="text-[10px] font-black text-[#50616b] uppercase tracking-widest mb-1">Costo Total Acordado</p>
-                <p className="text-4xl md:text-5xl font-extrabold text-[#0d1c2e] tracking-tight">
-                  $2,450.00 <span className="text-base font-semibold text-[#73787b] tracking-normal">USD</span>
+                <p className="text-[10px] font-black text-[#5C6B73] uppercase tracking-widest mb-1">Costo Total Acordado</p>
+                <p className="text-4xl md:text-5xl font-extrabold text-[#0B2545] tracking-tight">
+                  $18.00 <span className="text-base font-semibold text-[#5C6B73] tracking-normal">USD</span>
                 </p>
               </div>
-              <div className="bg-white/80 rounded-xl px-4 py-2.5 border border-[#dce9ff]/50 text-center shadow-sm">
-                <p className="text-[10px] font-black text-[#50616b] uppercase tracking-widest">Modalidad</p>
-                <p className="text-sm font-bold text-[#0d1c2e] mt-0.5">Pago en 2 partes</p>
+              <div className="bg-white/90 rounded-xl px-4 py-2.5 border border-[#C5A059]/30 text-center shadow-sm">
+                <p className="text-[10px] font-black text-[#5C6B73] uppercase tracking-widest">Modalidad</p>
+                <p className="text-sm font-bold text-[#0B2545] mt-0.5">Pago en 2 partes</p>
               </div>
             </div>
 
             {/* Two-step payment cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
               {/* Step 1 */}
-              <div className="relative bg-[#e0f2fe]/30 rounded-2xl p-5 border border-[#b7c9d5]/40 overflow-hidden">
-                <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-[#50616b] flex items-center justify-center text-white text-xs font-black shadow-sm">1</div>
-                <p className="text-[10px] font-black text-[#50616b] uppercase tracking-widest mb-2">Al iniciar el contrato</p>
-                <p className="text-3xl font-extrabold text-[#50616b] tracking-tight">
-                  $1,225.00 <span className="text-sm font-semibold text-[#73787b]">USD</span>
+              <div className="relative bg-[#0B2545]/5 rounded-2xl p-5 border border-[#0B2545]/15 overflow-hidden">
+                <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-[#0B2545] flex items-center justify-center text-white text-xs font-black shadow-sm">1</div>
+                <p className="text-[10px] font-black text-[#0B2545] uppercase tracking-widest mb-2">Al iniciar el contrato</p>
+                <p className="text-3xl font-extrabold text-[#0B2545] tracking-tight">
+                  $9.00 <span className="text-sm font-semibold text-[#5C6B73]">USD</span>
                 </p>
-                <p className="text-xs text-[#43474b] font-medium mt-2 leading-relaxed">
-                  Se cobra la primera mitad al momento de firmar. Estos fondos quedan retenidos en garantía (escrow) hasta la entrega.
+                <p className="text-xs text-[#5C6B73] font-medium mt-2 leading-relaxed">
+                  Se cobra el 50% al momento de firmar. Estos fondos quedan protegidos en custodia estudiantil (escrow) hasta recibir la sesión o material.
                 </p>
-                <div className="mt-3 flex items-center gap-1.5 text-[#50616b]">
+                <div className="mt-3 flex items-center gap-1.5 text-[#0B2545]">
                   <Lock size={12} />
                   <span className="text-[10px] font-bold uppercase tracking-wide">Retenido en garantía</span>
                 </div>
               </div>
 
               {/* Step 2 */}
-              <div className="relative bg-[#fce4ec]/30 rounded-2xl p-5 border border-[#d7c1c8]/40 overflow-hidden">
-                <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-[#6b5a60] flex items-center justify-center text-white text-xs font-black shadow-sm">2</div>
-                <p className="text-[10px] font-black text-[#6b5a60] uppercase tracking-widest mb-2">Al entregar el servicio</p>
-                <p className="text-3xl font-extrabold text-[#6b5a60] tracking-tight">
-                  $1,225.00 <span className="text-sm font-semibold text-[#73787b]">USD</span>
+              <div className="relative bg-[#C5A059]/10 rounded-2xl p-5 border border-[#C5A059]/30 overflow-hidden">
+                <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-[#C5A059] flex items-center justify-center text-[#0B2545] text-xs font-black shadow-sm">2</div>
+                <p className="text-[10px] font-black text-[#0B2545] uppercase tracking-widest mb-2">Al entregar la tutoría / guía</p>
+                <p className="text-3xl font-extrabold text-[#0B2545] tracking-tight">
+                  $9.00 <span className="text-sm font-semibold text-[#5C6B73]">USD</span>
                 </p>
-                <p className="text-xs text-[#43474b] font-medium mt-2 leading-relaxed">
-                  La segunda mitad se libera al profesional únicamente cuando el cliente confirma que el trabajo fue entregado satisfactoriamente.
+                <p className="text-xs text-[#5C6B73] font-medium mt-2 leading-relaxed">
+                  La segunda mitad se transfiere al tutor únicamente cuando confirmas que la clase o taller se completó a entera satisfacción.
                 </p>
-                <div className="mt-3 flex items-center gap-1.5 text-[#6b5a60]">
+                <div className="mt-3 flex items-center gap-1.5 text-[#0B2545]">
                   <CheckCircle2 size={12} />
                   <span className="text-[10px] font-bold uppercase tracking-wide">Liberado al confirmar entrega</span>
                 </div>

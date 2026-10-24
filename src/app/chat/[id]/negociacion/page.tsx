@@ -8,33 +8,39 @@ import { supabase } from '@/lib/supabase';
 const FALLBACK_EXPERTS = [
   {
     id: "f1",
-    nombre_completo: "Elena Rodríguez",
-    foto_perfil: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=400"
+    nombre_completo: "Camila Torres",
+    titulo_profesional: "Tutoría de Matemáticas & Física",
+    foto_perfil: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400&crop=face"
   },
   {
     id: "f2",
-    nombre_completo: "Julián Martínez",
-    foto_perfil: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?auto=format&fit=crop&q=80&w=400"
+    nombre_completo: "Mateo Valenzuela",
+    titulo_profesional: "Guías de Química Orgánica",
+    foto_perfil: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=400&crop=face"
   },
   {
     id: "f3",
-    nombre_completo: "Sofía López",
-    foto_perfil: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=400"
+    nombre_completo: "Sofía Salazar",
+    titulo_profesional: "Clases de Inglés Saber 11",
+    foto_perfil: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=400&crop=face"
   },
   {
     id: "f4",
-    nombre_completo: "Carlos Torres",
-    foto_perfil: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400"
+    nombre_completo: "Diego Morales",
+    titulo_profesional: "Proyectos de Programación e Informática",
+    foto_perfil: "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?auto=format&fit=crop&q=80&w=400&crop=face"
   },
   {
     id: "f5",
-    nombre_completo: "Marta Valls",
-    foto_perfil: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400"
+    nombre_completo: "Valentina Gómez",
+    titulo_profesional: "Trueque de Libros y Filosofía",
+    foto_perfil: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400&crop=face"
   },
   {
     id: "f6",
-    nombre_completo: "David García",
-    foto_perfil: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400"
+    nombre_completo: "Sebastián Rincón",
+    titulo_profesional: "Geometría y Trigonometría",
+    foto_perfil: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400&crop=face"
   }
 ];
 

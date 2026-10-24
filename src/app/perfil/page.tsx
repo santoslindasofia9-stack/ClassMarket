@@ -48,22 +48,22 @@ interface Review {
   publishDate: string;
 }
 
-const DEFAULT_AVATAR = "https://lh3.googleusercontent.com/aida-public/AB6AXuDw-ZTCrIPqnjF5sFLMvL4wpBrJUFCX1TOgGK8ITvhzCBb0Vc8cACs0EksoF88cxj10bvpUSYSzwE6C2sNzfAhvFwjlA9sEKfgLY2CcoTQ_rgVdbWYefpu5BUMd3nuM0881x9QKUJjs2pz9Kudga6_lCIvXqAgZ5WkCCf18CXFXE1vXTmw2NXLFtDybgdxpOXMCVfZerpafcg-jugKCv1sEvtgehLB_hPmzgza6sKAlVRBu19gZU8rlcAGwBBWoNuNmtUw33Ruopg";
+const DEFAULT_AVATAR = "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400&crop=face";
 
 const AVATAR_PRESETS = [
-  { name: "Mariana Rodríguez (Original)", url: DEFAULT_AVATAR },
-  { name: "Sarah Jenkins (Marketing)", url: "https://lh3.googleusercontent.com/aida-public/AB6AXuBr7PKkLTLkZtiZc6R7YN01A70SXNomxN6ykcs-mH7V-Et7rS5d8yUVZx3yoyrBqSMpxKTAkyrY2VbEGwTK22uFPObfQXfUYFY96AVlHZyh5uXL07hecOI0GHHGax9RsF3DbhyAX9WgawyfCvmK6MSsvVnY23Nxsl1SI_mEDl5mhVihCF1kWpizNBEyM4mD-hIX8Z3GrXPyjOy4CQi5BCaOfO87HR6pmsL6dDdrcsLoJpYeNHiokz6v-sJ2mzu72uQD0ToW9MT39g" },
-  { name: "Elena Varas (Diseño)", url: "https://lh3.googleusercontent.com/aida-public/AB6AXuBWc_kFd0aemAFl39YK6A86WDQZy9EtY8k_kFwtYsbWZ1-6CjnBpIbAFWF1AM9ck39dCop7Gx73h9-BMcjHkseZNl2e5n-Sxjuhco-zmrwEBqHlyQ7mVNc8bx-t9xZ-XYy1wld7BikSYng8qybJcwiG-NKYgRA01V9O9ZmfTqyJdSDqBBYzpL1nX-w1hcBHwcywCWQ_Ssfyo2FZ8i4OxHoxNDY20FtUWLfr8DdkgJhLSgZoaVVRDbR84AAJ38WvAsjVpwlXSYxW0Q" },
-  { name: "David García (Tech)", url: "https://lh3.googleusercontent.com/aida-public/AB6AXuB8PciBPx8J_AUKCIHBcXBGUlgRG_SmQklphaaOPBS7Io20uuJq9Yqq-LmnM5BE-jHMcSyCpPIvnICQJWKKlKTgI19ULZNR0yb5Zy2WjUz8C9GFMo8ovXVyg3r11ofkBuX3rfH-4GmDWyNrDpT_y2GPaEybrpRNVbFfVCdj5jBUsHDOQlJ4dx1n1IFo4WvjuYtSZiPl6qsw4viIzPKZwxMjTn_4NAFIUWX18Dnqf0EOhnKuC7df6IwgwyT-oAmPAOQZwqp9EHv3YQ" }
+  { name: "Sofía (Estudiante)", url: DEFAULT_AVATAR },
+  { name: "Camila Torres (Matemáticas)", url: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=400&crop=face" },
+  { name: "Mateo Valenzuela (Química)", url: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=400&crop=face" },
+  { name: "Diego Morales (Informática)", url: "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?auto=format&fit=crop&q=80&w=400&crop=face" }
 ];
 
 export default function PerfilPage() {
   const router = useRouter();
   
   // 1. Core Profile States
-  const [userName, setUserName] = useState<string>("Mariana Rodríguez");
+  const [userName, setUserName] = useState<string>("Sofía");
   const [userAvatar, setUserAvatar] = useState<string>(DEFAULT_AVATAR);
-  const [userLocation, setUserLocation] = useState<string>("Ciudad de México (CDMX)");
+  const [userLocation, setUserLocation] = useState<string>("Bucaramanga, Santander");
   const [isEditOpen, setIsEditOpen] = useState<boolean>(false);
   const [locationShared, setLocationShared] = useState<boolean>(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
@@ -221,7 +221,7 @@ export default function PerfilPage() {
       setEscrowReleased(true);
       triggerToast(
         "Pago Autorizado", 
-        "El saldo en garantía de $1,224.00 ha sido transferido de forma segura a la cuenta de Alex Martínez."
+        "El saldo en garantía de $14.00 USD ha sido transferido de forma segura a la cuenta de Mateo Valenzuela."
       );
     }, 1500);
   };
@@ -229,77 +229,77 @@ export default function PerfilPage() {
   // Data mocks
   const trabajos: Contract[] = [
     {
-      id: "TL-88902-MX",
-      proName: "Carlos Mendoza",
-      avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuBLfMkE0eIjiorpTX7KHrhhNVU5H8sfQ91m-dTGBkgScoChIpAdGqqpGqdOA2RA0zzp-r9S1Bf18i9sHg1DyFmGqFksmDeb9Q1R5aohsKkGi5-iedYVECItlTDvBs08zyOfFyWQU2xD52GIxwo9UMSkuyIdtJcux8Ifklbj-fWCB1QMgHCv-MEzegoUUbuAPiV29v3IArh25MXHCfkA9gvU6zPqRgZoW54o1_sA2utOEobe1PQEMh09AsXfWu4rUIcDiNWJBQg0Mg",
-      category: "Diseño de Interiores",
-      date: "Noviembre, 2023",
-      amount: "$840.00 USD",
+      id: "CM-2026-01",
+      proName: "Camila Torres",
+      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400&crop=face",
+      category: "Tutoría de Álgebra y Física",
+      date: "Mayo, 2026",
+      amount: "$15.00 USD",
       status: "Completado",
-      desc: "Proyecto de remodelación conceptual de la sala principal y pasillo de entrada. Incluye modelado 3D, paleta de colores sugerida, lista de compras de mobiliario comercial, y dos revisiones completas sobre el plano original."
+      desc: "Sesión intensiva de preparación para el examen bimestral de cálculo y física 11°. Incluye resolución de guía de 10 ejercicios paso a paso y apuntes en PDF."
     },
     {
-      id: "TL-74391-US",
-      proName: "Elena Varas",
-      avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuBWc_kFd0aemAFl39YK6A86WDQZy9EtY8k_kFwtYsbWZ1-6CjnBpIbAFWF1AM9ck39dCop7Gx73h9-BMcjHkseZNl2e5n-Sxjuhco-zmrwEBqHlyQ7mVNc8bx-t9xZ-XYy1wld7BikSYng8qybJcwiG-NKYgRA01V9O9ZmfTqyJdSDqBBYzpL1nX-w1hcBHwcywCWQ_Ssfyo2FZ8i4OxHoxNDY20FtUWLfr8DdkgJhLSgZoaVVRDbR84AAJ38WvAsjVpwlXSYxW0Q",
-      category: "Consultoría Financiera",
-      date: "Octubre, 2023",
-      amount: "$1,550.00 USD",
+      id: "CM-2026-02",
+      proName: "Mateo Valenzuela",
+      avatar: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=400&crop=face",
+      category: "Guías de Química Orgánica",
+      date: "Abril, 2026",
+      amount: "$12.00 USD",
       status: "Completado",
-      desc: "Revisión tributaria anual, auditoría de flujo de caja para e-commerce e integración de modelos financieros automatizados. Se entregaron tres plantillas de cálculo dinámicas y un informe corporativo detallado de mitigación de riesgo."
+      desc: "Resolución y explicación del taller de hidrocarburos, enlaces moleculares y compuestos de carbono con diagramas de Lewis detallados."
     },
     {
-      id: "TL-62044-ES",
-      proName: "Roberto Sánchez",
-      avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuCaB0pHqFtfXILqLbDfWCrSVVQ87Ob-0lfgrZfGjCPWfJC2R1cF_PBJcLNpxRk9_Xg81KwZbdhbdqM5ShsazjdnKhPg0je0oaAqdWDrMl0OmyutJ21EQ1-WFqkEWp4Eonzlv66A5aJElEI9wPhypaCh6W5nGoDksmY7_LaiE00PS6dGZXFR8SQAjz4cqYr34LTf6kvZtbTTk9UuNvOJGO38DEkDcvU2NLEUsHrlPkfVvolMeuYO5vjFrY1MEJr3VsGYU38rCjeI2A",
-      category: "Fotografía Comercial",
-      date: "Septiembre, 2023",
-      amount: "$620.00 USD",
+      id: "CM-2026-03",
+      proName: "Sofía Salazar",
+      avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=400&crop=face",
+      category: "Clases de Inglés Saber 11",
+      date: "Marzo, 2026",
+      amount: "$18.00 USD",
       status: "Completado",
-      desc: "Sesión fotográfica de producto en estudio para catálogo digital. Incluye 24 tomas retocadas digitalmente en alta resolución, optimización de balances lumínicos y derechos de explotación comercial exclusivos para redes sociales."
+      desc: "Preparación especializada para la prueba de inglés del Icfes Saber 11. Enfoque en lectura crítica, conectores textuales y simulacro comentado."
     },
     {
-      id: "TL-55102-MX",
-      proName: "Sofía Castillo",
-      avatar: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=400",
-      category: "Redacción y Contenidos",
-      date: "Agosto, 2023",
-      amount: "$320.00 USD",
+      id: "CM-2026-04",
+      proName: "Diego Morales",
+      avatar: "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?auto=format&fit=crop&q=80&w=400&crop=face",
+      category: "Proyectos en Python e Informática",
+      date: "Febrero, 2026",
+      amount: "$14.00 USD",
       status: "Completado",
-      desc: "Elaboración de 8 artículos educativos especializados de 1,200 palabras cada uno, enfocados en SEO y experiencia de usuario. Temas: finanzas personales, microinversiones e introducción a fondos colectivos de ahorro."
+      desc: "Tutoría para entrega de proyecto escolar de programación en Python. Se implementaron algoritmos de búsqueda y estructuras de datos básicas."
     }
   ];
 
   const reseñas: Review[] = [
     {
       id: 1,
-      proName: "Carlos Mendoza",
-      avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuBLfMkE0eIjiorpTX7KHrhhNVU5H8sfQ91m-dTGBkgScoChIpAdGqqpGqdOA2RA0zzp-r9S1Bf18i9sHg1DyFmGqFksmDeb9Q1R5aohsKkGi5-iedYVECItlTDvBs08zyOfFyWQU2xD52GIxwo9UMSkuyIdtJcux8Ifklbj-fWCB1QMgHCv-MEzegoUUbuAPiV29v3IArh25MXHCfkA9gvU6zPqRgZoW54o1_sA2utOEobe1PQEMh09AsXfWu4rUIcDiNWJBQg0Mg",
-      category: "Diseño de Interiores",
-      date: "Nov, 2023",
+      proName: "Camila Torres",
+      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400&crop=face",
+      category: "Tutoría de Álgebra y Física",
+      date: "May, 2026",
       stars: 5,
-      comment: "Excelente trabajo. Carlos capturó perfectamente lo que queríamos para el diseño de la sala de estar. El render en 3D fue de gran ayuda para visualizar el espacio final. Muy recomendable y profesional en todo momento.",
-      publishDate: "20 de Nov, 2023"
+      comment: "Excelente compañera y tutora. Me explicó cálculo con muchísima paciencia y logré pasar el examen con 4.8. Súper recomendada.",
+      publishDate: "20 de May, 2026"
     },
     {
       id: 2,
-      proName: "Elena Varas",
-      avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuBWc_kFd0aemAFl39YK6A86WDQZy9EtY8k_kFwtYsbWZ1-6CjnBpIbAFWF1AM9ck39dCop7Gx73h9-BMcjHkseZNl2e5n-Sxjuhco-zmrwEBqHlyQ7mVNc8bx-t9xZ-XYy1wld7BikSYng8qybJcwiG-NKYgRA01V9O9ZmfTqyJdSDqBBYzpL1nX-w1hcBHwcywCWQ_Ssfyo2FZ8i4OxHoxNDY20FtUWLfr8DdkgJhLSgZoaVVRDbR84AAJ38WvAsjVpwlXSYxW0Q",
-      category: "Consultoría Financiera",
-      date: "Oct, 2023",
+      proName: "Mateo Valenzuela",
+      avatar: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=400&crop=face",
+      category: "Guías de Química Orgánica",
+      date: "Abr, 2026",
       stars: 5,
-      comment: "Elena nos ayudó de manera increíble a organizar nuestras finanzas y planificar el crecimiento de nuestro ecommerce. Su experiencia comercial es evidente y sus plantillas de Excel nos han ahorrado horas de trabajo administrativo.",
-      publishDate: "05 de Oct, 2023"
+      comment: "El taller de química orgánica quedó impecable. Todos los pasos explicados y la entrega fue puntual antes de la clase.",
+      publishDate: "15 de Abr, 2026"
     },
     {
       id: 3,
-      proName: "Roberto Sánchez",
-      avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuCaB0pHqFtfXILqLbDfWCrSVVQ87Ob-0lfgrZfGjCPWfJC2R1cF_PBJcLNpxRk9_Xg81KwZbdhbdqM5ShsazjdnKhPg0je0oaAqdWDrMl0OmyutJ21EQ1-WFqkEWp4Eonzlv66A5aJElEI9wPhypaCh6W5nGoDksmY7_LaiE00PS6dGZXFR8SQAjz4cqYr34LTf6kvZtbTTk9UuNvOJGO38DEkDcvU2NLEUsHrlPkfVvolMeuYO5vjFrY1MEJr3VsGYU38rCjeI2A",
-      category: "Fotografía Comercial",
-      date: "Sep, 2023",
-      stars: 4.8,
-      comment: "Las fotos del evento corporativo quedaron espectaculares y capturaron momentos muy espontáneos. El único detalle fue que la entrega final se retrasó un par de días de la fecha acordada, pero valió completamente la pena por la calidad visual final.",
-      publishDate: "12 de Sep, 2023"
+      proName: "Sofía Salazar",
+      avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=400&crop=face",
+      category: "Clases de Inglés Saber 11",
+      date: "Mar, 2026",
+      stars: 4.9,
+      comment: "Muy buena sesión de repaso para el Saber 11. Me ayudó a ganar confianza en las lecturas largas y resolver rápido.",
+      publishDate: "28 de Mar, 2026"
     }
   ];
 
@@ -601,21 +601,21 @@ export default function PerfilPage() {
                     <div className="flex gap-4 items-center">
                       <div className="w-14 h-14 rounded-2xl overflow-hidden shrink-0 border border-slate-100 shadow-inner">
                         <img 
-                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuBr7PKkLTLkZtiZc6R7YN01A70SXNomxN6ykcs-mH7V-Et7rS5d8yUVZx3yoyrBqSMpxKTAkyrY2VbEGwTK22uFPObfQXfUYFY96AVlHZyh5uXL07hecOI0GHHGax9RsF3DbhyAX9WgawyfCvmK6MSsvVnY23Nxsl1SI_mEDl5mhVihCF1kWpizNBEyM4mD-hIX8Z3GrXPyjOy4CQi5BCaOfO87HR6pmsL6dDdrcsLoJpYeNHiokz6v-sJ2mzu72uQD0ToW9MT39g" 
-                          alt="Alex Martínez" 
+                          src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=400&crop=face" 
+                          alt="Mateo Valenzuela" 
                           className="w-full h-full object-cover" 
                         />
                       </div>
                       <div>
-                        <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-0.5">CONTRATO ACTIVO</span>
-                        <h3 className="font-extrabold text-[#0d1c2e] text-lg leading-tight">Alex Martínez</h3>
-                        <p className="text-xs text-[#5e6f79] font-medium mt-0.5">Desarrollo Web Full-Stack</p>
+                        <span className="text-[10px] font-black text-[#C5A059] uppercase tracking-widest block mb-0.5">CONTRATO ACTIVO</span>
+                        <h3 className="font-extrabold text-[#0B2545] text-lg leading-tight">Mateo Valenzuela</h3>
+                        <p className="text-xs text-[#5C6B73] font-medium mt-0.5">Tutoría de Química y Biología</p>
                       </div>
                     </div>
                     
-                    <div className="bg-[#E8F5E9] border border-[#a5d6a7]/30 text-[#2E7D32] px-4 py-2 rounded-2xl flex flex-col text-right">
-                      <span className="text-[8px] font-bold uppercase tracking-wider block">FONDOS EN GARANTÍA</span>
-                      <span className="text-lg font-black leading-none">$1,224.00 USD</span>
+                    <div className="bg-[#FAF8F5] border border-[#C5A059]/30 text-[#0B2545] px-4 py-2 rounded-2xl flex flex-col text-right">
+                      <span className="text-[8px] font-bold uppercase tracking-wider block text-[#5C6B73]">FONDOS EN GARANTÍA</span>
+                      <span className="text-lg font-black leading-none text-[#0B2545]">$14.00 USD</span>
                     </div>
                   </div>
 
@@ -679,7 +679,7 @@ export default function PerfilPage() {
                       onClick={() => router.push("/chat/f2")}
                       className="flex-1 min-w-[150px] py-3.5 border border-slate-200 hover:bg-slate-50 text-[#0d1c2e] rounded-full font-bold text-sm shadow-sm transition-all"
                     >
-                      Hablar con Alex
+                      Hablar con Mateo
                     </button>
                     
                     <button 

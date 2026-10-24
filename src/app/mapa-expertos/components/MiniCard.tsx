@@ -125,8 +125,8 @@ export default function MiniCard({ expert, onClose, onVerPerfil, position }: Min
           <span>Chatear</span>
         </button>
         <button
-          onClick={() => onVerPerfil(expert.id)}
-          className="flex-1 py-2.5 bg-[#0B2545] hover:bg-[#13335c] text-white font-bold text-xs rounded-full transition-all flex items-center justify-center gap-1.5 shadow-md active:scale-95"
+          onClick={() => { window.location.href = `/perfil?view=public&id=${expert.id}`; }}
+          className="flex-1 py-2 bg-white text-[#0B2545] border border-[#C5A059]/40 rounded-full text-xs font-bold hover:bg-[#FAF8F5] transition-all"
         >
           <span>Ver Perfil</span>
           <ArrowRight size={14} />

@@ -48,22 +48,22 @@ stream
 BT
 /F1 20 Tf
 50 750 Td
-(TRUSTMARKET - RECIBO DE PAGO FINAL) Tj
+(CLASSMARKET - COMPROBANTE DE PAGO ESTUDIANTIL) Tj
 /F1 12 Tf
 0 -40 Td
-(Referencia de Pago: #MP-8829-XQ) Tj
+(Referencia de Pago: #CM-8829-ST) Tj
 0 -20 Td
 (Estado: EXITOSO) Tj
 0 -20 Td
-(Monto Liberado: $2,250.00 USD) Tj
+(Monto Liberado: $18.00 USD) Tj
 0 -20 Td
-(Profesional Beneficiario: Expert Professional) Tj
+(Tutor Beneficiario: Camila Torres) Tj
 0 -20 Td
-(Servicio: Diseno de Identidad Visual Premium) Tj
+(Servicio: Tutoria de Matematicas y Taller de Algebra) Tj
 0 -20 Td
 (Fecha de Pago: 24 de Mayo, 2026) Tj
 0 -30 Td
-(Este documento es un comprobante de transaccion emitida de forma segura por TrustMarket.) Tj
+(Este documento es un comprobante de transaccion protegida por ClassMarket Estudiantil.) Tj
 ET
 endstream
 endobj
@@ -85,7 +85,7 @@ startxref
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'Recibo_Pago_Final_TrustMarket.pdf';
+    link.download = 'Comprobante_Pago_ClassMarket.pdf';
     link.click();
     URL.revokeObjectURL(url);
   };
@@ -202,15 +202,15 @@ startxref
             )}
           </AnimatePresence>
 
-          {/* Action Buttons (Stacked Vertically exactly as screen.png) */}
+          {/* Action Buttons */}
           <div className="mt-8 flex flex-col gap-3 w-full justify-center">
             {/* Descargar Recibo */}
             <button
               onClick={downloadReceiptPDF}
-              className="w-full bg-[#fce4ec] text-[#880e4f] hover:bg-[#fbd1de] font-bold py-4 rounded-full transition-all active:scale-95 shadow-sm text-sm flex items-center justify-center gap-2"
+              className="w-full bg-[#FAF8F5] text-[#0B2545] border border-[#C5A059]/40 hover:bg-[#C5A059]/15 font-bold py-4 rounded-full transition-all active:scale-95 shadow-sm text-sm flex items-center justify-center gap-2"
             >
-              <Download size={16} />
-              Descargar Recibo
+              <Download size={16} className="text-[#C5A059]" />
+              Descargar Comprobante PDF
             </button>
             
             {/* Calificar */}
@@ -221,12 +221,12 @@ startxref
               }}
               className={`w-full font-bold py-4 rounded-full border transition-all active:scale-95 text-sm flex items-center justify-center gap-2 ${
                 rated 
-                  ? 'bg-green-50 text-green-700 border-green-200 cursor-default' 
-                  : 'bg-white hover:bg-slate-50 text-slate-700 border-slate-200'
+                  ? 'bg-emerald-50 text-emerald-700 border-emerald-200 cursor-default' 
+                  : 'bg-[#0B2545] hover:bg-[#12335d] text-white border-[#C5A059]/30'
               }`}
             >
-              <Star size={16} className={rated ? 'fill-green-600 text-green-600' : ''} />
-              {rated ? `Calificado (${rating}★)` : 'Calificar'}
+              <Star size={16} className={rated ? 'fill-emerald-600 text-emerald-600' : 'text-[#C5A059] fill-[#C5A059]'} />
+              {rated ? `Calificado (${rating}★)` : 'Calificar al Tutor'}
             </button>
 
             {/* Volver a Home */}
@@ -235,9 +235,9 @@ startxref
                 localStorage.setItem("userRole", "client");
                 window.location.href = '/home-cliente';
               }}
-              className="w-full text-center text-slate-400 hover:text-slate-600 transition-colors font-bold text-xs py-2 uppercase tracking-widest mt-2"
+              className="w-full text-center text-[#5C6B73] hover:text-[#0B2545] transition-colors font-bold text-xs py-2 uppercase tracking-widest mt-2"
             >
-              Volver a Home
+              Volver al Inicio
             </button>
           </div>
         </motion.div>
@@ -247,18 +247,18 @@ startxref
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="mt-12 w-full max-w-md overflow-hidden rounded-3xl border border-slate-100/80 shadow-sm relative h-40 bg-slate-200"
+          className="mt-12 w-full max-w-md overflow-hidden rounded-3xl border border-[#C5A059]/30 shadow-sm relative h-40 bg-slate-200"
         >
           <Image
-            src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=1200"
+            src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1200"
             alt="Success backdrop"
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/20 to-transparent flex items-end p-5">
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0B2545]/80 via-[#0B2545]/30 to-transparent flex items-end p-5">
             <div className="text-white text-left">
-              <h4 className="font-extrabold text-base">Tu proyecto ha finalizado</h4>
-              <p className="text-white/80 text-[10px] font-medium">Todos los hitos completados con Garantía Trust.</p>
+              <h4 className="font-extrabold text-base">Tutoría completada con éxito</h4>
+              <p className="text-white/80 text-[10px] font-medium">Todos los entregables validados con Custodia Escrow Estudiantil.</p>
             </div>
           </div>
         </motion.div>

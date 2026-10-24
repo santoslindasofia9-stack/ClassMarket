@@ -98,25 +98,33 @@ export default function CalificacionPage() {
       <div className="absolute bottom-20 left-0 w-[350px] h-[350px] bg-pink-100/10 rounded-full blur-[80px] pointer-events-none" />
 
       {/* Top Header */}
-      <header className="fixed top-0 left-0 right-0 w-full z-40 bg-white/80 backdrop-blur-md border-b border-sky-100/50 flex justify-between items-center px-4 md:px-10 py-4 h-20 shadow-sm">
+      <header className="fixed top-0 left-0 right-0 w-full z-40 bg-white/90 backdrop-blur-md border-b border-[#C5A059]/20 flex justify-between items-center px-4 md:px-10 py-4 h-20 shadow-sm">
         <div className="flex items-center gap-3">
-          <div onClick={() => router.push('/home-cliente')} className="flex items-center gap-2 group cursor-pointer">
-            <ShieldCheck size={28} className="text-sky-500 group-hover:scale-110 transition-transform" />
-            <span className="text-xl font-extrabold tracking-tight">TrustMarket</span>
+          <div onClick={() => router.push('/home-cliente')} className="flex items-center gap-3 cursor-pointer">
+            <div className="w-10 h-10 rounded-xl overflow-hidden border border-[#C5A059]/40 bg-white flex items-center justify-center p-1 shadow-sm">
+              <img src="/classmarket-logo.png" alt="ClassMarket" className="w-full h-full object-contain" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-xl md:text-2xl font-extrabold text-[#0B2545] tracking-tight leading-none flex items-center gap-1.5">
+                ClassMarket
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#C5A059]/20 text-[#0B2545] border border-[#C5A059]/30">Estudiantil</span>
+              </span>
+              <span className="text-[10px] font-semibold text-[#5C6B73]">Educación e Intercambio Real</span>
+            </div>
           </div>
         </div>
         <div className="hidden md:flex items-center gap-8">
-          <button onClick={() => router.push('/home-cliente')} className="text-sm font-semibold text-slate-500 hover:text-sky-600 transition-colors">Inicio</button>
-          <button onClick={() => router.push('/resultados')} className="text-sm font-semibold text-slate-500 hover:text-sky-600 transition-colors">Buscar</button>
-          <button onClick={() => router.push('/chat/f1')} className="text-sm font-semibold text-slate-500 hover:text-sky-600 transition-colors">Mensajes</button>
+          <button onClick={() => router.push('/home-cliente')} className="text-sm font-semibold text-slate-500 hover:text-[#0B2545] transition-colors">Inicio</button>
+          <button onClick={() => router.push('/resultados')} className="text-sm font-semibold text-slate-500 hover:text-[#0B2545] transition-colors">Buscar</button>
+          <button onClick={() => router.push('/chat/f1')} className="text-sm font-semibold text-slate-500 hover:text-[#0B2545] transition-colors">Mensajes</button>
         </div>
         <div className="flex items-center gap-4">
           <div className="relative p-2 hover:bg-slate-100 rounded-full transition-all cursor-pointer">
             <span className="material-symbols-outlined text-slate-600">notifications</span>
-            <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-pink-500 rounded-full"></span>
+            <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-[#C5A059] rounded-full"></span>
           </div>
-          <div onClick={() => router.push('/perfil')} className="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-md hover:scale-105 transition-transform cursor-pointer">
-            <Image width={40} height={40} alt="Profile" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDA3c1g9Ip7IcE9UP_nubRYFHvrcaytwDfGkSdXQ96ngfLiN4gYGobLrUbzWRlz6K4NzNVPFSCgMdZGClMNESNWUBF_PJBXgJ2pSnQi_KMdCGU-7W5LRByC5hvMsyuctyTpXEDJWD5bcw-UCth5yM4v5Ar_0ubXSAewjHRYExHj-QGAnZeVZeTbqu2F_rU0eyNxARXTPgLbg75MsXMiwKL6BwXOcdFAEwDnxU3xQEnCW2GNmbcoJA8QymE8cQ-uc2zRIGx21SWMig"/>
+          <div onClick={() => router.push('/perfil')} className="w-10 h-10 rounded-full overflow-hidden border-2 border-[#C5A059]/40 shadow-md hover:scale-105 transition-transform cursor-pointer">
+            <Image width={40} height={40} alt="Profile" className="w-full h-full object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400&crop=face"/>
           </div>
         </div>
       </header>
@@ -126,8 +134,9 @@ export default function CalificacionPage() {
         
         {/* Title Section */}
         <div className="text-center mb-8 max-w-2xl">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-[#0d1c2e] tracking-tight mb-3">¿Cómo calificarías el servicio?</h2>
-          <p className="text-slate-500 text-sm md:text-base leading-relaxed">Tu valoración es sumamente valiosa para mantener los más altos estándares de calidad y seguridad en nuestra comunidad.</p>
+          <span className="text-[11px] font-extrabold text-[#C5A059] uppercase tracking-[0.2em] mb-2 block">Valoración de Compañero</span>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-[#0B2545] tracking-tight mb-3">¿Cómo calificarías la tutoría?</h2>
+          <p className="text-[#5C6B73] text-sm md:text-base leading-relaxed">Tu valoración apoya la reputación académica de los estudiantes y garantiza la confianza de toda la comunidad escolar.</p>
         </div>
 
         {/* Asymmetric Layout Grid */}
@@ -137,30 +146,30 @@ export default function CalificacionPage() {
           <div className="lg:col-span-5 flex flex-col gap-6 w-full">
               
             {/* Professional Summary Card */}
-            <div className="bg-white/95 backdrop-blur-md p-6 rounded-[2rem] border border-sky-100/50 shadow-[0_20px_50px_rgba(2,132,199,0.03)] flex flex-col items-center text-center">
-              <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4">SERVICIO CONTRATADO</span>
+            <div className="bg-white/95 backdrop-blur-md p-6 rounded-[2rem] border border-[#C5A059]/20 shadow-[0_20px_50px_rgba(11,37,69,0.04)] flex flex-col items-center text-center">
+              <span className="text-[10px] font-black text-[#5C6B73] uppercase tracking-widest mb-4">SERVICIO CONTRATADO</span>
               
               {/* Profile Image */}
               <div className="relative w-24 h-24 mb-4">
-                <div className="absolute inset-0 bg-sky-500/20 rounded-full blur-xl"></div>
+                <div className="absolute inset-0 bg-[#C5A059]/20 rounded-full blur-xl"></div>
                 <div className="relative z-10 w-full h-full rounded-full overflow-hidden border-4 border-white shadow-md">
-                  <Image width={96} height={96} alt="Professional Avatar" className="w-full h-full object-cover" src={expertImage} />
+                  <Image width={96} height={96} alt="Student Avatar" className="w-full h-full object-cover" src={expertImage} />
                 </div>
               </div>
               
-              <h3 className="text-lg font-bold text-[#0d1c2e]">{expertName}</h3>
-              <span className="text-xs text-sky-600 font-semibold bg-sky-50 px-3 py-1 rounded-full mt-1">{expertRole}</span>
+              <h3 className="text-lg font-bold text-[#0B2545]">{expertName}</h3>
+              <span className="text-xs text-[#0B2545] font-semibold bg-[#C5A059]/20 px-3 py-1 rounded-full mt-1 border border-[#C5A059]/30">{expertRole}</span>
               
               <div className="w-full border-t border-slate-100 my-4"></div>
               
               <div className="grid grid-cols-2 gap-4 w-full text-left">
                 <div>
                   <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">FECHA</span>
-                  <p className="text-xs font-bold text-[#0d1c2e]">24 May, 2026</p>
+                  <p className="text-xs font-bold text-[#0B2545]">24 May, 2026</p>
                 </div>
                 <div>
                   <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">TOTAL PAGADO</span>
-                  <p className="text-xs font-bold text-pink-600">$1,245.00 USD</p>
+                  <p className="text-xs font-bold text-[#0B2545]">$18.00 USD</p>
                 </div>
               </div>
             </div>
