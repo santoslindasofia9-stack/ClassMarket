@@ -1,8 +1,10 @@
 "use client";
+import { useRouter } from "next/navigation";
 
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 
+  const router = useRouter();
 export default function AuthCallback() {
   const [status, setStatus] = useState("Verificando sesión con Google...");
 
@@ -78,13 +80,13 @@ export default function AuthCallback() {
       localStorage.setItem("isLoggedIn", "true");
       localStorage.removeItem("pendingRole");
 
-      setStatus("¡Sesión iniciada! Redirigiendo a Home...");
-      const target = role === "client" ? "/home-cliente" : "/auth/verificacion-pro";
+      setStatus("¡Sesión iniciada! Redirigiendo al dashboard...");
+      const target = role === "client" ? "/home-cliente" : "/dashboard-pro";
 
       // Pequeño delay para mostrar el mensaje de éxito
       setTimeout(() => {
-        window.location.href = target;
-      }, 300);
+        router.replace(target);
+      }, 150);
     };
 
     handleCallback();

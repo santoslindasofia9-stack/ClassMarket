@@ -155,8 +155,8 @@ function LoginContent() {
         <div className="hidden lg:flex w-1/2 p-5 items-center justify-center">
           <div className="relative w-full h-full min-h-[580px] rounded-[32px] overflow-hidden group shadow-md">
             <Image
-              src="/students-collab.jpg"
-              alt="Estudiantes colaborando en ClassMarket"
+              src="/students-study-group.jpg"
+              alt="Estudiantes de secundaria colaborando en ClassMarket"
               fill
               className="object-cover transform group-hover:scale-105 transition-transform duration-700"
               sizes="(max-width: 1024px) 100vw, 50vw"
@@ -353,7 +353,7 @@ function LoginContent() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-4 bg-[#0B2545] hover:bg-[#12335d] text-white font-bold rounded-2xl shadow-lg hover:shadow-xl transition-all active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 border border-[#C5A059]/40 cursor-pointer"
+                  className="w-full py-4 bg-[#0B2545] hover:bg-[#12335d] text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 border border-[#C5A059]/60 cursor-pointer"
                 >
                   {loading ? (
                     <>
@@ -384,7 +384,7 @@ function LoginContent() {
               type="button"
               onClick={handleGoogleLogin}
               disabled={loading}
-              className="w-full flex items-center justify-center gap-3 py-3.5 bg-white border border-gray-200 rounded-2xl hover:border-gray-300 hover:shadow-md transition-all active:scale-[0.98] disabled:opacity-50 font-semibold text-sm text-[#3c4043] shadow-sm"
+              className="w-full flex items-center justify-center gap-3 py-3.5 bg-white border border-gray-200 rounded-full hover:border-[#C5A059]/60 hover:shadow-lg transition-all duration-300 active:scale-[0.98] disabled:opacity-50 font-semibold text-sm text-[#3c4043] shadow-sm"
             >
               <svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
                 <g transform="matrix(1, 0, 0, 1, 27.009001, -39.238998)">
