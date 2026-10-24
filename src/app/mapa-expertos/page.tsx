@@ -59,7 +59,7 @@ const FALLBACK_EXPERTS: Expert[] = [
     calificacion: 4.9,
     distancia_km: 2.4,
     tarifa: "$85/hr",
-    foto_perfil: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=200",
+    foto_perfil: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&q=80&w=200&crop=face",
     lat: 7.125,
     lng: -73.125,
   },
@@ -71,7 +71,7 @@ const FALLBACK_EXPERTS: Expert[] = [
     calificacion: 4.8,
     distancia_km: 1.8,
     tarifa: "$120/hr",
-    foto_perfil: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?auto=format&fit=crop&q=80&w=200",
+    foto_perfil: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200&crop=face",
     lat: 7.118,
     lng: -73.118,
   },
@@ -83,7 +83,7 @@ const FALLBACK_EXPERTS: Expert[] = [
     calificacion: 5.0,
     distancia_km: 0.5,
     tarifa: "$95/hr",
-    foto_perfil: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=200",
+    foto_perfil: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=200&crop=face",
     lat: 7.121,
     lng: -73.131,
   },
@@ -337,7 +337,7 @@ export default function MapaExpertos() {
   const [busqueda, setBusqueda] = useState("");
   const [pais, setPais] = useState("Colombia");
   const [departamento, setDepartamento] = useState("Santander");
-  const [ciudad, setCiudad] = useState("Bucaramanga");
+  const [ciudad, setCiudad] = useState("Bucaramanga, Piedecuesta, Floridablanca y Girón");
   const [mapCenter, setMapCenter] = useState<{lat: number, lng: number} | null>(null);
 
   // Jobs-mode location search
@@ -398,7 +398,7 @@ export default function MapaExpertos() {
         showToast("âœ“ UbicaciÃ³n en tiempo real detectada con Ã©xito.");
       },
       () => {
-        // Fallback Bucaramanga center
+        // Fallback Bucaramanga, Piedecuesta, Floridablanca y Girón center
         const fallback = { lat: 7.1193, lng: -73.1227 };
         setUserLocation(fallback);
         setMapCenter(fallback);

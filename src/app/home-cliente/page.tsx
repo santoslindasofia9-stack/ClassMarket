@@ -15,17 +15,19 @@ import {
   Repeat, 
   Laptop, 
   Sparkles,
-  Menu
+  Menu,
+  Code2,
+  FileText
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import BottomNav from "@/components/dashboard/BottomNav";
 import { supabase } from "@/lib/supabase";
 
 const CATEGORIES = [
-  { id: "Tutorias", name: "Tutorías & Clases", icon: BookOpen, color: "bg-[#0B2545]/10", textColor: "text-[#0B2545]" },
-  { id: "Creatividad", name: "Diseño & Creatividad", icon: Palette, color: "bg-[#C5A059]/15", textColor: "text-[#0B2545]" },
-  { id: "Trueque", name: "Trueque Estudiantil", icon: Repeat, color: "bg-[#D4AF37]/20", textColor: "text-[#0B2545]" },
-  { id: "Tecnologia", name: "Tecnología & Apoyo", icon: Laptop, color: "bg-[#0B2545]/15", textColor: "text-[#0B2545]" },
+  { id: "MatematicasCiencias", name: "Matemáticas & Ciencias", icon: BookOpen, color: "bg-[#0B2545]/10", textColor: "text-[#0B2545]" },
+  { id: "TareasGuias", name: "Tareas & Guías", icon: FileText, color: "bg-[#FAF8F5]", textColor: "text-[#0B2545]" },
+  { id: "TutoriasClases", name: "Tutorías & Clases", icon: BookOpen, color: "bg-[#C5A059]/15", textColor: "text-[#0B2545]" },
+  { id: "ProgramacionTecnologias", name: "Programación & Tecnologías", icon: Laptop, color: "bg-[#0B2545]/15", textColor: "text-[#0B2545]" },
 ];
 
 const ADS = [
@@ -54,7 +56,7 @@ const FALLBACK_PROS = [
     precio: "$12 / h o Trueque",
     distancia_km: 0.8,
     calificacion: 5.0,
-    foto_perfil: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400"
+    foto_perfil: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&q=80&w=400&crop=face"
   },
   {
     id: "f2",
@@ -64,7 +66,7 @@ const FALLBACK_PROS = [
     precio: "$8 por trabajo",
     distancia_km: 1.2,
     calificacion: 4.9,
-    foto_perfil: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=400"
+    foto_perfil: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400&crop=face"
   },
   {
     id: "f3",
@@ -74,7 +76,7 @@ const FALLBACK_PROS = [
     precio: "Trueque / Gratis",
     distancia_km: 0.4,
     calificacion: 5.0,
-    foto_perfil: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=400"
+    foto_perfil: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=400&crop=face"
   },
   {
     id: "f4",
@@ -84,7 +86,7 @@ const FALLBACK_PROS = [
     precio: "$15 / h",
     distancia_km: 2.1,
     calificacion: 5.0,
-    foto_perfil: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400"
+    foto_perfil: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400&crop=face"
   },
 ];
 
@@ -441,7 +443,9 @@ export default function HomeCliente() {
             </div>
 
             <h2 className="text-2xl sm:text-4xl md:text-[54px] font-extrabold text-[#0B2545] mb-4 md:mb-6 max-w-4xl leading-tight tracking-tight px-2">
+              <Sparkles className="inline-block text-[#C5A059] mr-2 align-middle" size={28} />
               El Marketplace donde los Estudiantes <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0B2545] via-[#C5A059] to-[#0B2545]">Comparten, Intercambian y Crecen</span> Juntos
+              <Sparkles className="inline-block text-[#C5A059] ml-2 align-middle" size={24} />
             </h2>
 
             <p className="text-base sm:text-lg md:text-xl text-[#5C6B73] font-medium mb-8 max-w-2xl mx-auto leading-relaxed px-4">
@@ -632,7 +636,7 @@ export default function HomeCliente() {
                     </div>
                     
                     <button className="w-full py-2.5 rounded-full bg-[#FAF8F5] text-[#0B2545] font-bold text-xs group-hover:bg-[#0B2545] group-hover:text-white transition-all border border-[#C5A059]/30 group-hover:border-transparent flex items-center justify-center gap-1.5">
-                      <span>Conectar / Chatear</span>
+                      <span onClick=\(e\) => \{ e.stopPropagation\(\); router.push\(`/inbox\?to=\${pro.id}`\); \}>Conectar / Chatear</span>
                       <span className="material-symbols-outlined text-sm">chat</span>
                     </button>
                   </Link>

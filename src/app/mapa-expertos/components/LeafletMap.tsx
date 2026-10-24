@@ -71,12 +71,16 @@ interface LeafletMapProps {
 }
 
 const CATEGORIA_PIN_COLORS: Record<string, string> = {
-  Tech: "#0288D1",
-  Hogar: "#F57F17",
-  Creativo: "#D81B60",
-  Eventos: "#2E7D32",
-  Salud: "#93000A",
-  "Educación": "#50616B",
+  MatematicasCiencias: "#0B2545",
+  TareasGuias: "#C5A059",
+  TutoriasClases: "#0B2545",
+  ProgramacionTecnologias: "#D4AF37",
+  Tech: "#0B2545",
+  Hogar: "#C5A059",
+  Creativo: "#D4AF37",
+  Eventos: "#0B2545",
+  Salud: "#C5A059",
+  "Educación": "#0B2545",
 };
 
 // Component to handle map center changes
@@ -370,7 +374,7 @@ export default function LeafletMap({
                 onClick={() => onVerPerfil(selectedExpert.id)}
                 className="px-4 py-2 bg-[#0d1c2e] text-white font-bold rounded-full text-xs sm:text-sm hover:bg-[#1a2e44] transition-colors shadow-sm"
               >
-                Ver Perfil
+                Chatear
               </button>
             </div>
           </motion.div>
