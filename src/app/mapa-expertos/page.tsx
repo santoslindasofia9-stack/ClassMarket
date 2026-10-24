@@ -353,7 +353,7 @@ export default function MapaExpertos() {
   const [busqueda, setBusqueda] = useState("");
   const [pais, setPais] = useState("Colombia");
   const [departamento, setDepartamento] = useState("Santander");
-  const [ciudad, setCiudad] = useState("Bucaramanga, Piedecuesta, Floridablanca y Gir�n");
+  const [ciudad, setCiudad] = useState("Bucaramanga");
   const [mapCenter, setMapCenter] = useState<{lat: number, lng: number} | null>(null);
 
   // Jobs-mode location search
@@ -414,7 +414,7 @@ export default function MapaExpertos() {
         showToast("✓ Ubicación en tiempo real detectada con éxito.");
       },
       () => {
-        // Fallback Bucaramanga, Piedecuesta, Floridablanca y Gir�n center
+        // Fallback Bucaramanga center
         const fallback = { lat: 7.1193, lng: -73.1227 };
         setUserLocation(fallback);
         setMapCenter(fallback);
@@ -583,28 +583,14 @@ export default function MapaExpertos() {
             <div className="w-8 h-8 bg-gradient-to-tr from-pink-500 to-rose-400 rounded-lg flex items-center justify-center shadow-md">
               <span className="material-symbols-outlined text-white text-lg leading-none font-bold">hub</span>
             </div>
-            <h1 className="text-lg font-black text-[#0d1c2e] tracking-tight">
-              ClassMarket <span className="text-pink-500">Live</span>
+            <h1 className="text-lg font-black text-[#0B2545] tracking-tight flex items-center gap-1.5">
+              ClassMarket <span className="text-[#C5A059] font-bold text-xs px-2 py-0.5 rounded-full bg-[#C5A059]/15 border border-[#C5A059]/30">Mapa</span>
             </h1>
           </div>
         </div>
 
-        {/* Center Segmented Toggle control (Highly polished) */}
-        <div className="bg-slate-100 p-1 rounded-full flex items-center shadow-inner border border-slate-200/50">
-          <button
-            onClick={() => {
-              setMode("jobs");
-              setSelectedId(null);
-            }}
-            className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 ${
-              mode === "jobs"
-                ? "bg-[#0d1c2e] text-white shadow-sm"
-                : "text-slate-500 hover:text-[#0d1c2e]"
-            }`}
-          >
-            <Briefcase size={12} />
-            <span>Mapa de Trabajo</span>
-          </button>
+        {/* Center Segmented Toggle control: for Students show Ofertas Estudiantiles */}
+        <div className="bg-[#FAF8F5] p-1 rounded-full flex items-center shadow-inner border border-[#C5A059]/30">
           <button
             onClick={() => {
               setMode("experts");
@@ -612,28 +598,42 @@ export default function MapaExpertos() {
             }}
             className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 ${
               mode === "experts"
-                ? "bg-[#0d1c2e] text-white shadow-sm"
-                : "text-slate-500 hover:text-[#0d1c2e]"
+                ? "bg-[#0B2545] text-white shadow-sm"
+                : "text-[#5C6B73] hover:text-[#0B2545]"
             }`}
           >
-            <UserCheck size={12} />
-            <span>Buscar Expertos</span>
+            <UserCheck size={13} className="text-[#C5A059]" />
+            <span>Tutorías & Ofertas de Estudiantes</span>
+          </button>
+          <button
+            onClick={() => {
+              setMode("jobs");
+              setSelectedId(null);
+            }}
+            className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 ${
+              mode === "jobs"
+                ? "bg-[#0B2545] text-white shadow-sm"
+                : "text-[#5C6B73] hover:text-[#0B2545]"
+            }`}
+          >
+            <Briefcase size={13} />
+            <span>Solicitudes de Ayuda</span>
           </button>
         </div>
 
         {/* Right: Notifications & profile avatar */}
-        <div className="flex items-center gap-4">
-          <button className="relative p-2 text-slate-400 hover:text-slate-600 bg-slate-50 rounded-full hover:scale-105 transition-all">
+        <div className="flex items-center gap-3">
+          <button className="relative p-2 text-[#5C6B73] hover:text-[#0B2545] bg-[#FAF8F5] border border-gray-100 rounded-full hover:scale-105 transition-all">
             <Bell size={18} />
-            <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-pink-500 rounded-full animate-pulse" />
+            <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-[#C5A059] rounded-full animate-pulse" />
           </button>
 
           {/* User profile pill */}
-          <div className="flex items-center gap-2 bg-[#FCE4EC] border border-pink-100 px-3 py-1.5 rounded-full">
-            <div className="w-6 h-6 rounded-full overflow-hidden bg-pink-500 text-white flex items-center justify-center font-bold text-xs">
+          <div className="flex items-center gap-2 bg-[#0B2545]/5 border border-[#C5A059]/30 px-3 py-1.5 rounded-full">
+            <div className="w-6 h-6 rounded-full overflow-hidden bg-[#0B2545] text-white flex items-center justify-center font-bold text-xs border border-[#C5A059]">
               {profileName.charAt(0).toUpperCase()}
             </div>
-            <span className="text-xs font-extrabold text-[#D81B60] hidden sm:inline">{profileName}</span>
+            <span className="text-xs font-extrabold text-[#0B2545] hidden sm:inline">{profileName}</span>
           </div>
         </div>
       </header>

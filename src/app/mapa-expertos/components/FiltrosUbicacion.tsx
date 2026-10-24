@@ -6,13 +6,14 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const PAISES = ["Colombia", "México", "Argentina", "Chile", "Perú"];
 const DEPARTAMENTOS: Record<string, string[]> = {
-  Colombia: ["Antioquia", "Cundinamarca", "Valle del Cauca", "Atlántico", "Bolívar"],
+  Colombia: ["Santander", "Antioquia", "Cundinamarca", "Valle del Cauca", "Atlántico", "Bolívar"],
   México: ["Ciudad de México", "Jalisco", "Nuevo León", "Puebla", "Yucatán"],
   Argentina: ["Buenos Aires", "Córdoba", "Santa Fe", "Mendoza", "Tucumán"],
   Chile: ["Región Metropolitana", "Biobío", "Valparaíso", "Araucanía", "Coquimbo"],
   Perú: ["Lima", "Arequipa", "La Libertad", "Cusco", "Piura"],
 };
 const CIUDADES: Record<string, string[]> = {
+  Santander: ["Bucaramanga", "Floridablanca", "Piedecuesta", "Girón"],
   Antioquia: ["Medellín", "Bello", "Envigado", "Itagüí", "Rionegro"],
   Cundinamarca: ["Bogotá", "Soacha", "Chía", "Zipaquirá", "Facatativá"],
   "Valle del Cauca": ["Cali", "Buenaventura", "Palmira", "Tuluá", "Buga"],

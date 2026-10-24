@@ -101,16 +101,16 @@ export default function PanelLateral({
             <div className="px-6 pt-6 pb-4 border-b border-gray-100 flex items-center justify-between flex-shrink-0">
               {mode === "experts" ? (
                 <div>
-                  <h2 className="text-lg font-bold text-[#0d1c2e]">Expertos Cercanos</h2>
-                  <p className="text-xs font-medium text-[#5e6f79] mt-0.5">
-                    {isLoading ? "Buscando..." : `${experts.length} profesional${experts.length !== 1 ? "es" : ""} encontrado${experts.length !== 1 ? "s" : ""}`}
+                  <h2 className="text-lg font-bold text-[#0B2545]">Tutorías & Ofertas Cercanas</h2>
+                  <p className="text-xs font-medium text-[#C5A059] mt-0.5">
+                    {isLoading ? "Cargando ofertas..." : `${experts.length} estudiante${experts.length !== 1 ? "s" : ""} disponible${experts.length !== 1 ? "s" : ""}`}
                   </p>
                 </div>
               ) : (
                 <div>
-                  <h2 className="text-lg font-bold text-[#0d1c2e]">Trabajos en tu Zona</h2>
-                  <p className="text-xs font-medium text-[#D81B60] mt-0.5">
-                    {isLoading ? "Buscando..." : `${availableJobs.length} contrato${availableJobs.length !== 1 ? "s" : ""} disponible${availableJobs.length !== 1 ? "s" : ""}`}
+                  <h2 className="text-lg font-bold text-[#0B2545]">Solicitudes de Ayuda</h2>
+                  <p className="text-xs font-medium text-[#C5A059] mt-0.5">
+                    {isLoading ? "Cargando solicitudes..." : `${availableJobs.length} solicitud${availableJobs.length !== 1 ? "es" : ""} activa${availableJobs.length !== 1 ? "s" : ""}`}
                   </p>
                 </div>
               )}

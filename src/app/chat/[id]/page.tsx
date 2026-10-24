@@ -7,23 +7,51 @@ export const dynamic = 'force-dynamic';
 const FALLBACK_EXPERTS = [
   {
     id: "f1",
-    nombre_completo: "Elena Rodríguez",
-    foto_perfil: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=400"
+    nombre_completo: "Camila Torres",
+    titulo_profesional: "Tutorías de Matemáticas, Álgebra y Física de 10° y 11°",
+    foto_perfil: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400&crop=face"
   },
   {
     id: "f2",
-    nombre_completo: "Julián Martínez",
-    foto_perfil: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?auto=format&fit=crop&q=80&w=400"
+    nombre_completo: "Mateo Valenzuela",
+    titulo_profesional: "Apoyo en Tareas de Química, Biología y Talleres Escolares",
+    foto_perfil: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=400&crop=face"
   },
   {
     id: "f3",
-    nombre_completo: "Sofía López",
-    foto_perfil: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=400"
+    nombre_completo: "Sofía Salazar",
+    titulo_profesional: "Clases de Inglés Conversacional & Preparación de Pruebas",
+    foto_perfil: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=400&crop=face"
   },
   {
     id: "f4",
-    nombre_completo: "Carlos Torres",
-    foto_perfil: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400"
+    nombre_completo: "Diego Morales",
+    titulo_profesional: "Proyectos en Python, JavaScript, HTML y Scratch para Colegios",
+    foto_perfil: "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?auto=format&fit=crop&q=80&w=400&crop=face"
+  },
+  {
+    id: "e1",
+    nombre_completo: "Camila Torres",
+    titulo_profesional: "Tutorías de Matemáticas, Cálculo y Física 10°-11°",
+    foto_perfil: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400&crop=face"
+  },
+  {
+    id: "e2",
+    nombre_completo: "Mateo Valenzuela",
+    titulo_profesional: "Guías Resueltas & Apoyo en Química Orgánica y Biología",
+    foto_perfil: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=400&crop=face"
+  },
+  {
+    id: "e3",
+    nombre_completo: "Sofía Salazar",
+    titulo_profesional: "Clases de Inglés Conversacional & Pruebas Saber 11",
+    foto_perfil: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=400&crop=face"
+  },
+  {
+    id: "e4",
+    nombre_completo: "Diego Morales",
+    titulo_profesional: "Proyectos en Python, Algoritmos y Web para Estudiantes",
+    foto_perfil: "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?auto=format&fit=crop&q=80&w=400&crop=face"
   },
   {
     id: "f5",

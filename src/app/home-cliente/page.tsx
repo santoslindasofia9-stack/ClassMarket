@@ -494,9 +494,9 @@ export default function HomeCliente() {
             </form>
           </section>
 
-          {/* 3. Categories (Horizontal scroll) */}
+          {/* 3. Categories (Centered & Responsive) */}
           <section className="mb-12 md:mb-16">
-            <div className="flex overflow-x-auto gap-4 md:gap-6 pb-4 no-scrollbar -mx-4 px-4 md:mx-0 md:px-0">
+            <div className="flex overflow-x-auto justify-center items-center gap-4 sm:gap-6 md:gap-8 pb-4 no-scrollbar px-4">
               {CATEGORIES.map((cat) => {
                 const Icon = cat.icon;
                 const isActive = activeCategory === cat.id;
@@ -504,12 +504,12 @@ export default function HomeCliente() {
                   <Link
                     key={cat.id}
                     href={`/resultados?categoria=${cat.id}`}
-                    className="flex-none flex flex-col items-center gap-3 cursor-pointer group min-w-[80px]"
+                    className="flex-none flex flex-col items-center gap-3 cursor-pointer group min-w-[90px] sm:min-w-[110px]"
                   >
-                    <div className={`w-16 h-16 md:w-20 md:h-20 rounded-[20px] flex items-center justify-center transition-all duration-300 ${isActive ? cat.color + ' shadow-md scale-105' : 'bg-white shadow-sm border border-gray-100 group-hover:' + cat.color}`}>
-                      <Icon className={`w-8 h-8 ${isActive ? cat.textColor : 'text-[#5e6f79] group-hover:' + cat.textColor}`} />
+                    <div className={`w-16 h-16 sm:w-20 sm:h-20 rounded-[24px] flex items-center justify-center transition-all duration-300 ${isActive ? cat.color + ' shadow-md scale-105 border-2 border-[#C5A059]' : 'bg-white shadow-sm border border-[#C5A059]/20 group-hover:' + cat.color + ' group-hover:border-[#C5A059]/50 group-hover:scale-105'}`}>
+                      <Icon className={`w-8 h-8 ${isActive ? cat.textColor : 'text-[#0B2545]/70 group-hover:' + cat.textColor}`} />
                     </div>
-                    <span className={`text-sm font-bold ${isActive ? '#0d1c2e' : 'text-[#5e6f79]'}`}>
+                    <span className={`text-xs sm:text-sm font-bold text-center leading-tight transition-colors ${isActive ? 'text-[#0B2545]' : 'text-[#5C6B73] group-hover:text-[#0B2545]'}`}>
                       {cat.name}
                     </span>
                   </Link>
