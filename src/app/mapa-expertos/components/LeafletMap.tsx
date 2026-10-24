@@ -163,21 +163,17 @@ export default function LeafletMap({
 
   // Custom Icon generation function for experts
   const createCustomIcon = (expert: Expert, isSelected: boolean) => {
-    const pinColor = CATEGORIA_PIN_COLORS[expert.categoria] || "#50616B";
-    const initial = expert.nombre_completo.charAt(0);
+    const pinColor = CATEGORIA_PIN_COLORS[expert.categoria] || "#0B2545";
+    const avatar = expert.foto_perfil || `https://ui-avatars.com/api/?name=${encodeURIComponent(expert.nombre_completo)}&background=0B2545&color=fff`;
     
     const html = `
       <div class="relative group cursor-pointer transition-transform duration-300 ${isSelected ? 'scale-110' : 'hover:scale-105'}" style="outline: none;">
-        <div class="w-11 h-11 rounded-full border-4 shadow-lg overflow-hidden flex items-center justify-center bg-white ${isSelected ? 'ring-4 ring-white shadow-xl' : ''}" style="border-color: white; background-color: ${isSelected ? pinColor : '#fff'}">
-          ${expert.foto_perfil 
-            ? `<img src="${expert.foto_perfil}" class="w-full h-full object-cover" />` 
-            : `<span class="font-bold text-sm" style="color: ${isSelected ? '#fff' : pinColor}">${initial}</span>`
-          }
+        <div class="w-12 h-12 rounded-full border-4 shadow-lg overflow-hidden flex items-center justify-center bg-white ${isSelected ? 'ring-4 ring-[#C5A059]/40' : ''}" style="border-color: white;">
+          <img src="${avatar}" class="w-full h-full object-cover" />
         </div>
-        <div class="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rotate-45 border-r border-b border-white" style="background-color: ${isSelected ? pinColor : '#fff'}; z-index: -1;"></div>
-        <div class="absolute -top-1 -right-1 bg-white rounded-full px-1.5 py-0.5 flex items-center gap-0.5 shadow-sm border border-gray-100" style="min-width: 32px">
-          <span class="text-yellow-400 text-[9px]">★</span>
-          <span class="text-[9px] font-bold text-[#0d1c2e]">${expert.calificacion}</span>
+        <div class="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rotate-45 border-r border-b border-white bg-white" style="z-index: -1;"></div>
+        <div class="absolute -top-2 left-1/2 -translate-x-1/2 bg-[#0B2545] text-white rounded-full px-2 py-0.5 shadow-md border border-[#C5A059]/60" style="white-space: nowrap;">
+          <span class="text-[9px] font-extrabold">${expert.tarifa || "$10/hr"}</span>
         </div>
       </div>
     `;
@@ -185,9 +181,9 @@ export default function LeafletMap({
     return L.divIcon({
       className: 'custom-leaflet-icon',
       html,
-      iconSize: [44, 44],
-      iconAnchor: [22, 50],
-      popupAnchor: [0, -50],
+      iconSize: [48, 48],
+      iconAnchor: [24, 54],
+      popupAnchor: [0, -54],
     });
   };
 

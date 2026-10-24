@@ -26,8 +26,8 @@ export default function ProfessionalCard({
   const estrellas = Array.from({ length: 5 }, (_, i) => i < Math.round(calificacion || 0));
 
   return (
-    <article className="bg-white rounded-[24px] p-6 shadow-sm hover:shadow-lg hover:-translate-y-2 transition-all duration-500 flex flex-col items-center text-center group border border-gray-100 hover:border-sky-100">
-      <div className="w-24 h-24 rounded-full overflow-hidden mb-6 ring-4 ring-[#FCE4EC] transition-transform duration-500 group-hover:scale-110 relative">
+    <article className="bg-white rounded-[24px] p-6 shadow-sm hover:shadow-lg hover:-translate-y-2 transition-all duration-500 flex flex-col items-center text-center group border border-[#e8e0d4] hover:border-[#C5A059]/40">
+      <div className="w-24 h-24 rounded-full overflow-hidden mb-6 ring-4 ring-[#C5A059]/20 transition-transform duration-500 group-hover:scale-110 relative">
         <img 
           src={foto_perfil || "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200"} 
           alt={nombre_completo} 
@@ -35,7 +35,7 @@ export default function ProfessionalCard({
         />
       </div>
       
-      <h3 className="font-bold text-xl text-[#0d1c2e] mb-2 group-hover:text-[#D81B60] transition-colors line-clamp-1">
+      <h3 className="font-bold text-xl text-[#0B2545] mb-2 group-hover:text-[#C5A059] transition-colors line-clamp-1">
         {nombre_completo}
       </h3>
       
@@ -43,7 +43,7 @@ export default function ProfessionalCard({
         {titulo_profesional}
       </p>
       
-      <div className="flex items-center gap-1 mb-8 text-[#FBBF24]">
+      <div className="flex items-center gap-1 mb-8 text-[#C5A059]">
         {estrellas.map((llena, index) => (
           <span 
             key={index} 
@@ -58,20 +58,20 @@ export default function ProfessionalCard({
         </span>
       </div>
       
-      <div className="mt-auto w-full pt-6 border-t border-slate-50 flex items-center justify-between">
+      <div className="mt-auto w-full pt-6 border-t border-[#FAF8F5] flex items-center justify-between">
         <div className="text-left">
           <span className="text-[10px] uppercase tracking-[0.05em] font-bold text-slate-400 block mb-0.5">
             DESDE
           </span>
-          <span className="font-bold text-2xl text-[#D81B60] tracking-tight">
+          <span className="font-bold text-2xl text-[#0B2545] tracking-tight">
             {precio}
           </span>
         </div>
         <Link 
           href={`/expertos/${id}`}
-          className="px-6 py-2.5 bg-[#FCE4EC] text-[#D81B60] rounded-full font-bold text-xs uppercase tracking-wider hover:bg-[#fbd1de] transition-all duration-300 active:scale-95 inline-block text-center"
+          className="px-6 py-2.5 bg-[#0B2545] text-[#C5A059] rounded-full font-bold text-xs uppercase tracking-wider hover:bg-[#0d2f5c] transition-all duration-300 active:scale-95 inline-block text-center"
         >
-          Perfil
+          Ver Perfil
         </Link>
       </div>
     </article>

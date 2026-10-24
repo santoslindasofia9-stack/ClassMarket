@@ -8,128 +8,128 @@ export const dynamic = 'force-dynamic';
 const FALLBACK_EXPERTS = [
   {
     id: "f1",
-    nombre_completo: "Elena Rodríguez",
-    titulo_profesional: "Especialista en diseño de interiores con enfoque en minimalismo nórdico y espacios zen.",
-    categoria: "Hogar",
+    nombre_completo: "Camila Herrera",
+    titulo_profesional: "Tutora de Matemáticas y Cálculo para preparación de exámenes universitarios.",
+    categoria: "Matemáticas",
     calificacion: 5,
-    tarifa: 85,
+    tarifa: 25,
     foto_perfil: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=400"
   },
   {
     id: "f2",
     nombre_completo: "Julián Martínez",
-    titulo_profesional: "Consultor de branding estratégico para marcas emergentes que buscan impacto visual.",
-    categoria: "Creativo",
+    titulo_profesional: "Ayuda con trabajos de Programación en Python, Java y desarrollo web.",
+    categoria: "Programación",
     calificacion: 5,
-    tarifa: 120,
+    tarifa: 30,
     foto_perfil: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?auto=format&fit=crop&q=80&w=400"
   },
   {
     id: "f3",
     nombre_completo: "Sofía López",
-    titulo_profesional: "Redactora creativa y especialista en storytelling emocional para catálogos de lujo.",
-    categoria: "Creativo",
+    titulo_profesional: "Redacción de ensayos académicos, tesis y corrección de estilo.",
+    categoria: "Redacción",
     calificacion: 5,
-    tarifa: 55,
+    tarifa: 20,
     foto_perfil: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=400"
   },
   {
     id: "f4",
     nombre_completo: "Carlos Torres",
-    titulo_profesional: "Desarrollador web full-stack enfocado en experiencias interactivas fluidas y seguras.",
-    categoria: "Tech",
+    titulo_profesional: "Tutor de Física y Química, ejercicios resueltos y preparación ICFES.",
+    categoria: "Ciencias",
     calificacion: 5,
-    tarifa: 150,
+    tarifa: 28,
     foto_perfil: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400"
   },
   {
     id: "f5",
     nombre_completo: "Marta Valls",
-    titulo_profesional: "Estratega de marketing digital enfocada en ROI y crecimiento orgánico sostenible.",
-    categoria: "Negocios",
+    titulo_profesional: "Diseño de presentaciones en PowerPoint, Canva e infografías académicas.",
+    categoria: "Diseño",
     calificacion: 5,
-    tarifa: 95,
+    tarifa: 15,
     foto_perfil: "https://lh3.googleusercontent.com/aida-public/AB6AXuAtczwaCBZDrakoJIvPXavRcfa_YWopKVV-7E7HQr1nuY1tk4Idv_KTZUmHIGTzsIPind-7xfjHamETjNysRRKAQ2ThKrJDlj6a5FhixgOXvC1i6jrRwwX-ysP3e7a9-yOoxp5NBSo4JPs_XDtNyLYRMUdnZsBicPKX-pX_Iv_hg37hGYdoAeMGNiLdo1f6Ed-T0_Ydjpy_b6DDORFaWAIhHLSdMQcDWLI9UOcZw-UVdUucDKpWNB6PVOvoF76-4pbY0nZ0NpBlTQ"
   },
   {
     id: "f6",
     nombre_completo: "David García",
-    titulo_profesional: "Fotógrafo de producto con amplia experiencia en e-commerce y catálogos editoriales.",
-    categoria: "Creativo",
+    titulo_profesional: "Tutor de Inglés conversacional, gramática y preparación TOEFL/IELTS.",
+    categoria: "Idiomas",
     calificacion: 5,
-    tarifa: 200,
+    tarifa: 22,
     foto_perfil: "https://lh3.googleusercontent.com/aida-public/AB6AXuB8PciBPx8J_AUKCIHBcXBGUlgRG_SmQklphaaOPBS7Io20uuJq9Yqq-LmnM5BE-jHMcSyCpPIvnICQJWKKlKTgI19ULZNR0yb5Zy2WjUz8C9GFMo8ovXVyg3r11ofkBuX3rfH-4GmDWyNrDpT_y2GPaEybrpRNVbFfVCdj5jBUsHDOQlJ4dx1n1IFo4WvjuYtSZiPl6qsw4viIzPKZwxMjTn_4NAFIUWX18Dnqf0EOhnKuC7df6IwgwyT-oAmPAOQZwqp9EHv3YQ"
   },
   {
     id: "f7",
     nombre_completo: "Valeria Gómez",
-    titulo_profesional: "Especialista en UX/UI enfocada en aplicaciones móviles y usabilidad.",
-    categoria: "Tech",
+    titulo_profesional: "Ayuda con tareas de Contabilidad, Estadística y Excel avanzado.",
+    categoria: "Contabilidad",
     calificacion: 4.9,
-    tarifa: 110,
+    tarifa: 18,
     foto_perfil: "https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&q=80&w=400"
   },
   {
     id: "f8",
     nombre_completo: "Andrés Silva",
-    titulo_profesional: "Asesor financiero para startups y pequeñas empresas.",
-    categoria: "Negocios",
+    titulo_profesional: "Clases de Biología y Anatomía, mapas conceptuales y resúmenes.",
+    categoria: "Ciencias",
     calificacion: 4.8,
-    tarifa: 135,
+    tarifa: 20,
     foto_perfil: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200"
   },
   {
     id: "f9",
     nombre_completo: "Lucía Ortiz",
-    titulo_profesional: "Organizadora de espacios y consultora de Marie Kondo.",
-    categoria: "Hogar",
+    titulo_profesional: "Tutora de Historia y Ciencias Sociales, preparación para ICFES.",
+    categoria: "Sociales",
     calificacion: 5,
-    tarifa: 75,
+    tarifa: 15,
     foto_perfil: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200"
   },
   {
     id: "f10",
     nombre_completo: "Roberto Sánchez",
-    titulo_profesional: "Técnico Electricista certificado, instalaciones y domótica.",
-    categoria: "Hogar",
+    titulo_profesional: "Tutor de Electrónica y Circuitos para estudiantes de ingeniería.",
+    categoria: "Ingeniería",
     calificacion: 4.7,
-    tarifa: 45,
+    tarifa: 25,
     foto_perfil: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200"
   },
   {
     id: "f11",
     nombre_completo: "Carolina Ruiz",
-    titulo_profesional: "Ilustradora digital y creadora de personajes para videojuegos.",
-    categoria: "Creativo",
+    titulo_profesional: "Diseño gráfico para proyectos escolares, logos y branding estudiantil.",
+    categoria: "Diseño",
     calificacion: 4.9,
-    tarifa: 90,
+    tarifa: 20,
     foto_perfil: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200"
   },
   {
     id: "f12",
     nombre_completo: "Diego Castro",
-    titulo_profesional: "Desarrollador Backend Senior experto en Node y Python.",
-    categoria: "Tech",
+    titulo_profesional: "Desarrollo de apps y proyectos finales en React, Node.js y bases de datos.",
+    categoria: "Programación",
     calificacion: 5,
-    tarifa: 160,
+    tarifa: 35,
     foto_perfil: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=200"
   },
   {
     id: "e1",
     nombre_completo: "Laura Vásquez",
-    titulo_profesional: "Diseñadora de Moda enfocada en colecciones sostenibles y materiales reciclados.",
-    categoria: "Creativo",
+    titulo_profesional: "Tutora de Filosofía y Ética, ayuda con ensayos argumentativos.",
+    categoria: "Humanidades",
     calificacion: 4.9,
-    tarifa: 50,
+    tarifa: 15,
     foto_perfil: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200"
   },
   {
     id: "e2",
     nombre_completo: "Roberto Sánchez",
-    titulo_profesional: "Técnico Electricista certificado para instalaciones industriales y residenciales.",
-    categoria: "Hogar",
+    titulo_profesional: "Asesoría en proyectos de Mecatrónica y Arduino para estudiantes.",
+    categoria: "Ingeniería",
     calificacion: 4.7,
-    tarifa: 30,
+    tarifa: 22,
     foto_perfil: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200"
   }
 ];
@@ -183,25 +183,25 @@ export default async function ResultadosBusqueda({
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#f8f9ff] font-sans overflow-x-hidden pb-24">
+    <div className="min-h-screen flex flex-col bg-[#FAF8F5] font-sans overflow-x-hidden pb-24">
       {/* ── Top Header ──────────────────────────────────────────────────────── */}
       <header
-        className="sticky top-0 z-40 flex justify-between items-center w-full px-4 lg:px-8 py-3 bg-white/90 backdrop-blur-md border-b border-sky-50 flex-shrink-0"
-        style={{ boxShadow: "0 1px 12px rgba(13,28,46,0.06)" }}
+        className="sticky top-0 z-40 flex justify-between items-center w-full px-4 lg:px-8 py-3 bg-white/90 backdrop-blur-md border-b border-[#e8e0d4]/50 flex-shrink-0"
+        style={{ boxShadow: "0 1px 12px rgba(11,37,69,0.06)" }}
       >
         <div className="flex items-center gap-3">
           <Link
             href="/home-cliente"
-            className="w-9 h-9 rounded-full hover:bg-gray-100 flex items-center justify-center text-[#5e6f79] hover:text-[#0d1c2e] transition-all"
+            className="w-9 h-9 rounded-full hover:bg-[#FAF8F5] flex items-center justify-center text-[#5e6f79] hover:text-[#0B2545] transition-all"
           >
             <span className="material-symbols-outlined text-[20px]">arrow_back</span>
           </Link>
           <Link href="/home-cliente" className="flex items-center gap-2 cursor-pointer">
-            <div className="w-8 h-8 bg-[#0d1c2e] rounded-lg flex items-center justify-center">
-              <span className="material-symbols-outlined text-white text-lg leading-none">hub</span>
+            <div className="w-8 h-8 bg-[#0B2545] rounded-lg flex items-center justify-center">
+              <span className="material-symbols-outlined text-[#C5A059] text-lg leading-none">school</span>
             </div>
-            <h1 className="text-xl font-bold text-[#0d1c2e] tracking-tight hidden sm:block">
-              Tool Link
+            <h1 className="text-xl font-bold text-[#0B2545] tracking-tight hidden sm:block">
+              ClassMarket
             </h1>
           </Link>
         </div>
@@ -215,14 +215,14 @@ export default async function ResultadosBusqueda({
         {/* Encabezado de Resultados */}
         <div className="mb-8 md:mb-14 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="max-w-2xl">
-            <span className="text-[12px] text-[#0288D1] mb-3 block uppercase tracking-[0.2em] font-bold">
-              Descubre Expertos
+            <span className="text-[12px] text-[#C5A059] mb-3 block uppercase tracking-[0.2em] font-bold">
+              Encuentra Compañeros
             </span>
-            <h2 className="text-3xl md:text-5xl font-bold text-[#0d1c2e] leading-tight">
+            <h2 className="text-3xl md:text-5xl font-bold text-[#0B2545] leading-tight">
               Resultados de Búsqueda
             </h2>
             <p className="text-lg text-[#5e6f79] mt-4 max-w-lg">
-              Hemos seleccionado cuidadosamente a los mejores profesionales que encajan con la visión de tu próximo proyecto.
+              Estudiantes verificados listos para ayudarte con tutorías, tareas, proyectos y preparación de exámenes.
             </p>
           </div>
           
@@ -246,15 +246,15 @@ export default async function ResultadosBusqueda({
             ))}
           </div>
         ) : (
-          <div className="py-20 text-center bg-white rounded-3xl border border-gray-100 border-dashed">
-            <div className="w-16 h-16 bg-[#f8f9ff] rounded-full flex items-center justify-center mx-auto mb-4 text-[#5e6f79]">
+          <div className="py-20 text-center bg-white rounded-3xl border border-[#e8e0d4] border-dashed">
+            <div className="w-16 h-16 bg-[#FAF8F5] rounded-full flex items-center justify-center mx-auto mb-4 text-[#5e6f79]">
               <span className="material-symbols-outlined text-[32px]">search</span>
             </div>
-            <h3 className="text-lg font-bold text-[#0d1c2e] mb-2">No se encontraron profesionales</h3>
+            <h3 className="text-lg font-bold text-[#0B2545] mb-2">No se encontraron estudiantes</h3>
             <p className="text-[#5e6f79]">Intenta buscar con otros términos o cambia la categoría.</p>
             <Link 
               href="/home-cliente"
-              className="mt-6 inline-block text-[#0288D1] font-bold underline"
+              className="mt-6 inline-block text-[#C5A059] font-bold underline"
             >
               Volver al inicio
             </Link>
@@ -264,7 +264,7 @@ export default async function ResultadosBusqueda({
         {/* Botón de Carga */}
         {displayedExperts.length > 0 && (
           <div className="mt-16 text-center">
-            <button className="px-10 py-4 bg-[#0288D1] text-white rounded-full font-bold text-sm uppercase tracking-widest hover:bg-[#0277bd] hover:shadow-lg transition-all duration-300 active:scale-95">
+            <button className="px-10 py-4 bg-[#0B2545] text-[#C5A059] rounded-full font-bold text-sm uppercase tracking-widest hover:bg-[#0d2f5c] hover:shadow-lg transition-all duration-300 active:scale-95">
               Cargar más resultados
             </button>
           </div>
