@@ -12,16 +12,22 @@ export default function SplashScreen() {
 
   // Simulación de carga y verificación de sesión
   useEffect(() => {
+    // Si Supabase devuelve el token en el hash (#access_token=... o #error=...)
+    if (typeof window !== "undefined" && window.location.hash.includes("access_token")) {
+      window.location.replace("/auth/callback" + window.location.hash);
+      return;
+    }
+
     const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
     const savedRole = localStorage.getItem("userRole");
 
     if (isLoggedIn && savedRole) {
-      let target = "/home-cliente";
+      let target = savedRole === "client" ? "/home-cliente" : "/dashboard-pro";
       if (savedRole === "pro") {
         const isVerified = localStorage.getItem("isProVerified") === "true";
         target = isVerified ? "/dashboard-pro" : "/auth/verificacion-pro";
       }
-      router.replace(target);
+      window.location.replace(target);
       return;
     }
 

@@ -336,9 +336,9 @@ export default function HomeCliente() {
               </AnimatePresence>
             </div>
             <div className="flex items-center gap-3">
-              <div className="hidden md:flex flex-col items-end mr-1">
-                <span className="text-sm font-bold text-[#0d1c2e] leading-none">{userName}</span>
-                <span className="text-[10px] font-medium text-[#5e6f79]">Cliente</span>
+              <div className="flex flex-col items-end mr-1 text-right">
+                <span className="text-xs sm:text-sm font-bold text-[#0d1c2e] leading-tight line-clamp-1 max-w-[120px] sm:max-w-[200px]">{userName}</span>
+                <span className="text-[10px] font-medium text-[#5e6f79]">Estudiante</span>
               </div>
               <div 
                 onClick={toggleProfile}

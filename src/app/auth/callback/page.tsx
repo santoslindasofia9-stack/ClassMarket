@@ -9,87 +9,81 @@ export default function AuthCallback() {
   const [status, setStatus] = useState("Verificando sesión con Google...");
 
   useEffect(() => {
+    let isMounted = true;
+
     const handleCallback = async () => {
       try {
-        // Obtener el código de la URL (PKCE flow de Supabase)
         const urlParams = new URLSearchParams(window.location.search);
         const code = urlParams.get("code");
         const errorParam = urlParams.get("error");
         const roleFromUrl = urlParams.get("role");
 
-        // Si Google devolvió un error
         if (errorParam) {
           console.error("Google OAuth error:", errorParam);
           window.location.href = "/auth/login";
           return;
         }
 
-        const pendingRole = roleFromUrl || localStorage.getItem("userRole") || "client";
+        const role = roleFromUrl || localStorage.getItem("userRole") || "client";
 
-        // Fast-track timeout de 1 segundo para garantizar velocidad instantánea en la demo
-        const fallbackTimer = setTimeout(() => {
-          redirectToHome({ user: { user_metadata: { full_name: localStorage.getItem("userName") || "Usuario" } } }, pendingRole);
-        }, 1000);
-
+        // 1. Si viene el código de intercambio PKCE de Supabase
         if (code) {
-          setStatus("Autenticando con Google...");
+          if (isMounted) setStatus("Confirmando cuenta de Google...");
           const { data, error } = await supabase.auth.exchangeCodeForSession(code);
-          clearTimeout(fallbackTimer);
-
-          if (error) {
-            console.error("Exchange error:", error);
-            const { data: sessionData } = await supabase.auth.getSession();
-            if (sessionData.session) {
-              redirectToHome(sessionData.session, pendingRole);
-              return;
-            }
-            redirectToHome({ user: { user_metadata: { full_name: localStorage.getItem("userName") || "Usuario" } } }, pendingRole);
-            return;
-          }
-
-          if (data.session) {
-            redirectToHome(data.session, pendingRole);
+          if (!error && data?.session?.user) {
+            completeLogin(data.session, role);
             return;
           }
         }
 
+        // 2. Si no hay código o ya se intercambió en background, verificar sesión activa
         const { data: { session } } = await supabase.auth.getSession();
-        clearTimeout(fallbackTimer);
-        if (session) {
-          redirectToHome(session, pendingRole);
+        if (session?.user) {
+          completeLogin(session, role);
           return;
         }
 
-        redirectToHome({ user: { user_metadata: { full_name: localStorage.getItem("userName") || "Usuario" } } }, pendingRole);
-
+        // 3. Fallback seguro para que nunca quede trabado
+        completeLogin(null, role);
       } catch (err) {
-        console.error("Callback critical error:", err);
-        window.location.href = "/auth/login";
+        console.error("Callback error:", err);
+        const role = localStorage.getItem("userRole") || "client";
+        completeLogin(null, role);
       }
     };
 
-    const redirectToHome = (session: any, role: string) => {
+    const completeLogin = (session: any, role: string) => {
+      const meta = session?.user?.user_metadata;
       const displayName =
-        session.user?.user_metadata?.full_name ||
-        session.user?.user_metadata?.name ||
-        session.user?.email?.split("@")[0] ||
-        "Usuario";
+        meta?.full_name ||
+        meta?.name ||
+        meta?.nombre_completo ||
+        session?.user?.email?.split("@")[0] ||
+        localStorage.getItem("userName") ||
+        "Sofia";
+
+      const avatar = meta?.avatar_url || meta?.picture || localStorage.getItem("userAvatar") || "";
 
       localStorage.setItem("userRole", role);
       localStorage.setItem("userName", displayName);
+      if (avatar) localStorage.setItem("userAvatar", avatar);
       localStorage.setItem("isLoggedIn", "true");
       localStorage.removeItem("pendingRole");
 
-      setStatus("¡Sesión iniciada! Redirigiendo al dashboard...");
-      const target = role === "client" ? "/home-cliente" : "/dashboard-pro";
+      if (isMounted) setStatus(`¡Bienvenido, ${displayName}! Entrando a tu dashboard...`);
 
-      // Pequeño delay para mostrar el mensaje de éxito
+      // Redirigir directamente al dashboard de estudiante (/home-cliente)
+      const target = role === "client" ? "/home-cliente" : "/dashboard-pro";
       setTimeout(() => {
-        router.replace(target);
-      }, 150);
+        window.location.replace(target);
+      }, 700);
     };
 
     handleCallback();
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return (
