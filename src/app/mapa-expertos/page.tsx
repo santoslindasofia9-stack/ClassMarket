@@ -49,20 +49,20 @@ interface JobOffer {
   status: "available" | "accepted" | "declined";
 }
 
-// ─── Fallback Experts Data (Student Peer Tutors & Offers) ───────────────────
+// ─── Fallback Experts Data (Student Peer Tutors & Academic Offers) ─────────────
 const FALLBACK_EXPERTS: Expert[] = [
   {
     id: "e1",
     nombre_completo: "Camila Torres (17 años)",
-    titulo_profesional: "Tutorías de Matemáticas, Cálculo y Física 10°-11°",
+    titulo_profesional: "Tutorías de Matemáticas, Álgebra y Física 10°-11°",
     categoria: "MatematicasCiencias",
     calificacion: 5.0,
     distancia_km: 0.8,
-    tarifa: "$10/hr o Trueque",
+    tarifa: "$10/hr o Trueque de Guías",
     foto_perfil: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200&crop=face",
     lat: 7.1193,
     lng: -73.1227,
-    ciudad: "Bucaramanga (Cabecera)",
+    ciudad: "Bucaramanga",
   },
   {
     id: "e2",
@@ -75,7 +75,7 @@ const FALLBACK_EXPERTS: Expert[] = [
     foto_perfil: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=200&crop=face",
     lat: 7.0622,
     lng: -73.1073,
-    ciudad: "Floridablanca (Cañaveral)",
+    ciudad: "Floridablanca",
   },
   {
     id: "e3",
@@ -88,20 +88,46 @@ const FALLBACK_EXPERTS: Expert[] = [
     foto_perfil: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=200&crop=face",
     lat: 6.9884,
     lng: -73.0512,
-    ciudad: "Piedecuesta (Campus / Centro)",
+    ciudad: "Piedecuesta",
   },
   {
     id: "e4",
     nombre_completo: "Diego Morales (19 años)",
-    titulo_profesional: "Proyectos en Python, Algoritmos y Web para Estudiantes",
+    titulo_profesional: "Proyectos en Python, JavaScript, HTML y Scratch",
     categoria: "ProgramacionTecnologias",
     calificacion: 5.0,
     distancia_km: 3.1,
-    tarifa: "$15/hr",
+    tarifa: "$14/hr",
     foto_perfil: "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?auto=format&fit=crop&q=80&w=200&crop=face",
     lat: 7.0683,
     lng: -73.1698,
-    ciudad: "Girón (Casco Antiguo)",
+    ciudad: "Girón",
+  },
+  {
+    id: "e5",
+    nombre_completo: "Valentina Gómez (17 años)",
+    titulo_profesional: "Intercambio de Libros de Cálculo & Apuntes de Filosofía",
+    categoria: "TareasGuias",
+    calificacion: 4.8,
+    distancia_km: 1.1,
+    tarifa: "Trueque de Libros / Gratis",
+    foto_perfil: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200&crop=face",
+    lat: 7.0012,
+    lng: -73.0485,
+    ciudad: "Piedecuesta",
+  },
+  {
+    id: "e6",
+    nombre_completo: "Sebastián Rincón (18 años)",
+    titulo_profesional: "Preparación de Exámenes de Trigonometría & Geometría",
+    categoria: "MatematicasCiencias",
+    calificacion: 5.0,
+    distancia_km: 1.4,
+    tarifa: "$9/hr",
+    foto_perfil: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200&crop=face",
+    lat: 7.1285,
+    lng: -73.1162,
+    ciudad: "Bucaramanga",
   },
 ];
 
@@ -481,46 +507,45 @@ export default function MapaExpertos() {
       .finally(() => setJobSearchLoading(false));
   }, [jobSearch, rebaseJobs, showToast]);
 
-  // ── Fetch experts from Supabase (for Experts mode) ──────────────────────────
+  // ── Fetch experts / student offers ──────────────────────────
   const fetchExperts = useCallback(async () => {
     if (mode !== "experts") return;
-    setIsLoading(true);
+    
+    // Iniciar con las ofertas estudiantiles locales de inmediato
+    const q = busqueda.toLowerCase().trim();
+    const cityFilter = ciudad.toLowerCase().trim();
+
+    const filtered = FALLBACK_EXPERTS.filter((e) => {
+      const matchSearch =
+        !q ||
+        e.nombre_completo.toLowerCase().includes(q) ||
+        e.titulo_profesional.toLowerCase().includes(q) ||
+        e.categoria.toLowerCase().includes(q);
+
+      const matchCity =
+        !cityFilter ||
+        (e.ciudad || "").toLowerCase().includes(cityFilter) ||
+        cityFilter.includes((e.ciudad || "").toLowerCase());
+
+      return matchSearch && matchCity;
+    });
+
+    setExperts(filtered.length > 0 ? filtered : FALLBACK_EXPERTS);
+    setIsLoading(false);
+
+    // Complementar con Supabase en segundo plano si está disponible
     try {
       let query = supabase
         .from("perfiles_profesionales")
-        .select(
-          "id, nombre_completo, titulo_profesional, categoria, calificacion, distancia_km, foto_perfil, lat, lng, tarifa"
-        );
+        .select("id, nombre_completo, titulo_profesional, categoria, calificacion, distancia_km, foto_perfil, lat, lng, tarifa");
 
       if (ciudad) query = query.ilike("ciudad", `%${ciudad}%`);
-      
-      if (busqueda.trim()) {
-        query = query.or(
-          `nombre_completo.ilike.%${busqueda}%,titulo_profesional.ilike.%${busqueda}%,categoria.ilike.%${busqueda}%`
-        );
-      }
-
-      const { data, error } = await query.limit(20);
-
-      if (error || !data || data.length === 0) {
-        // Fallback data filtering
-        const filtered = FALLBACK_EXPERTS.filter((e) => {
-          const q = busqueda.toLowerCase();
-          return (
-            !q ||
-            e.nombre_completo.toLowerCase().includes(q) ||
-            e.titulo_profesional.toLowerCase().includes(q) ||
-            e.categoria.toLowerCase().includes(q)
-          );
-        });
-        setExperts(filtered);
-      } else {
+      const { data } = await query.limit(20);
+      if (data && data.length > 0) {
         setExperts(data);
       }
     } catch {
-      setExperts(FALLBACK_EXPERTS);
-    } finally {
-      setIsLoading(false);
+      // Usar las ofertas estudiantiles sin bloquear la UI
     }
   }, [busqueda, ciudad, mode]);
 

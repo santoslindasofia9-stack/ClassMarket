@@ -10,49 +10,12 @@ export default function AuthCallback() {
 
   useEffect(() => {
     let isMounted = true;
+    let redirected = false;
 
-    const handleCallback = async () => {
-      try {
-        const urlParams = new URLSearchParams(window.location.search);
-        const code = urlParams.get("code");
-        const errorParam = urlParams.get("error");
-        const roleFromUrl = urlParams.get("role");
+    const doRedirect = (session: any, role: string) => {
+      if (redirected) return;
+      redirected = true;
 
-        if (errorParam) {
-          console.error("Google OAuth error:", errorParam);
-          window.location.href = "/auth/login";
-          return;
-        }
-
-        const role = roleFromUrl || localStorage.getItem("userRole") || "client";
-
-        // 1. Si viene el código de intercambio PKCE de Supabase
-        if (code) {
-          if (isMounted) setStatus("Confirmando cuenta de Google...");
-          const { data, error } = await supabase.auth.exchangeCodeForSession(code);
-          if (!error && data?.session?.user) {
-            completeLogin(data.session, role);
-            return;
-          }
-        }
-
-        // 2. Si no hay código o ya se intercambió en background, verificar sesión activa
-        const { data: { session } } = await supabase.auth.getSession();
-        if (session?.user) {
-          completeLogin(session, role);
-          return;
-        }
-
-        // 3. Fallback seguro para que nunca quede trabado
-        completeLogin(null, role);
-      } catch (err) {
-        console.error("Callback error:", err);
-        const role = localStorage.getItem("userRole") || "client";
-        completeLogin(null, role);
-      }
-    };
-
-    const completeLogin = (session: any, role: string) => {
       const meta = session?.user?.user_metadata;
       const displayName =
         meta?.full_name ||
@@ -72,17 +35,59 @@ export default function AuthCallback() {
 
       if (isMounted) setStatus(`¡Bienvenido, ${displayName}! Entrando a tu dashboard...`);
 
-      // Redirigir directamente al dashboard de estudiante (/home-cliente)
       const target = role === "client" ? "/home-cliente" : "/dashboard-pro";
       setTimeout(() => {
-        window.location.replace(target);
-      }, 700);
+        window.location.href = target;
+      }, 500);
+    };
+
+    // Fail-safe timer: si cualquier llamada a red o PKCE se demora más de 1.2 segundos, avanzar directamente
+    const safetyTimer = setTimeout(() => {
+      const role = localStorage.getItem("userRole") || "client";
+      doRedirect(null, role);
+    }, 1200);
+
+    const handleCallback = async () => {
+      try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get("code");
+        const roleFromUrl = urlParams.get("role");
+        const role = roleFromUrl || localStorage.getItem("userRole") || "client";
+
+        // Escuchar el evento de autenticación automática de Supabase
+        const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
+          if (session?.user && (event === "SIGNED_IN" || event === "INITIAL_SESSION" || event === "TOKEN_REFRESHED")) {
+            clearTimeout(safetyTimer);
+            doRedirect(session, role);
+          }
+        });
+
+        if (code) {
+          if (isMounted) setStatus("Confirmando cuenta de Google...");
+          const { data } = await supabase.auth.exchangeCodeForSession(code);
+          if (data?.session?.user) {
+            clearTimeout(safetyTimer);
+            doRedirect(data.session, role);
+            return;
+          }
+        }
+
+        const { data: { session } } = await supabase.auth.getSession();
+        if (session?.user) {
+          clearTimeout(safetyTimer);
+          doRedirect(session, role);
+          return;
+        }
+      } catch (err) {
+        console.error("Callback error:", err);
+      }
     };
 
     handleCallback();
 
     return () => {
       isMounted = false;
+      clearTimeout(safetyTimer);
     };
   }, []);
 
