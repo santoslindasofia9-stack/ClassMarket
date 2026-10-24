@@ -104,18 +104,28 @@ export default function MiniCard({ expert, onClose, onVerPerfil, position }: Min
         </div>
 
         {expert.tarifa && (
-          <p className="text-sm font-bold text-[#0288D1] mt-1">{expert.tarifa}</p>
+          <p className="text-xs font-bold text-[#0B2545] bg-[#C5A059]/15 px-2.5 py-1 rounded-md mt-2 inline-block">
+            {expert.tarifa}
+          </p>
         )}
       </div>
 
-      {/* CTA */}
-      <div className="px-5 pb-5">
+      {/* Action Buttons: Chatear & Ver Perfil */}
+      <div className="px-5 pb-5 flex gap-2">
+        <button
+          onClick={() => {
+            window.location.href = `/chat/${expert.id}?nombre=${encodeURIComponent(expert.nombre_completo)}&servicio=${encodeURIComponent(expert.titulo_profesional)}`;
+          }}
+          className="flex-1 py-2.5 bg-[#C5A059] hover:bg-[#b08d47] text-[#0B2545] font-bold text-xs rounded-full transition-all flex items-center justify-center gap-1.5 shadow-md active:scale-95"
+        >
+          <span>Chatear</span>
+        </button>
         <button
           onClick={() => onVerPerfil(expert.id)}
-          className="w-full py-3 bg-[#0d1c2e] hover:bg-[#1a2e44] text-white font-bold rounded-full transition-all flex items-center justify-center gap-2 group shadow-md"
+          className="flex-1 py-2.5 bg-[#0B2545] hover:bg-[#13335c] text-white font-bold text-xs rounded-full transition-all flex items-center justify-center gap-1.5 shadow-md active:scale-95"
         >
-          Ver Perfil
-          <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+          <span>Ver Perfil</span>
+          <ArrowRight size={14} />
         </button>
       </div>
     </motion.div>

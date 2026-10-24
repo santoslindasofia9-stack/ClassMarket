@@ -25,24 +25,24 @@ import { supabase } from "@/lib/supabase";
 
 const CATEGORIES = [
   { id: "MatematicasCiencias", name: "Matemáticas & Ciencias", icon: BookOpen, color: "bg-[#0B2545]/10", textColor: "text-[#0B2545]" },
-  { id: "TareasGuias", name: "Tareas & Guías", icon: FileText, color: "bg-[#FAF8F5]", textColor: "text-[#0B2545]" },
-  { id: "TutoriasClases", name: "Tutorías & Clases", icon: BookOpen, color: "bg-[#C5A059]/15", textColor: "text-[#0B2545]" },
-  { id: "ProgramacionTecnologias", name: "Programación & Tecnologías", icon: Laptop, color: "bg-[#0B2545]/15", textColor: "text-[#0B2545]" },
+  { id: "TareasGuias", name: "Tareas & Guías", icon: FileText, color: "bg-[#C5A059]/15", textColor: "text-[#0B2545]" },
+  { id: "TutoriasClases", name: "Tutorías & Clases", icon: Sparkles, color: "bg-[#0B2545]/15", textColor: "text-[#0B2545]" },
+  { id: "ProgramacionTecnologias", name: "Programación & Tecnologías", icon: Code2, color: "bg-[#C5A059]/20", textColor: "text-[#0B2545]" },
 ];
 
 const ADS = [
   { 
     id: 1, 
     title: "El Marketplace donde los Estudiantes Comparten, Intercambian y Crecen Juntos", 
-    company: "ClassMarket Comunidad", 
-    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1200", // Young students collaborating
+    company: "ClassMarket Comunidad Escolar", 
+    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1200", 
     link: "#"
   },
   { 
     id: 2, 
-    title: "¿Tienes apuntes o libros? Inicia un trueque académico hoy mismo", 
-    company: "Trueque Escolar & Universitario", 
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1200", // Students studying with laptops
+    title: "¿Tienes guías o necesitas tutoría? Conecta con compañeros de grado", 
+    company: "Tutorías & Apoyo Entre Pares", 
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1200", 
     link: "#"
   }
 ];
@@ -51,42 +51,42 @@ const FALLBACK_PROS = [
   {
     id: "f1",
     nombre_completo: "Camila Torres",
-    titulo_profesional: "Clases de Matemáticas & Cálculo Universitario",
-    categoria: "Tutorias",
-    precio: "$12 / h o Trueque",
+    titulo_profesional: "Tutorías de Matemáticas, Álgebra y Física de 10° y 11°",
+    categoria: "MatematicasCiencias",
+    precio: "$10 / h o Trueque de Guías",
     distancia_km: 0.8,
     calificacion: 5.0,
-    foto_perfil: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&q=80&w=400&crop=face"
+    foto_perfil: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400&crop=face"
   },
   {
     id: "f2",
     nombre_completo: "Mateo Valenzuela",
-    titulo_profesional: "Diseño de Presentaciones Canva, Infografías & Posters",
-    categoria: "Creatividad",
-    precio: "$8 por trabajo",
+    titulo_profesional: "Apoyo en Tareas de Química, Biología y Talleres Escolares",
+    categoria: "TareasGuias",
+    precio: "$7 por guía",
     distancia_km: 1.2,
     calificacion: 4.9,
-    foto_perfil: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400&crop=face"
+    foto_perfil: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=400&crop=face"
   },
   {
     id: "f3",
-    nombre_completo: "Lucía Fernández",
-    titulo_profesional: "Trueque de Libros de Medicina & Resúmenes de Anatomía",
-    categoria: "Trueque",
-    precio: "Trueque / Gratis",
+    nombre_completo: "Sofía Salazar",
+    titulo_profesional: "Clases de Inglés Conversacional & Preparación de Pruebas",
+    categoria: "TutoriasClases",
+    precio: "$12 / h o Intercambio",
     distancia_km: 0.4,
     calificacion: 5.0,
-    foto_perfil: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=400&crop=face"
+    foto_perfil: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=400&crop=face"
   },
   {
     id: "f4",
     nombre_completo: "Diego Morales",
-    titulo_profesional: "Tutoría de Programación Python, JS y Proyectos Web",
-    categoria: "Tecnologia",
-    precio: "$15 / h",
-    distancia_km: 2.1,
+    titulo_profesional: "Proyectos en Python, JavaScript, HTML y Scratch para Colegios",
+    categoria: "ProgramacionTecnologias",
+    precio: "$14 / h",
+    distancia_km: 1.5,
     calificacion: 5.0,
-    foto_perfil: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400&crop=face"
+    foto_perfil: "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?auto=format&fit=crop&q=80&w=400&crop=face"
   },
 ];
 
@@ -252,11 +252,9 @@ export default function HomeCliente() {
             </div>
           </div>
           
-          <nav className="hidden md:flex items-center gap-6">
-            <Link href="/home-cliente" className="text-[#0B2545] font-bold border-b-2 border-[#C5A059] pb-1">Inicio</Link>
-            <Link href="/resultados?categoria=Tutorias" className="text-[#5C6B73] hover:text-[#0B2545] font-semibold transition-colors">Tutorías</Link>
-            <Link href="/resultados?categoria=Trueque" className="text-[#5C6B73] hover:text-[#0B2545] font-semibold transition-colors">Trueque</Link>
-            <Link href="/resultados?categoria=Creatividad" className="text-[#5C6B73] hover:text-[#0B2545] font-semibold transition-colors">Creatividad</Link>
+          <nav className="hidden md:flex items-center gap-8">
+            <Link href="/home-cliente" className="text-[#0B2545] font-bold border-b-2 border-[#C5A059] pb-1 text-sm tracking-wide">Inicio</Link>
+            <Link href="/resultados?categoria=TutoriasClases" className="text-[#5C6B73] hover:text-[#0B2545] font-semibold text-sm transition-colors">Tutorías</Link>
           </nav>
           
           <div className="flex items-center gap-2 md:gap-4 relative">
@@ -442,38 +440,33 @@ export default function HomeCliente() {
               Educación e Intercambio Real
             </div>
 
-            <h2 className="text-2xl sm:text-4xl md:text-[54px] font-extrabold text-[#0B2545] mb-4 md:mb-6 max-w-4xl leading-tight tracking-tight px-2">
-              <Sparkles className="inline-block text-[#C5A059] mr-2 align-middle" size={28} />
-              El Marketplace donde los Estudiantes <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0B2545] via-[#C5A059] to-[#0B2545]">Comparten, Intercambian y Crecen</span> Juntos
-              <Sparkles className="inline-block text-[#C5A059] ml-2 align-middle" size={24} />
-            </h2>
+            <div className="relative max-w-4xl px-4">
+              {/* Subtle well-distributed sparkles */}
+              <Sparkles className="absolute -top-3 -left-2 text-[#C5A059] opacity-75 animate-bounce hidden sm:block" size={22} />
+              <Sparkles className="absolute -top-6 right-6 text-[#C5A059] opacity-90 hidden sm:block" size={26} />
+              <Sparkles className="absolute bottom-2 -right-4 text-[#D4AF37] opacity-60 hidden sm:block" size={18} />
+
+              <h2 className="text-2xl sm:text-4xl md:text-[52px] font-extrabold text-[#0B2545] mb-4 md:mb-6 leading-tight tracking-tight">
+                El Marketplace donde los Estudiantes{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0B2545] via-[#C5A059] to-[#0B2545]">
+                  Comparten, Intercambian y Crecen
+                </span>{" "}
+                Juntos
+              </h2>
+            </div>
 
             <p className="text-base sm:text-lg md:text-xl text-[#5C6B73] font-medium mb-8 max-w-2xl mx-auto leading-relaxed px-4">
               Aprende tutorías, intercambia libros, ofrece tus talentos digitales y conecta con tus compañeros de clase en un entorno seguro.
             </p>
 
-            {/* Quick Action Badges / CTAs */}
-            <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
+            {/* Hero Button: Single prominent CTA */}
+            <div className="flex items-center justify-center mb-8">
               <Link 
                 href="/resultados"
-                className="px-5 py-2.5 rounded-full bg-[#0B2545] text-white font-bold text-sm hover:bg-[#13335c] transition-all shadow-md hover:shadow-lg flex items-center gap-2"
+                className="px-8 py-3.5 rounded-full bg-[#0B2545] text-white font-bold text-sm md:text-base hover:bg-[#13335c] transition-all shadow-md hover:shadow-xl hover:scale-105 active:scale-95 flex items-center gap-2.5 border border-[#C5A059]/40 group"
               >
                 <span>Explorar Servicios Escolares</span>
-                <span className="material-symbols-outlined text-sm text-[#C5A059]">school</span>
-              </Link>
-              <Link 
-                href="/perfil-y-editor-de-servicios-2"
-                className="px-5 py-2.5 rounded-full bg-white text-[#0B2545] border border-[#C5A059]/40 font-bold text-sm hover:bg-[#FAF8F5] transition-all shadow-sm flex items-center gap-2"
-              >
-                <span>Publicar mi Habilidad</span>
-                <span className="material-symbols-outlined text-sm text-[#C5A059]">add_circle</span>
-              </Link>
-              <Link 
-                href="/resultados?categoria=Trueque"
-                className="px-5 py-2.5 rounded-full bg-[#C5A059]/20 text-[#0B2545] border border-[#C5A059]/30 font-bold text-sm hover:bg-[#C5A059]/30 transition-all flex items-center gap-2"
-              >
-                <span>Iniciar Trueque</span>
-                <span className="material-symbols-outlined text-sm text-[#0B2545]">swap_horiz</span>
+                <span className="material-symbols-outlined text-base text-[#C5A059] group-hover:rotate-12 transition-transform">school</span>
               </Link>
             </div>
 
@@ -635,9 +628,17 @@ export default function HomeCliente() {
                       <span className="text-[11px] font-semibold text-[#0B2545]">Responde rápido</span>
                     </div>
                     
-                    <div className="w-full py-2.5 rounded-full bg-[#FAF8F5] text-[#0B2545] font-bold text-xs group-hover:bg-[#0B2545] group-hover:text-white transition-all border border-[#C5A059]/30 group-hover:border-transparent flex items-center justify-center gap-1.5">
+                    <button 
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        router.push(`/chat/${pro.id}?nombre=${encodeURIComponent(pro.nombre_completo)}&servicio=${encodeURIComponent(pro.titulo_profesional)}`);
+                      }}
+                      className="w-full py-2.5 rounded-full bg-[#FAF8F5] text-[#0B2545] font-bold text-xs hover:bg-[#0B2545] hover:text-white transition-all border border-[#C5A059]/30 hover:border-transparent flex items-center justify-center gap-1.5 shadow-sm active:scale-95"
+                    >
+                      <span className="material-symbols-outlined text-sm text-[#C5A059]">chat</span>
                       <span>Conectar / Chatear</span>
-                    </div>
+                    </button>
                   </Link>
                 ))}
               </div>
@@ -662,28 +663,43 @@ export default function HomeCliente() {
             </button>
           </section>
 
-          {/* 6. Map CTA - Encuentra compañeros en tu campus o vecindario */}
-          <section className="relative rounded-[24px] overflow-hidden h-[300px] md:h-[380px] shadow-sm mb-10 border border-[#C5A059]/20">
-            <div className="absolute inset-0 bg-[#FAF8F5] flex items-center justify-center">
-              <div className="w-full h-full opacity-20" style={{ backgroundImage: "radial-gradient(#0B2545 1.5px, transparent 1.5px)", backgroundSize: "24px 24px" }}></div>
-            </div>
-            <div className="absolute inset-0 flex items-center justify-center p-6">
-              <div className="bg-white/95 backdrop-blur-md p-8 md:p-10 rounded-[24px] shadow-xl text-center max-w-xl w-full border border-[#C5A059]/30">
-                <div className="w-16 h-16 bg-[#0B2545]/10 rounded-full flex items-center justify-center mx-auto mb-5 border border-[#C5A059]/40">
-                  <MapPin className="text-[#0B2545] w-8 h-8" />
-                </div>
-                <h3 className="text-2xl font-bold text-[#0B2545] mb-2">Explora en tu Campus o Colegio</h3>
-                <p className="text-[#5C6B73] font-medium text-sm md:text-base mb-6">
-                  Descubre qué estudiantes ofrecen tutorías, apuntes y trueques cerca de tu ubicación o centro de estudios.
-                </p>
-                <button
-                  onClick={() => router.push('/mapa-expertos')}
-                  className="bg-[#0B2545] text-white px-8 py-3.5 rounded-full font-bold hover:bg-[#12335d] transition-all shadow-md w-full sm:w-auto active:scale-95 border border-[#C5A059]/40 flex items-center justify-center gap-2 mx-auto"
-                >
-                  <span>Abrir Mapa de Estudiantes</span>
-                  <span className="material-symbols-outlined text-sm text-[#C5A059]">near_me</span>
-                </button>
+          {/* 6. Map CTA - Encuentra compañeros en tu campus o colegio */}
+          <section className="relative rounded-[32px] overflow-hidden min-h-[340px] md:min-h-[400px] shadow-[0_20px_50px_rgba(11,37,69,0.06)] mb-12 border border-[#C5A059]/25 bg-gradient-to-br from-white via-[#FAF8F5] to-[#F5EFEB] flex items-center justify-center p-6 md:p-12">
+            {/* Subtle aesthetic geometric grid */}
+            <div 
+              className="absolute inset-0 opacity-25 pointer-events-none" 
+              style={{ 
+                backgroundImage: "radial-gradient(#0B2545 1.5px, transparent 1.5px), radial-gradient(#C5A059 1.5px, transparent 1.5px)", 
+                backgroundSize: "32px 32px",
+                backgroundPosition: "0 0, 16px 16px"
+              }} 
+            />
+
+            {/* Glowing ambient accents */}
+            <div className="absolute -top-16 -left-16 w-64 h-64 bg-[#C5A059]/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-16 -right-16 w-72 h-72 bg-[#0B2545]/10 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="relative z-10 bg-white/80 backdrop-blur-xl p-8 md:p-12 rounded-[28px] shadow-[0_15px_40px_rgba(11,37,69,0.08)] text-center max-w-2xl w-full border border-white/90">
+              <div className="w-16 h-16 bg-[#0B2545] rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg border-2 border-[#C5A059] transform -rotate-3 hover:rotate-0 transition-transform">
+                <MapPin className="text-[#C5A059] w-8 h-8" />
               </div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#C5A059]/15 text-[#0B2545] text-xs font-bold uppercase tracking-wider mb-3 border border-[#C5A059]/30">
+                <Sparkles size={13} className="text-[#C5A059]" />
+                <span>Geolocalización Escolar y Universitaria</span>
+              </div>
+              <h3 className="text-2xl md:text-3xl font-extrabold text-[#0B2545] mb-3 tracking-tight">
+                Explora en tu Campus o Colegio
+              </h3>
+              <p className="text-[#5C6B73] font-medium text-sm md:text-base mb-8 max-w-lg mx-auto leading-relaxed">
+                Descubre qué estudiantes ofrecen tutorías, ayuda en tareas e intercambios de guías cerca de tu colegio o barrio (Bucaramanga, Floridablanca, Piedecuesta y Girón).
+              </p>
+              <button
+                onClick={() => router.push('/mapa-expertos')}
+                className="bg-[#0B2545] text-white px-8 md:px-10 py-4 rounded-full font-bold text-sm md:text-base hover:bg-[#12335d] transition-all shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 border-2 border-[#C5A059] flex items-center justify-center gap-2.5 mx-auto group"
+              >
+                <span>Abrir Mapa de Estudiantes 📍</span>
+                <span className="material-symbols-outlined text-base text-[#C5A059] group-hover:translate-x-1 transition-transform">near_me</span>
+              </button>
             </div>
           </section>
 
