@@ -168,8 +168,8 @@ export default function LeafletMap({
     
     const html = `
       <div class="relative group cursor-pointer transition-transform duration-300 ${isSelected ? 'scale-110' : 'hover:scale-105'}" style="outline: none;">
-        <div class="w-12 h-12 rounded-full border-4 shadow-lg overflow-hidden flex items-center justify-center bg-white ${isSelected ? 'ring-4 ring-[#C5A059]/40' : ''}" style="border-color: white;">
-          <img src="${avatar}" class="w-full h-full object-cover" />
+        <div class="relative w-12 h-12 rounded-full border-4 shadow-lg overflow-hidden flex items-center justify-center bg-white ${isSelected ? 'ring-4 ring-[#C5A059]/40' : ''}" style="border-color: white;">
+          <img src="${avatar}" class="w-full h-full object-cover" />\n            <div class="absolute -bottom-0.5 -right-0.5 w-4 h-4 bg-white rounded-full border border-[#C5A059] flex items-center justify-center shadow-sm">\n              <svg width="10" height="10" viewBox="0 0 24 24" fill="#C5A059"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>\n            </div>
         </div>
         <div class="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rotate-45 border-r border-b border-white bg-white" style="z-index: -1;"></div>
         <div class="absolute -top-2 left-1/2 -translate-x-1/2 bg-[#0B2545] text-white rounded-full px-2 py-0.5 shadow-md border border-[#C5A059]/60" style="white-space: nowrap;">
@@ -192,8 +192,8 @@ export default function LeafletMap({
     const avatar = job.cliente_avatar || "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&q=80&w=200&crop=face";
     const html = `
       <div class="relative group cursor-pointer transition-transform duration-300 ${isSelected ? 'scale-110' : 'hover:scale-105'}" style="outline: none;">
-        <div class="w-12 h-12 rounded-full border-4 shadow-lg overflow-hidden flex items-center justify-center bg-white ${isSelected ? 'ring-4 ring-[#C5A059]/40' : ''}" style="border-color: white;">
-          <img src="${avatar}" class="w-full h-full object-cover" />
+        <div class="relative w-12 h-12 rounded-full border-4 shadow-lg overflow-hidden flex items-center justify-center bg-white ${isSelected ? 'ring-4 ring-[#C5A059]/40' : ''}" style="border-color: white;">
+          <img src="${avatar}" class="w-full h-full object-cover" />\n            <div class="absolute -bottom-0.5 -right-0.5 w-4 h-4 bg-white rounded-full border border-[#C5A059] flex items-center justify-center shadow-sm">\n              <svg width="10" height="10" viewBox="0 0 24 24" fill="#C5A059"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>\n            </div>
         </div>
         <div class="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rotate-45 border-r border-b border-white bg-white" style="z-index: -1;"></div>
         <div class="absolute -top-2 left-1/2 -translate-x-1/2 bg-[#0B2545] text-white rounded-full px-2 py-0.5 shadow-md border border-[#C5A059]/60" style="white-space: nowrap;">

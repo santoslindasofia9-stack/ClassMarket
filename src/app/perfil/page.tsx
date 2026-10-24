@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import React, { useState, useEffect, Suspense } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { 
   User, 
@@ -20,7 +20,12 @@ import {
   Info,
   Menu,
   Briefcase,
-  RefreshCw
+  RefreshCw,
+  ArrowLeft,
+  Search,
+  MessageCircle,
+  Sparkles,
+  BadgeCheck
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import BottomNav from "@/components/dashboard/BottomNav";
@@ -57,8 +62,11 @@ const AVATAR_PRESETS = [
   { name: "Diego Morales (Inform√°tica)", url: "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?auto=format&fit=crop&q=80&w=400&crop=face" }
 ];
 
-export default function PerfilPage() {
+function PerfilContent() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const isPublicView = searchParams.get("view") === "public";
+  const publicId = searchParams.get("id");
   
   // 1. Core Profile States
   const [userName, setUserName] = useState<string>("Sof√≠a");
@@ -86,6 +94,35 @@ export default function PerfilPage() {
   const [toastMessage, setToastMessage] = useState<{ title: string; body: string } | null>(null);
 
   // Geolocation and Reverse Geocoding via OpenStreetMap Nominatim API
+  const publicProfiles: Record<string, any> = {
+    "e1": { name: "Camila Torres", avatar: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&q=80&w=400&crop=face", location: "Bucaramanga, COL", role: "Estudiante de 11∞ ï Tutor de Matem·ticas y FÌsica", bio: "Me gusta explicar matem·ticas con ejemplos pr·cticos. Ayudo en ·lgebra, trigonometrÌa y preparaciÛn para ex·menes con mucha paciencia." },
+    "e2": { name: "Diego Morales", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400&crop=face", location: "Bucaramanga, COL", role: "Estudiante de IngenierÌa ï Tutor de ProgramaciÛn", bio: "Aprendemos Python, JavaScript y lÛgica desde cero con proyectos reales. Enfoque pr·ctico para iniciantes." },
+    "e3": { name: "LucÌa Fern·ndez", avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=400&crop=face", location: "Floridablanca, COL", role: "Estudiante de QuÌmica ï Tutor de BiologÌa y QuÌmica", bio: "Te ayudo a entender quÌmica y biologÌa con mapas mentales, res˙menes claros y ejercicios guiados." },
+    "e4": { name: "Mateo Valenzuela", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400&crop=face", location: "Piedecuesta, COL", role: "Estudiante de 11∞ ï Tutor de ¡lgebra y GeometrÌa", bio: "Me gusta que mis compaÒeros entiendan el porquÈ de cada paso. Ejercicios resueltos juntos hasta dominar el tema." },
+    "e5": { name: "Valentina RÌos", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400&crop=face", location: "GirÛn, COL", role: "Estudiante de Medicina Pregrado ï Tutor de BiologÌa", bio: "Apoyo en biologÌa, anatomÌa b·sica y tÈcnicas de estudio efectivas para bachillerato y primeros semestres." },
+    "e16": { name: "Mariana LÛpez", avatar: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&q=80&w=400&crop=face", location: "Bucaramanga, COL", role: "Estudiante de 11∞ ï Tutora de Matem·ticas", bio: "¡lgebra, trigonometrÌa y preparaciÛn para ex·menes. Clases amables, claras y con ejercicios pr·cticos." },
+    "e17": { name: "Juan Carlos PÈrez", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400&crop=face", location: "Floridablanca, COL", role: "Estudiante de Sistemas ï Tutor de ProgramaciÛn", bio: "Aprende Python desde cero con lÛgica, ejercicios y tus primeros proyectos web." },
+    "e18": { name: "Laura MartÌnez", avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=400&crop=face", location: "Bucaramanga, COL", role: "Estudiante de QuÌmica ï Tutora de QuÌmica y BiologÌa", bio: "Te ayudo con res˙menes, mapas mentales y resoluciÛn de ejercicios paso a paso." },
+    "e19": { name: "AndrÈs GÛmez", avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400&crop=face", location: "Piedecuesta, COL", role: "Estudiante de IngenierÌa ï Tutor de FÌsica", bio: "FÌsica mec·nica y electromagnetismo con enfoque pr·ctico y visual." },
+    "e20": { name: "Sara Castillo", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400&crop=face", location: "GirÛn, COL", role: "Estudiante de Idiomas ï Tutora de InglÈs", bio: "InglÈs conversacional B1-B2, vocabulario pr·ctico y preparaciÛn para ex·menes." },
+    "e21": { name: "Miguel ¡ngel Torres", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400&crop=face", location: "Bucaramanga, COL", role: "Estudiante de Matem·ticas ï Tutor Universitario", bio: "¡lgebra lineal y c·lculo diferencial con explicaciones claras y ejercicios guiados." },
+    "e22": { name: "Daniela RamÌrez", avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=400&crop=face", location: "Bucaramanga, COL", role: "Estudiante de 11∞ ï Tutora de Apoyo Escolar", bio: "Tareas, guÌas, res˙menes y organizaciÛn acadÈmica para mejorar tu rendimiento." },
+    "e23": { name: "Alejandra Vargas", avatar: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&q=80&w=400&crop=face", location: "Floridablanca, COL", role: "Estudiante de 11∞ ï Tutora de TrigonometrÌa", bio: "TrigonometrÌa y geometrÌa analÌtica con ejercicios paso a paso." },
+    "e24": { name: "Sebasti·n Cardona", avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200&crop=face", location: "Bucaramanga, COL", role: "Estudiante de IngenierÌa ï Tutor de Desarrollo Web", bio: "JavaScript, React y lÛgica para crear tus primeros proyectos web." },
+  };
+
+  useEffect(() => {
+    if (isPublicView && publicId && publicProfiles[publicId]) {
+      const p = publicProfiles[publicId];
+      setUserName(p.name);
+      setUserAvatar(p.avatar);
+      setUserLocation(p.location);
+      setEditName(p.name);
+      setEditLocation(p.location);
+      setEditPhoto(p.avatar);
+    }
+  }, [isPublicView, publicId]);
+
   const detectUserLocation = (isForModal = false) => {
     if (typeof window === "undefined") return;
     
@@ -570,7 +607,7 @@ export default function PerfilPage() {
                               <p className="text-[11px] text-[#5e6f79] font-medium">{rese√±a.category} ‚Ä¢ Contratado en {rese√±a.date}</p>
                             </div>
                             <div className="flex items-center gap-1 bg-amber-50 text-amber-700 px-3 py-1 rounded-full text-xs font-bold border border-amber-100">
-                              <Star size={14} className="fill-amber-400 text-amber-400" />
+                              <Star size={14} className="fill-[#C5A059] text-[#C5A059]" />
                               <span>{rese√±a.stars.toFixed(1)}</span>
                             </div>
                           </div>
@@ -758,7 +795,7 @@ export default function PerfilPage() {
               <div className="flex justify-between items-start mb-6">
                 <div>
                   <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest block mb-0.5">RESUMEN DEL CONTRATO</span>
-                  <h3 className="text-xl font-extrabold text-[#0d1c2e] tracking-tight">{selectedContract.proName}</h3>
+                  <h3 className="text-xl font-extrabold text-[#0B2545] tracking-tight">{selectedContract.proName}</h3>
                   <p className="text-xs text-[#5e6f79] font-medium mt-0.5">{selectedContract.category} ‚Ä¢ Habilitado el {selectedContract.date}</p>
                 </div>
                 <button 
@@ -848,7 +885,7 @@ export default function PerfilPage() {
               {/* Modal Header */}
               <div className="flex justify-between items-start mb-6">
                 <div>
-                  <h3 className="text-xl font-extrabold text-[#0d1c2e] tracking-tight">Editar Datos de Perfil</h3>
+                  <h3 className="text-xl font-extrabold text-[#0B2545] tracking-tight">Editar Datos de Perfil</h3>
                   <p className="text-xs text-[#5e6f79] font-medium mt-0.5">Mant√©n tu informaci√≥n actualizada para la comunidad.</p>
                 </div>
                 <button 
@@ -1143,3 +1180,14 @@ export default function PerfilPage() {
     </div>
   );
 }
+
+ e x p o r t   d e f a u l t   f u n c t i o n   P e r f i l P a g e ( )   { 
+     r e t u r n   ( 
+         < S u s p e n s e   f a l l b a c k = { < d i v   c l a s s N a m e = ' m i n - h - s c r e e n   f l e x   i t e m s - c e n t e r   j u s t i f y - c e n t e r   b g - [ # F A F 8 F 5 ] ' > < d i v   c l a s s N a m e = ' w - 1 0   h - 1 0   b o r d e r - 4   b o r d e r - [ # 0 B 2 5 4 5 ] / 1 0   b o r d e r - t - [ # 0 B 2 5 4 5 ]   r o u n d e d - f u l l   a n i m a t e - s p i n '   / > < / d i v > } > 
+             < P e r f i l C o n t e n t   / > 
+         < / S u s p e n s e > 
+     ) ; 
+ } 
+ 
+ 
+ 
